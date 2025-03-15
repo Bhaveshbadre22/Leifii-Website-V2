@@ -1,0 +1,23 @@
+@font-face {
+    font-family: domaine;
+    src: url(/src/font/Domaine\ Sans\ Fine\ Regular\ Regular.woff);
+}
+
+.ban-pic {
+    height: 400px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .ban-pic {
+        height: 200px;
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .ban-pic {
+        height: 150px;
+        width: auto;
+    }
+}

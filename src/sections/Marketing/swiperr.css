@@ -1,0 +1,15 @@
+.swiper {
+    margin-top: 0px;
+    padding-top: 180px;
+    padding-left: 100px;
+    width: 1400px;
+    height: 550px;
+    
+  }
+
+  @media (max-width: 480px) {
+    .swiper {
+      padding-top: 80px;
+      height: 400px;
+    }
+}

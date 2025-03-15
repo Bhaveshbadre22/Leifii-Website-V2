@@ -1,0 +1,340 @@
+/** CSS Variables **/
+:root {
+    --black: #000;
+    --white: #fff;
+    --button-border-radius: 50%;
+    --button-bg: transparent;
+    --button-stroke: #ce1352;
+    --button-stroke-width: 1px;
+    --button-text: #ffffff;
+    --button-bg-hover: transparent;
+    --button-stroke-hover: #ce1352;
+    --button-stroke-width-hover: 1px;
+    --button-text-hover: #ffffff;
+    --cursor-stroke: #fff;
+    --cursor-fill: var(--black);
+    --cursor-stroke-width: 1px;
+    --color-text: var(--black);
+    --color-bg: #312b35;
+    --color-link: #89639e;
+    --color-link-hover: #ce1352;
+    --button-filler: #ce1352;
+    --light-grey: rgba(0,0,0,.3);
+    --light-grey-100: #6f6f6f;
+    --light-grey-200: rgba(255,255,255,.43);
+    --nav-height-desktop: 150px;
+    --column1400Width: 57px;
+}
+
+/** Mixins **/
+@mixin buttonHover {
+    outline: none;
+	border-width: var(--button-stroke-width-hover);
+	border-color: var(--button-stroke-hover);
+	color: var(--button-text-hover);
+	background: var(--button-bg-hover);
+}
+
+/** Sizes **/
+
+/** Font face **/
+@font-face {
+    font-family: "Averta CY";
+    src: url("./fonts/AvertaCY-Light.woff2") format('woff2');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Averta CY";
+    src: url("./fonts/AvertaCY-Regular.woff2") format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Averta CY";
+    src: url("./fonts/AvertaCY-Semibold.woff2") format('woff2');
+    font-weight: 600;
+}
+
+/** Base styles **/
+html {
+}
+
+body {
+    margin: 0;
+    font-family: "Averta CY", sans-serif;
+    font-weight: 400;
+    height: 100%;
+    min-height: 100vh;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {}
+
+h1, .h1 {
+    font-size: 90px;
+    line-height: 1;
+}
+
+h2, .h2 {
+    font-size: 70px;
+    line-height: 1;
+}
+
+h3, .h3 {
+
+}
+
+h4, .h4 {
+    font-size: 32px;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+a {
+    color: var(--black);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+button {
+    color: var(--black);
+    font-size: 20px;
+    font-family: "Averta CY", sans-serif;
+
+    &.button--hover {
+        @include buttonHover()
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/** Common styles **/
+section {
+    padding-bottom: 60px;
+    
+    @media(min-width: 768px){
+        padding-bottom: 90px;
+    }
+
+    @media(min-width: 992px){
+        padding-bottom: 120px;
+    }
+
+    @media(min-width: 1200px){
+        padding-bottom: 170px; 
+    }
+}
+
+.container {
+    padding: 0 30px;
+    height: 100%;
+
+    @media(min-width: 768px){
+        padding: 0 100px;
+    }
+
+    @media(min-width: 1200px){
+    }
+
+    @media(min-width: 1400px){
+        padding: 0 150px;
+    }
+
+    @media(min-width: 1600px){
+        padding: 0 220px;
+    } 
+
+    &.container {
+        &.container--fullwidth {
+            // width: 100%;
+
+            & > * {
+                max-width: 100%;
+                width: 100%;
+            }
+        }  
+
+        &--left, &--right, &--center {
+            & > * {
+                max-width: 100%;
+
+                @media(min-width: 768px){
+                    max-width: 70%;
+                }
+
+            }
+        }
+
+        &--left {
+            & > * {
+                margin-left: 0;
+                margin-right: auto;
+            }
+        }
+
+        &--right {
+            & > * {
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+
+        &--center {
+            & > * {
+                margin: 0 auto;
+            }
+        }
+
+        &--row, &--column {
+            display: flex;
+        }
+
+        &--row {
+            flex-direction: row;
+            
+            &.container--row-mobile-column {
+                flex-direction: column;
+
+                @media(min-width: 992px){
+                    flex-direction: row;
+                }
+            }
+        }
+
+        &--column {
+            flex-direction: column;
+        }
+    }
+}
+
+.mask {
+    display: inline-block;
+    height: 0;
+    overflow: hidden;
+
+    & > * {
+        display: block;
+        transform: translateY(100%);
+        padding-bottom: 4px;
+    }
+
+    & > span {
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #000;
+            position: absolute;
+            bottom: 4px;
+
+            @media(min-width: 1200px){
+                display: none;
+            }
+        }
+    }
+}
+
+// Variations of buttons
+button.circular {
+    &.button--hover {
+        color: var(--color-text) !important;
+    }
+
+    &.active {
+        & > span:first-of-type {
+            opacity: 0;
+        }
+
+        .menu-box {
+            & > span:first-of-type {
+            }
+
+            & > span:last-of-type {
+            }
+        }
+    }
+}
+
+
+.menu-box {
+    position: relative;
+    top: 0;
+    display: inline-block;
+    width: 25px;
+    height: 11px;
+
+    span {
+        position: relative;
+        display: block;
+        background: var(--black);
+        width: 100%;
+        height: 2px;
+
+        &:first-of-type {
+
+        }
+
+        &:last-of-type {
+            transform: translateY(5px);
+        }
+    }
+
+    &::before {
+        content: "";
+        background: black;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        top: -21px;
+        left: -13px;
+        opacity: 0;
+        transform: scale(0.1);
+        transform-origin: -4px 50px;
+        transition: transform .4s ease-in-out;
+    }
+
+    &.button--hover {
+        &::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+        span {
+            background: var(--cursor-stroke);
+        }
+    }
+}
+
+
+/* Viewport wrapper - Needed for Smoothscroll - DEBUG*/
+#viewport {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+/* More wrapper to center buttons */
+.more-wrapper {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media(min-width: 768px){
+        padding-top: 80px
+    }
+}

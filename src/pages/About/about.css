@@ -1,0 +1,17 @@
+/* styles.css */
+/* styles.css */
+.gradient-bg-1 {
+    background: linear-gradient(#0B29C9,#0B25B6,#072474);
+  }
+  
+  .gradient-bg-2 {
+    background:linear-gradient(#1547B3,#010D23,#000000);
+  }
+  
+  .gradient-bg-3 {
+    background:  linear-gradient(#0a6d94,#089477,#07FA3E);
+  }
+  
+
+  /* background-image: linear-gradient(to bottom, #2100ff, #007cff, #00b1ff, #00dbff, #00ffdf); */
+  /* background-image: linear-gradient(to left top, #01032f, #002348, #003846, #004b2b, #385801); */

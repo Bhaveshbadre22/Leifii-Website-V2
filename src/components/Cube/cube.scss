@@ -1,0 +1,39 @@
+.main {
+    height: 1300px;
+    display: flex;
+    justify-content: center;
+}
+
+.cube {
+    position: sticky;
+    top: 0;
+    height: 960px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .main {
+        height: 1200px;
+    }
+    .cube {
+        height: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        height: 1000px;
+    }
+    .cube {
+        height: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        height: 600px;
+    }
+    .cube {
+        height: 500px;
+    }
+}
