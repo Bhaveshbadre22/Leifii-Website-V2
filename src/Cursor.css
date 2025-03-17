@@ -1,0 +1,30 @@
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out, background-color 0.3s ease-out;
+  }
+  
+  .interactive-element {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid black;
+    margin: 50px;
+  }
+  
+  .text-hover {
+    font-size: 20px;
+    margin: 50px;
+  }
+  
