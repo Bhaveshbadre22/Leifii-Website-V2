@@ -1,0 +1,88 @@
+@use "../../../shared.scss";
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    right: 15px;
+    width: calc(100% - 30px);
+
+    @media(min-width: 768px){
+        top: 40px;
+        left: 40px;
+        right: 40px;
+        width: calc(100% - 80px);
+    }
+
+    @media(min-width: 1200px){
+        top: 60px;
+        left: 60px;
+        right: 60px;
+        width: calc(100% - 120px);
+    }
+
+    &-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            margin-right: 30px;
+            font-size: 16px;
+
+            @media(min-width: 768px){
+                margin-right: 60px;
+                font-size: 20px;
+            }
+        }
+
+        .navbar-toggle {
+            button {
+                
+                z-index: 1001;
+                background: none; 
+                border: none;
+                position: relative;
+                cursor: pointer;
+
+                span:first-of-type {
+                    margin-right: 30px;
+                }
+
+                & > span:first-of-type {
+                    display: none;
+                    @media(min-width: 768px){
+                        display: inline-block;
+                    }
+                }
+
+                // &.button--hover {
+                //     @include shared.buttonHover();
+                //     color: var(--color-text) !important;
+                // }
+            }
+        }
+    }
+
+    &-right{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        width: 150px;
+        height: 30px;
+    }
+
+    
+}

@@ -1,0 +1,120 @@
+.button {
+  min-width: 170px;
+  height: 52px;
+  padding: 0 40px;
+  background: transparent;
+  border-radius: 60px;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 1200px) {
+  .button {
+    height: 62px;
+  }
+}
+.button .button-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 1200px) {
+  .button .button-title {
+    font-size: 16px;
+  }
+}
+.button:has(> .button-ripple) .button-title > span {
+  display: inline-block;
+  color: transparent;
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.button:has(> .button-ripple) .button-title > span::after, .button:has(> .button-ripple) .button-title > span::before {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  color: var(--black);
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.button:has(> .button-ripple) .button-title > span::before {
+  top: 0;
+  transform-origin: right bottom;
+}
+.button:has(> .button-ripple) .button-title > span::after {
+  top: 100%;
+  transform-origin: left top;
+  transform: skewY(5deg);
+}
+.button .button-ripple {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 58px;
+  position: absolute;
+  z-index: 1;
+  background: black;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+}
+.button:has(> .button-ripple):hover .button-title span, .button:has(> .button-ripple):focus .button-title span {
+  transform: translateY(-100%);
+}
+.button:has(> .button-ripple):hover .button-title span::after, .button:has(> .button-ripple):focus .button-title span::after {
+  color: var(--white);
+}
+.button:has(> .button-ripple):hover .button-title span::before, .button:has(> .button-ripple):focus .button-title span::before {
+  transform: skewY(7deg);
+}
+.button:has(> .button-ripple):hover .button-title span::after, .button:has(> .button-ripple):focus .button-title span::after {
+  transform: skewY(0deg);
+}
+.button:has(> .button-ripple):hover .button-ripple, .button:has(> .button-ripple):focus .button-ripple {
+  transform: translateY(0%);
+  border-radius: 0;
+  animation: button-ripple 0.5s cubic-bezier(0.4, 0, 0, 1);
+}
+@keyframes button-ripple {
+  0% {
+    border-radius: 100%;
+    transform: translateY(-100%);
+  }
+  100% {
+    border-radius: 0%;
+    transform: translateY(0%);
+  }
+}
+
+/** Link button styling **/
+.button.button--link {
+  border: none;
+}
+.button.button--link .button-title {
+  position: relative;
+  overflow: initial;
+}
+.button.button--link .button-title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -7px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--black);
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.button.button--link:hover .button-title::after {
+  transform: scaleX(0);
+}
+
+/** Dark mode **/
+.button.button--link .button-title::after {
+  background: var(--white);
+}/*# sourceMappingURL=MagneticButton.css.map */

@@ -1,17 +1,21 @@
 import React from "react";
-import CustomCursor from "./CustomCursor";
+import { isMobile } from "react-device-detect";
+import CustomCursor from "./utils/CustomCursor";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Nav/Navbar/index.tsx";
+import LandingPage from "./pages/LandingPage";
+import Preloader from "./components/Preloader/Preloader";
 
 const App = () => {
   return (
     <>
-      <div className="w-full h-screen">
-        <CustomCursor />
-        <div
-          data-cursor-text="Hello!"
-          className="text-6xl font-extrabold w-full text-center"
-        >
-          HELLO
-        </div>
+      <div className="w-full min-h-screen overflow-x-hidden">
+        {!isMobile && <CustomCursor />}
+        <Preloader />
+
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+        </Routes>
       </div>
     </>
   );
