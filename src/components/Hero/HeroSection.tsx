@@ -21,8 +21,13 @@ const HeroSection = () => {
   const { scrollY } = useScroll();
 
   const horiScrollRef = useRef(null);
+  const longDivRef = useRef(null);
   const { scrollYProgress: horiScrollY } = useScroll({
     target: horiScrollRef,
+    offset: ["start", "end"],
+  });
+  const { scrollYProgress: longDivScrollY } = useScroll({
+    target: longDivRef,
     offset: ["start", "end"],
   });
 
@@ -30,8 +35,16 @@ const HeroSection = () => {
   const scaleDot = useTransform(
     scrollY,
     isMobile ? [10, 300] : [10, 300],
-    isMobile ? ["0.1", "15"] : ["0.1", "6"]
+    isMobile ? ["0.1", "15"] : ["0.1", "8"]
   );
+  const yDot = useTransform(
+    longDivScrollY,
+    [0, 0.2, 0.5],
+    isMobile ? ["0%", "-100%", "100%"] : ["0%", "-10%", "20%"]
+  );
+  useMotionValueEvent(yDot, "change", (val) => {
+    console.log(val);
+  });
   const xText = useTransform(
     horiScrollY,
     [0, 1],
@@ -39,16 +52,16 @@ const HeroSection = () => {
   );
 
   // Define transformations for imagesClass
-  const xImages = useTransform(horiScrollY, [0.2, 1], ["80%", "-230%"]);
+  const xImages = useTransform(horiScrollY, [0.2, 1], ["100%", "-230%"]);
   const opacityImages = useTransform(scrollY, [0, 0.8, 1], [0, 0, 1]);
 
   // Define yDot transformation for vertical movement of the dot
   // const yDot = useTransform(scrollY, [0, 50], ["0%", "-30%"]); // Adjust the range and values as needed
-  const yDot = useTransform(
-    scrollY,
-    isMobile ? [0, 50] : [0, 80],
-    isMobile ? ["0%", "0%"] : ["0%", "-50%"]
-  );
+  // const yDot = useTransform(
+  //   scrollY,
+  //   isMobile ? [0, 50] : [0, 80, ],
+  //   isMobile ? ["0%", "-20%"] : ["0%", "-100%"]
+  // );
 
   return (
     <div className="relative w-screen" ref={horiScrollRef}>
@@ -66,7 +79,7 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div
-          className="imagesClass h-[50rem] fixed top-[25%] md:top-0 z-[3] text-white flex space-x-[2rem] list-none gap-[20rem]"
+          className="imagesClass h-[50rem] fixed top-[25%] md:top-0 lg:top-[10%] z-[3] text-white flex space-x-[2rem] list-none gap-[20rem]"
           style={{ x: xImages, opacity: opacityImages }}
         >
           <motion.img

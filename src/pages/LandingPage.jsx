@@ -11,7 +11,7 @@ const LandingPage = () => {
 
         <HeroSection />
 
-        <div className="h-screen"></div>
+        <div className="h-screen">Hello</div>
         {/* <Fillar />
         <div className="w-full overflow-hidden">
           <Video />
