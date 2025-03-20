@@ -2,6 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import CubertoButton from "../components/Button";
 import HeroSection from "../components/Hero/HeroSection";
+import Fillar from "../components/Fillar/Fillar";
+import Video from "../components/Video/Video";
+import Intro from "../components/Intro/Intro";
 
 const LandingPage = () => {
   return (
@@ -11,13 +14,12 @@ const LandingPage = () => {
 
         <HeroSection />
 
-        <div className="h-screen">Hello</div>
-        {/* <Fillar />
+        <Fillar />
         <div className="w-full overflow-hidden">
           <Video />
         </div>
         <Intro />
-        <div className="hidden md:block">
+        {/* <div className="hidden md:block">
           <Parallax />
         </div>
         <div className="block md:hidden">

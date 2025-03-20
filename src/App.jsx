@@ -1,6 +1,6 @@
 import React from "react";
 import { isMobile } from "react-device-detect";
-import CustomCursor from "./utils/CustomCursor";
+import CustomCursor from "./utils/CustomCursor/CustomCursor";
 import { Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Nav/Navbar/index";
 import LandingPage from "./pages/LandingPage";

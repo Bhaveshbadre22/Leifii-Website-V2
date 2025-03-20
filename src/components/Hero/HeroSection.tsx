@@ -42,9 +42,6 @@ const HeroSection = () => {
     [0, 0.2, 0.5],
     isMobile ? ["0%", "-100%", "100%"] : ["0%", "-10%", "20%"]
   );
-  useMotionValueEvent(yDot, "change", (val) => {
-    console.log(val);
-  });
   const xText = useTransform(
     horiScrollY,
     [0, 1],
