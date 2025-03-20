@@ -8,7 +8,7 @@ const CustomCursor = ({}) => {
     MouseFollower.registerGSAP(gsap);
 
     const cursor = new MouseFollower({
-      speed: 0.6, // Adjust speed
+      speed: 0.4, // Adjust speed
       ease: "expo.out",
       container: document.body,
       skewing: 0.5,

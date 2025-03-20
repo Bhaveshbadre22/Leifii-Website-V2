@@ -1,15 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import classnames from "classnames";
 import { gsap } from "gsap";
-import {
-  lerp,
-  getMousePos,
-  calcWinsize,
-  distance,
-  getRandomFloat,
-} from "../../lib/utils.ts";
-import eventBus from "../../lib/EventBus.ts";
-import { useMagnetic } from "../../lib/hooks/useMagnetic";
+import { lerp, getMousePos, calcWinsize, distance, getRandomFloat } from "../../lib/utils.js";
+import EventBus from "../../lib/EventBus.js";
 
 interface Props {
   children?: React.ReactElement;
@@ -86,7 +79,7 @@ export const CircularButton = ({
     }));
 
     // Dispatch an enter event
-    eventBus.dispatch("enter");
+    EventBus.dispatch("enter");
 
     gsap.killTweensOf(DOM.filler);
     gsap.killTweensOf(DOM.textInner);
@@ -118,7 +111,7 @@ export const CircularButton = ({
 
   const leave = useCallback(() => {
     // Dispatch an leave event
-    eventBus.dispatch("leave");
+    EventBus.dispatch("leave");
     setHover(false);
 
     DOM?.el?.current?.classList?.remove("button--hover");

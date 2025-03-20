@@ -76,7 +76,7 @@ const Preloader = () => {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {!hasPageLoaded && (
         <motion.div
           variants={slideUp}

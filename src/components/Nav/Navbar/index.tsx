@@ -1,12 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
-import { Sprite } from "../../Sprite/index.tsx";
-// import {ReactComponent as Logo} from "@images/icons/svgsprites.svg"
 import "./Navbar.css";
-import { CircularButton } from "../../MagneticButton/CircularButton.tsx";
-import { Menu } from "../Menu/index.tsx";
-import React from "react";
+import { CircularButton } from "../../MagneticButton/CircularButton";
+import { Menu } from "../Menu/index";
+import leifiiLogo from "../../../assets/LEIFII.png"
+import logoL from "../../../assets/logol.png"
 
 export const Navbar = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -55,10 +54,10 @@ export const Navbar = () => {
         <div className={"navbar-left"}>
           <Link className="group" to="/">
             <div className="logo-container">
-              <img className="logoo" src="/logol.png" alt="Logo" />
+              <img className="logoo" src={logoL} alt="Logo" />
               <img
                 className="name opacity-0 transform translate-x-[-1rem] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                src="/LEIFII.png"
+                src={leifiiLogo}
                 alt="LEIFII"
               />
             </div>

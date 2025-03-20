@@ -1,4 +1,4 @@
-import { TransitionLink } from "../../Links/TransitionLink/index.tsx";
+import { TransitionLink } from "../../Links/TransitionLink/index";
 import "./Menu.css";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -29,7 +29,6 @@ export const Menu = ({ isMenuOpened, handleMenuOpen }: Props) => {
 
   function checkTouchScreen() {
     if (window.matchMedia("(pointer: coarse)").matches) {
-      console.log("Is touch screen");
       setIsTouchScreen(true);
     } else {
       setIsTouchScreen(false);

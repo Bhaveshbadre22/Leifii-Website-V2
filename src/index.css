@@ -13,6 +13,7 @@
 /* Apply the Questrial font globally or to specific elements */
 body {
   font-family: 'Questrial', sans-serif;
+  scroll-behavior: smooth;
 }
 
 @font-face {

@@ -1,0 +1,12 @@
+export { default as photography1 } from "./1.png";
+export { default as carousel1 } from "./1c.png";
+export { default as photography2 } from "./2.png";
+export { default as carousel2 } from "./2c.png";
+export { default as photography3 } from "./3.png";
+export { default as carousel3 } from "./3c.png";
+export { default as photography4 } from "./4.png";
+export { default as carousel4 } from "./4c.png";
+export { default as photography5 } from "./5.png";
+export { default as carousel5 } from "./5c.png";
+export { default as photography6 } from "./6.png";
+export { default as carousel6 } from "./6c.png";
