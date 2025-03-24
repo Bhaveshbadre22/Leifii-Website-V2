@@ -77,7 +77,7 @@ const Parallax = () => {
           y={y4}
         />
       </div>
-      <div className="spacer"></div>
+      {/* <div className="spacer"></div> */}
     </main>
   );
 };

@@ -4,6 +4,7 @@ import Fillar from "../components/Fillar/Fillar";
 import Video from "../components/Video/Video";
 import Intro from "../components/Intro/Intro";
 import Parallax from "../components/Parallax/parallax";
+import Showcase from "../components/Showcase/Showcase";
 
 const LandingPage = () => {
   return (
@@ -21,10 +22,10 @@ const LandingPage = () => {
         <div className="hidden md:block">
           <Parallax />
         </div>
-        {/* <div className="block md:hidden">
+        <div className="block md:hidden">
           <Showcase />
         </div>
-        <Element />
+        {/*<Element />
 
         <div className="bg-black text-white pt-1.5">
           <div className="text-[2.5rem] md:text-[40px] lg:text-[4rem] p-4 sm:p-10 pb-0 flex justify-center font-[Questrial]">
