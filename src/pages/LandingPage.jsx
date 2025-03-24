@@ -3,6 +3,7 @@ import HeroSection from "../components/Hero/HeroSection";
 import Fillar from "../components/Fillar/Fillar";
 import Video from "../components/Video/Video";
 import Intro from "../components/Intro/Intro";
+import Parallax from "../components/Parallax/parallax";
 
 const LandingPage = () => {
   return (
@@ -17,10 +18,10 @@ const LandingPage = () => {
           <Video />
         </div>
         <Intro />
-        {/* <div className="hidden md:block">
+        <div className="hidden md:block">
           <Parallax />
         </div>
-        <div className="block md:hidden">
+        {/* <div className="block md:hidden">
           <Showcase />
         </div>
         <Element />
