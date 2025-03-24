@@ -1,6 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
-import CubertoButton from "../components/Button";
 import HeroSection from "../components/Hero/HeroSection";
 import Fillar from "../components/Fillar/Fillar";
 import Video from "../components/Video/Video";

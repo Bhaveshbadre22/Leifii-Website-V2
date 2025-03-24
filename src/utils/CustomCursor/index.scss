@@ -35,6 +35,9 @@ $mf-color-text:#fff !default;
 
     &.-inverse {
         color:color.invert($mf-color-base);
+        .mf-cursor-text {
+            color: #000 !important; // Ensure text turns black
+          }
     }
 
     &.-exclusion {

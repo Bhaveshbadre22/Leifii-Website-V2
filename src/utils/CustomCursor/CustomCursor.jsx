@@ -11,7 +11,7 @@ const CustomCursor = ({}) => {
       speed: 0.4, // Adjust speed
       ease: "expo.out",
       container: document.body,
-      skewing: 0.5,
+      skewing: 0.9,
     });
 
     return () => {
