@@ -51,7 +51,7 @@ const CubertoButton: React.FC<CubertoButtonProps> = ({
 
   return (
     <motion.button
-      className={`relative overflow-hidden border border-black px-16 py-12 text-black text-2xl font-medium rounded-[1000px] ${className}`}
+      className={` ${className} relative overflow-hidden border border-black px-16 py-12 text-black text-2xl font-medium rounded-[1000px]`}
       onClick={() => href && navigate(href)}
       variants={btnVariants}
       initial="initial"
@@ -71,7 +71,7 @@ const CubertoButton: React.FC<CubertoButtonProps> = ({
 
       {/* Hover text (white) */}
       <motion.span
-        className="absolute inset-0 flex justify-center items-center text-white"
+        className="absolute inset-0 z-[2] flex justify-center items-center text-white"
         data-text={text}
         data-cursor="-inverse"
         variants={textVariants}

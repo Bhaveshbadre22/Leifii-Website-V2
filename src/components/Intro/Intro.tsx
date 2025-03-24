@@ -21,9 +21,9 @@ const Intro = () => {
           A comprehensive Marketing, Advertisement, and Design agency dedicated
           to respecting the intelligence of its audiences.
         </div>
-        <motion.div className="my-10 mx-4 md:my-20 md:mx-10 flex items-center justify-start rounded-3xl w-full pl-2">
-          <CubertoButton text="Know More" />
-        </motion.div>
+        <div className="my-10 md:my-20 md:mx-10 flex items-center justify-center sm:justify-start rounded-3xl w-full sm:pl-2">
+          <CubertoButton text="Know More" href="/about" />
+        </div>
       </div>
     </div>
   );

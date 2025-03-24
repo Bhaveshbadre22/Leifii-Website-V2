@@ -62,7 +62,10 @@ const HeroSection = () => {
 
   return (
     <div className="relative w-screen" ref={horiScrollRef}>
-      <div className="absolute top-0 w-full h-screen z-[1]">
+      <div
+        className="absolute top-0 w-full h-screen z-[1]"
+        data-cursor="-inverse"
+      >
         <motion.div
           className="textClass fixed top-[35%] md:top-[25%] -translate-y-[50%] bottom-0 z-[2] text-white text-[8rem] md:text-[10rem] lg:text-[15rem] flex space-x-[2rem] md:space-x-[2rem] lg:space-x-[4rem] list-none gap-1 md:gap-4 lg:gap-10"
           style={{ x: xText }}
@@ -176,6 +179,7 @@ const HeroSection = () => {
         <motion.div
           className="dot bg-black h-[10rem] w-[10rem] md:h-[30rem] md:w-[30rem] rounded-full overflow-hidden"
           style={{ scale: scaleDot, y: yDot }} // Apply yDot here
+          data-cursor="-inverse"
         />
       </div>
     </div>

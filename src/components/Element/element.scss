@@ -1,0 +1,146 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+
+@mixin button($bcolor, $url, $x1, $y1, $bor, $col) {
+  background: $bcolor;
+  -webkit-mask: url($url);
+  mask: url($url);
+  -webkit-mask-size: $x1 $y1;
+  mask-size: $x1 $y1;
+  border: $bor;
+  color: $col;
+}
+
+
+.button-container-1,
+.button-container-2,
+.button-container-33 {
+  position: relative;
+  width: 15rem;
+  height: 7rem;
+  overflow: hidden;
+  border: 1px solid #000;
+  font-family: 'Questrial', sans-serif;
+  font-weight: 100;
+  transition: 0.5s;
+  letter-spacing: 1px;
+  border-radius: 100px;
+  margin: 10px 0;
+
+  button {
+    width: 101%;
+    height: 100%;
+    font-family: 'Questrial', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+
+    @include button(#000, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png", 7100%, 100%, none, #fff);
+    cursor: pointer;
+    -webkit-animation: ani2 0.7s steps(70) forwards;
+    animation: ani2 0.7s steps(70) forwards;
+
+    &:hover {
+      -webkit-animation: ani 0.7s steps(70) forwards;
+      animation: ani 0.7s steps(70) forwards;
+    }
+  }
+}
+
+.mass {
+  position: absolute;
+  color: #000;
+  text-align: center;
+  width: 101%;
+  font-family: 'Questrial';
+  font-weight: 100;
+  font-size: 1.1rem;
+  margin-top: 30px;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+@-webkit-keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+@keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+@-webkit-keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+@keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+a {
+  color: #00ff95;
+}
+
+@media (max-width: 768px) {
+  
+  .button-container-1,
+  .button-container-2,
+  .button-container-3 {
+    width: 12rem;
+    height: 5rem;
+  }
+
+  .mas {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .button-container-1,
+  .button-container-2,
+  .button-container-3 {
+    width: 16rem;
+    height: 6rem;
+
+    button{
+      font-size: 1rem;
+
+    }
+  }
+
+  .mas {
+    font-size: 1rem;
+    margin-top: 25px;
+  }
+}
