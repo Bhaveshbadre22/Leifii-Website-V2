@@ -1,0 +1,62 @@
+.testimonials-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Assuming full screen */
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-top: 30px;
+  /* cursor: none; */
+}
+
+.testimony {
+  position: absolute;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: auto; /* Allow height to adjust based on content */
+  width: 600px;
+  box-sizing: border-box; /* Include padding in width/height */
+  overflow: hidden; /* Hide overflowing text */
+  word-wrap: break-word; /* Break long words to fit */
+}
+
+.testimonials-container:hover .custom-cursor {
+  opacity: 1; /* Show cursor when hovering over the container */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1200px) {
+  .testimony {
+    width: 500px;
+  }
+  .testimony p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .testimony {
+    width: 400px;
+  }
+  .testimony p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimony {
+    width: 300px;
+  }
+  .testimony p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimony {
+    width: 250px;
+  }
+  .testimony p {
+    font-size: 10px;
+  }
+}
