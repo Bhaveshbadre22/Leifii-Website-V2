@@ -1,0 +1,117 @@
+.footer {
+    background: var(--black);
+    color: var(--white);
+    box-sizing: border-box;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  
+    @media (min-width: 992px) {
+      height: 70vh;
+    }
+  
+    @media (min-width: 1200px) {
+      height: 90vh;
+    }
+  
+    @media (min-width: 1400px) {
+      height: 100vh;
+    }
+  
+    .button {
+      padding: 0;
+      overflow: initial;
+      color: var(--white);
+      min-width: auto;
+    }
+  
+    address {
+      color: var(--light-grey-200);
+      font-style: normal;
+      font-size: 14px;
+    }
+  
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      grid-template-rows: 1fr auto;
+      grid-template-columns: 1fr;
+  
+      &__top {
+        align-self: center;
+        display: flex;
+        flex-direction: row;
+      }
+  
+      &__bottom {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 50px;
+  
+        @media (min-width: 768px) {
+          flex-direction: row;
+          padding-top: 0;
+        }
+  
+        &-left {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+  
+        &-right {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+  
+        &-links {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+  
+          & > a {
+            flex: 1 0 33.33%;
+            margin: 15px 0;
+            font-weight: 100;
+          }
+        }
+      }
+  
+      &__cta {
+        display: flex;
+        flex-direction: column;
+        font-size: 40px;
+        font-weight: 100;
+  
+        @media (min-width: 768px) {
+          font-size: 5.41667vw;
+        }
+  
+        h2,
+        button,
+        .button-title {
+          font-size: inherit;
+          font-weight: inherit;
+        }
+  
+        h2 {
+          width: max-content;
+          margin: 0;
+          font-weight: 400;
+        }
+  
+        .button {
+          height: 70px;
+  
+          @media (min-width: 768px) {
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+  

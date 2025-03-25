@@ -12,6 +12,8 @@ import Lottie from "lottie-react";
 import CubeScene from "../components/Cube/Cube";
 import Testimonials from "../components/Testimonials/Testimonials";
 import BlogList from "../components/Blog/BlogList";
+import VideoEnd from "../components/VideoEnd/VideoEnd";
+import Footer from "../components/Footer/Footer";
 
 const LandingPage = () => {
   return (
@@ -58,9 +60,11 @@ const LandingPage = () => {
         </div>
         <BlogList />
 
-        {/*<div className="h-[55vh] flex justify-center items-center">
-          <Videoend />
-        </div> */}
+        <div className="h-[55vh] flex justify-center items-center">
+          <VideoEnd />
+        </div>
+
+        <Footer />
       </div>
     </>
   );
