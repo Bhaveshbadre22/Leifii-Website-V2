@@ -7,6 +7,8 @@ interface CubertoButtonProps {
   href?: string;
   className?: string;
   hoverText?: string;
+  innerPadding?: string;
+  variant?: string;
 }
 
 const CubertoButton: React.FC<CubertoButtonProps> = ({
@@ -14,6 +16,8 @@ const CubertoButton: React.FC<CubertoButtonProps> = ({
   href,
   className,
   hoverText,
+  innerPadding,
+  variant = "dark",
 }) => {
   const navigate = useNavigate();
 
@@ -27,14 +31,20 @@ const CubertoButton: React.FC<CubertoButtonProps> = ({
       },
     },
   };
-
   const fillVariants = {
-    initial: { translateY: "100%", borderRadius: "50% 50% 0 0" },
+    initial: {
+      translateY: "100%",
+      borderRadius: "50% 50% 0 0",
+      transition: {
+        duration: 0.3, // Slow return
+        ease: [1, 0.5, 0.5, 0.4],
+      },
+    },
     hover: {
       translateY: "0%",
       borderRadius: "0%",
       transition: {
-        duration: 0.5,
+        duration: 0.5, // Faster entry
         ease: [0.4, 0, 0, 1],
       },
     },
@@ -51,16 +61,24 @@ const CubertoButton: React.FC<CubertoButtonProps> = ({
 
   return (
     <motion.button
-      className={` ${className} relative overflow-hidden border border-black px-16 py-12 text-black text-2xl font-medium rounded-[1000px]`}
+      className={` ${className} relative overflow-hidden border w-auto ${
+        variant == "dark" ? "border-black" : "border-white"
+      } ${innerPadding ? innerPadding : "px-16 py-12"} ${
+        variant == "dark" ? "text-black" : "text-white"
+      } text-2xl font-medium rounded-[1000px] flex justify-center items-center`}
       onClick={() => href && navigate(href)}
       variants={btnVariants}
       initial="initial"
       whileHover="hover"
+      animate="initial"
+      onHoverEnd={() => {}}
       data-cursor-text={hoverText ? hoverText : ""}
     >
       {/* Background fill animation */}
       <motion.span
-        className="absolute inset-0 bg-black cb-btn_cta-ripple"
+        className={`absolute inset-0 ${
+          variant == "dark" ? "bg-black" : "bg-white"
+        } cb-btn_cta-ripple`}
         variants={fillVariants}
       />
 
@@ -71,7 +89,9 @@ const CubertoButton: React.FC<CubertoButtonProps> = ({
 
       {/* Hover text (white) */}
       <motion.span
-        className="absolute inset-0 z-[2] flex justify-center items-center text-white"
+        className={`absolute inset-0 z-[2] flex justify-center items-center ${
+          variant == "dark" ? "text-white" : "text-black"
+        }`}
         data-text={text}
         data-cursor="-inverse"
         variants={textVariants}

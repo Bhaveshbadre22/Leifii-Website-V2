@@ -4,12 +4,12 @@ import map from "../../assets/map.jpg";
 
 export function AnimatedPinCard() {
   return (
-    <div className=" md:h-[20rem] w-full flex items-center justify-end ">
+    <div className=" md:h-[20rem] flex items-center justify-end ">
       <PinContainer
         title="Click here to open maps"
         href="https://maps.app.goo.gl/KaUPD26bf7CADsAk8"
       >
-        <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] md:w-[15rem] md:h-[15rem] lg:w-[18rem] lg:h-[18rem] ">
+        <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[16rem] h-[20rem] md:w-[15rem] md:h-[18rem]  ">
           <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
             Find us on
           </h3>
