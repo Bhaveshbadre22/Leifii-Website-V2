@@ -10,3 +10,4 @@ export { default as photography5 } from "./5.png";
 export { default as carousel5 } from "./5c.png";
 export { default as photography6 } from "./6.png";
 export { default as carousel6 } from "./6c.png";
+export { default as carousel7 } from "./7c.png";
