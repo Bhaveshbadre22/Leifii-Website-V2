@@ -6,15 +6,16 @@ import strategy from "./strategy.json";
 import marketing from "./marketing.json";
 import cam from "./cam.json";
 import "./element.scss";
+import StaggerDiv from "../StaggerDiv/StaggerDiv";
 
 const Element = () => {
   return (
     <div className="h-auto bg-[#fff] flex flex-col px-1 sm:px-8 lg:px-16">
       <div className="text-container flex flex-col lg:flex-row items-center pb-10 pt-16">
-        <p className="text-[2.3rem] ml-[4rem] md:ml-[0rem] md:text-4xl lg:text-6xl w-full lg:w-1/2 lg:pl-[1.5rem] mt-5 lg:mt-0">
-          Designing your
-          <br /> leaves with
-        </p>
+        <StaggerDiv className="text-[2.3rem] ml-[4rem] md:ml-[0rem] md:text-4xl lg:text-6xl w-full lg:w-1/2 lg:pl-[1.5rem] mt-5 lg:mt-0">
+          <div>Designing your</div>
+          <div>leaves with</div>
+        </StaggerDiv>
         <div className="flex flex-col w-full lg:w-1/2 mt-8 lg:mt-20 space-y-[2rem]">
           <p className="text-[1.2rem] ml-[2rem] md:ml-[0rem] md:text-lg lg:text-xl">
             We can help you grow those leaves to reach all the right people, and

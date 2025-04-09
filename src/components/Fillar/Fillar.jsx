@@ -1,6 +1,7 @@
 import React from "react";
 import SvgLine from "../../components/SvgLine/svgLine"; // Ensure this path is correct
 import leafVid from "../../assets/videos/leaf.mp4";
+import StaggerDiv from "../StaggerDiv/StaggerDiv";
 
 const Fillar = () => {
   return (
@@ -8,10 +9,10 @@ const Fillar = () => {
       <div className="h-[120vh] w-full bg-white overflow-hidden">
         {/* Other sections of the layout */}
         <div className="h-[65%] w-full flex flex-col md:flex-row items-center">
-          <div className="order-2 md:order-1 w-full lg:w-[90%] text-[3rem] md:text-[4.5rem] lg:text-[6rem] font-questrial mt-[2rem] lg:mt-[8rem] ml-[2rem] lg:ml-[5rem] items-center">
+          <StaggerDiv className="order-2 md:order-1 w-full lg:w-[90%] text-[3rem] md:text-[4.5rem] lg:text-[6rem] font-questrial mt-[2rem] lg:mt-[8rem] ml-[2rem] lg:ml-[5rem] items-center">
             <div>DESIGNING </div>
             <div>YOUR LEAVES</div>
-          </div>
+          </StaggerDiv>
           <div className="order-1 md:order-2 w-full lg:w-[30%] h-full mt-[2rem] lg:mt-[6rem] lg:pt-[0rem] lg:mr-[8rem] flex items-center justify-center">
             <div className="bg-slate-600 h-[12rem] md:h-[14rem] lg:h-[18rem] w-[18rem] md:w-[14rem] lg:w-[30rem] rounded-full overflow-hidden">
               <video

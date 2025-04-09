@@ -1,6 +1,7 @@
 // import "./footer.scss";
 import { AnimatedPinCard } from "../AnimatedPinCard/AnimatedPinCard";
 import CubertoButton from "../Button/CubertoButton";
+import StaggerDiv from "../StaggerDiv/StaggerDiv";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -57,12 +58,14 @@ const Footer = () => {
 
         <div className="h-auto w-full md:h-[60%] flex flex-col md:flex-row mt-[2rem] md:mt-[3rem]">
           <div className="w-full md:w-1/2 lg:w-2/3 text-left">
-            <div className="text-[1rem] md:text-[1.5rem] lg:text-[2rem] text-white font-medium">
-              HAVE A PROJECT IN MIND?
-            </div>
-            <div className="text-white/[0.60] text-[4rem] md:text-[6rem] lg:text-[8rem] 2xl:text-[9rem] font-medium hover:text-white hover:text-opacity-100">
-              LET'S TALK
-            </div>
+            <StaggerDiv>
+              <div className="text-[1rem] md:text-[1.5rem] lg:text-[2rem] text-white font-medium">
+                HAVE A PROJECT IN MIND?
+              </div>
+              <div className="text-white/[0.60] text-[4rem] md:text-[6rem] lg:text-[8rem] 2xl:text-[9rem] font-medium hover:text-white hover:text-opacity-100">
+                LET'S TALK
+              </div>
+            </StaggerDiv>
           </div>
           <div className="flex items-center justify-center my-5 sm:my-0 sm:ml-auto sm:mr-0 ">
             <AnimatedPinCard />

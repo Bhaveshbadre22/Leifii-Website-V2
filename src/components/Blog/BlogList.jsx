@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Lottie from "lottie-react";
 import dragSide from "./dragSide.json";
 import blogData from "./blogData.jsx";
+import StaggerDiv from "../StaggerDiv/StaggerDiv";
 
 const BlogList = () => {
   const settings = {
@@ -64,12 +65,14 @@ const BlogList = () => {
     <div className="bg-black pb-20 px-10" data-cursor="-inverse">
       <div className="bg-white h-[1px] w-[80%] mx-auto"></div>
       <div className="overflow-hidden flex flex-col items-center justify-center">
-        <motion.h1 className="text-[2.5rem] md:text-[40px] text-white ml-5 pt-[3rem] mt-12 mr-5 mb-3 font-[Questrial]">
-          Resources
-        </motion.h1>
-        <motion.h1 className="text-[1.5rem] md:text-[55px] text-white ml-5 pt-5 mr-5 mb-5 font-[Questrial]">
-          The Latest from LEIFII Co
-        </motion.h1>
+        <StaggerDiv className="text-center">
+          <h1 className="text-[2.5rem] md:text-[40px] text-white ml-5 pt-[3rem] mt-12 mr-5 mb-3 font-[Questrial]">
+            Resources
+          </h1>
+          <h1 className="text-[1.5rem] md:text-[55px] text-white ml-5 pt-5 mr-5 mb-5 font-[Questrial]">
+            The Latest from LEIFII Co
+          </h1>
+        </StaggerDiv>
       </div>
       <div className="" data-cursor-text="Drag">
         <Slider {...settings} className="flex flex-wrap justify-center">
