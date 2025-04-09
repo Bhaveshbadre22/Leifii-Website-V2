@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "../components/Hero/HeroSection";
 import Fillar from "../components/Fillar/Fillar";
 import Video from "../components/Video/Video";
@@ -14,8 +14,19 @@ import Testimonials from "../components/Testimonials/Testimonials";
 import BlogList from "../components/Blog/BlogList";
 import VideoEnd from "../components/VideoEnd/VideoEnd";
 import Footer from "../components/Footer/Footer";
+import { useNavStore } from "../store/navStore";
 
 const LandingPage = () => {
+  const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
+
+  useEffect(() => {
+    setIsNavbarBlack(false);
+
+    return () => {
+      setIsNavbarBlack(true); // optional reset
+    };
+  }, [setIsNavbarBlack]);
+
   return (
     <>
       <div className="overflow-hidden">

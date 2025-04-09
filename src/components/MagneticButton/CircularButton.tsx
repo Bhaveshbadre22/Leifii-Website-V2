@@ -1,7 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import classnames from "classnames";
 import { gsap } from "gsap";
-import { lerp, getMousePos, calcWinsize, distance, getRandomFloat } from "../../lib/utils.js";
+import {
+  lerp,
+  getMousePos,
+  calcWinsize,
+  distance,
+  getRandomFloat,
+} from "../../lib/utils.js";
 import EventBus from "../../lib/EventBus.js";
 
 interface Props {
@@ -9,6 +15,7 @@ interface Props {
   classname?: string;
   type?: string;
   isMenuOpened?: boolean;
+  isNavBlack?: boolean;
   handleMenuOpen?: () => void;
 }
 
@@ -17,6 +24,7 @@ export const CircularButton = ({
   classname,
   type,
   isMenuOpened,
+  isNavBlack,
   handleMenuOpen,
 }: Props) => {
   const [renderedStyles, setRenderedStyles] = useState({
@@ -61,6 +69,8 @@ export const CircularButton = ({
     window.addEventListener("resize", onResize);
     // console.log("initEvents")
   }, [onResize]);
+
+  if (isNavBlack) DOM?.el?.current?.classList.add("button--hover");
 
   const enter = useCallback(() => {
     setHover(true);
@@ -114,7 +124,7 @@ export const CircularButton = ({
     EventBus.dispatch("leave");
     setHover(false);
 
-    DOM?.el?.current?.classList?.remove("button--hover");
+    if (!isNavBlack) DOM?.el?.current?.classList?.remove("button--hover");
 
     setRenderedStyles((prevState) => ({
       ...prevState,
@@ -167,7 +177,7 @@ export const CircularButton = ({
     // console.log(mousepos, distanceMouseButton, distanceToTrigger)
     if (distanceMouseButton < distanceToTrigger) {
       if (!hover) {
-        // console.log("Entering")
+        // console.log("Entering");
         enter();
       }
       x = (mousepos.x + window.scrollX - (rect?.left + rect?.width / 4)) * 0.3;

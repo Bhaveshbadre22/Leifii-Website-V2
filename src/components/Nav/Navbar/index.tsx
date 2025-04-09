@@ -5,7 +5,9 @@ import "./Navbar.css";
 import { CircularButton } from "../../MagneticButton/CircularButton";
 import { Menu } from "../Menu/index";
 import leifiiLogo from "../../../assets/LEIFII.png";
+import leifiiLogoWhite from "../../../assets/leifiiNameWhite.webp";
 import logoL from "../../../assets/logol.png";
+import { useNavStore } from "../../../store/navStore";
 
 export const Navbar = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -48,16 +50,23 @@ export const Navbar = () => {
     setIsMenuOpened(!isMenuOpened);
   }
 
+  const isNavbarBlack = useNavStore((state) => state.isNavbarBlack);
+  console.log(isNavbarBlack);
+
   return (
-    <nav className={"navbar"}>
+    <nav
+      className={`navbar ${
+        isNavbarBlack ? "text-white bg-black" : "text-black bg-white"
+      }`}
+    >
       <div className={"navbar-wrapper"} ref={nav}>
         <div className={"navbar-left"}>
           <Link className="group" to="/">
             <div className="logo-container">
               <img className="logoo" src={logoL} alt="Logo" />
               <img
-                className="name opacity-0 transform group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                src={leifiiLogo}
+                className=" name opacity-0 transform group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                src={isNavbarBlack ? leifiiLogoWhite : leifiiLogo}
                 alt="LEIFII"
               />
             </div>
@@ -67,6 +76,7 @@ export const Navbar = () => {
         <div className={"navbar-right"}>
           <div className={"navbar-toggle"}>
             <CircularButton
+              isNavBlack={isNavbarBlack}
               isMenuOpened={isMenuOpened}
               handleMenuOpen={handleMenuOpen}
             />
