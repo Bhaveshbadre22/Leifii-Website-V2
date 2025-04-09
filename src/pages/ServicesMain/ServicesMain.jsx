@@ -179,11 +179,11 @@ const ServicesMain = () => {
               <Lottie animationData={arroww} className="w-full h-full" />
             </div>
 
-            <div className="flex-1 flex items-center md:items-end justify-center  mt-10 md:mt-0">
+            <div className="flex-1 w-[80%] md:w-auto flex items-center md:items-end justify-center  mt-10 md:mt-0">
               <form
                 ref={formRef}
                 onSubmit={sendEmail}
-                className="flex flex-col md:flex-row"
+                className="flex flex-col md:flex-row w-full"
               >
                 <input
                   type="email"

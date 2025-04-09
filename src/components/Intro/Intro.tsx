@@ -17,7 +17,7 @@ const Intro = () => {
         </div>
       </div>
       <div className="w-full md:w-[50%] flex flex-col justify-center items-start">
-        <div className="info text-[1.2rem] md:text-3xl font-[questrial] m-4  md:m-10 text-left">
+        <div className="info text-[1.2rem] md:text-3xl font-[questrial] m-4  md:m-10 text-center md:text-left">
           A comprehensive Marketing, Advertisement, and Design agency dedicated
           to respecting the intelligence of its audiences.
         </div>
