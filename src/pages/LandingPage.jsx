@@ -74,8 +74,6 @@ const LandingPage = () => {
         <div className="h-[55vh] flex justify-center items-center">
           <VideoEnd />
         </div>
-
-        <Footer />
       </div>
     </>
   );

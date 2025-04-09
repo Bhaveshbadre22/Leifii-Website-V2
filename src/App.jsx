@@ -8,6 +8,8 @@ import Preloader from "./components/Preloader/Preloader";
 import Photography from "./pages/Services/Photography/Photography";
 import Lenis from "lenis";
 import Contact from "./pages/Contact/contact";
+import ServicesMain from "./pages/ServicesMain/servicesMain";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   useEffect(() => {
@@ -30,7 +32,9 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/services/photography" element={<Photography />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<ServicesMain />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );
