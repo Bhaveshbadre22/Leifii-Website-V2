@@ -3,6 +3,7 @@ import "./preloader.scss";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { opacity, slideUp } from "./variants";
+import { useNavStore } from "../../store/navStore";
 
 const words = [
   "Looking For",
@@ -74,6 +75,9 @@ const Preloader = () => {
       transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
     },
   };
+  const setHasPreloaderAnimationEnded = useNavStore(
+    (state) => state.setHasPreloaderAnimationEnded
+  );
 
   return (
     <AnimatePresence mode="wait">
@@ -83,6 +87,9 @@ const Preloader = () => {
           initial="initial"
           exit="exit"
           className="introduction"
+          on
+          onAnimationStart={() => setHasPreloaderAnimationEnded(false)}
+          onAnimationComplete={() => setHasPreloaderAnimationEnded(true)}
         >
           {dimension.width > 0 && (
             <>

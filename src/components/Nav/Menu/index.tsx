@@ -54,8 +54,8 @@ export const Menu = ({ isMenuOpened, handleMenuOpen }: Props) => {
               </div>
             </div> */}
             <div className={"navbar-menu__links-right"}>
-              <p className={"navbar-menu__title"}>Menu</p>
-              <div className={"navbar-menu__links-list"}>
+              {/* <p className={"navbar-menu__title"}></p> */}
+              <div className={"navbar-menu__links-list pt-5"}>
                 {links2.map((link) => (
                   <TransitionLink link={link} size="lg" key={link} />
                 ))}

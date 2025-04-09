@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { useRef, ReactNode } from "react";
+import { useNavStore } from "../../store/navStore";
 
 interface StaggerDivProps {
   children: ReactNode;
@@ -13,7 +14,12 @@ const StaggerDiv = ({ children, className = "" }: StaggerDivProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   gsap.registerPlugin(ScrollTrigger);
 
+  const hasPreloaderAnimationEnded = useNavStore(
+    (state) => state.hasPreloaderAnimationEnded
+  );
+
   useGSAP(() => {
+    if (!hasPreloaderAnimationEnded) return;
     const elements =
       containerRef.current?.querySelectorAll(".stagger-child") || [];
 
@@ -34,10 +40,15 @@ const StaggerDiv = ({ children, className = "" }: StaggerDivProps) => {
         opacity: 1,
         stagger: 0.2,
         duration: 0.5,
-        ease: "power2.out",
+        ease: "circ.inOut",
       }
     );
-  }, []);
+
+    return () => {
+      tl.kill();
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
+  }, [hasPreloaderAnimationEnded]);
 
   return (
     <div ref={containerRef} className={className}>

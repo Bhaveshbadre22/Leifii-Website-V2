@@ -7,6 +7,7 @@ import LandingPage from "./pages/LandingPage";
 import Preloader from "./components/Preloader/Preloader";
 import Photography from "./pages/Services/Photography/Photography";
 import Lenis from "lenis";
+import Contact from "./pages/Contact/contact";
 
 const App = () => {
   useEffect(() => {
@@ -28,6 +29,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/services/photography" element={<Photography />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
     </>
