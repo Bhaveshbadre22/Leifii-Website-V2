@@ -51,7 +51,7 @@ export const Navbar = () => {
   }
 
   const isNavbarBlack = useNavStore((state) => state.isNavbarBlack);
-  console.log(isNavbarBlack);
+  // console.log(isNavbarBlack);
 
   return (
     <nav

@@ -22,7 +22,7 @@ const ImageScrollItem = ({ service, index }: any) => {
       ref={ref}
       className="my-10 flex items-center justify-center pointer-events-none"
     >
-      <Link to={service.link}>
+      <Link reloadDocument to={service.link}>
         <motion.img
           src={service.image}
           alt={service.text}

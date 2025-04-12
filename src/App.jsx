@@ -10,6 +10,7 @@ import Lenis from "lenis";
 import Contact from "./pages/Contact/contact";
 import ServicesMain from "./pages/ServicesMain/servicesMain";
 import Footer from "./components/Footer/Footer";
+import About from "./pages/About/About";
 
 const App = () => {
   useEffect(() => {
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/services/photography" element={<Photography />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/services" element={<ServicesMain />} />
         </Routes>
         <Footer />
