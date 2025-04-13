@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";
 import Branding from "./pages/Services/Branding/branding";
 import Marketing from "./pages/Services/Marketing/marketing";
+import Web from "./pages/Services/Web/web";
 
 const App = () => {
   useEffect(() => {
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/services/photography" element={<Photography />} />
           <Route path="/services/branding" element={<Branding />} />
           <Route path="/services/marketing" element={<Marketing />} />
+          <Route path="/services/web" element={<Web />} />
         </Routes>
         <Footer />
       </div>

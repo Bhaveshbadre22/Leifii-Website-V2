@@ -1,9 +1,8 @@
-// src/components/BackButton.js
 import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const BackButton = () => {
+const BackButton: React.FC = () => {
   const navigate = useNavigate();
 
   return (

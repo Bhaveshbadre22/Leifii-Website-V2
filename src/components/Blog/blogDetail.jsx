@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import blogData from "./blogData";
 import { TracingBeam } from "../../components/ui/tracingBeam";
-import BackButton from "../../components/BackButton.jsx/backButton";
+import BackButton from "../../components/Button/BackButton";
 
 const BlogDetail = () => {
   useEffect(() => {

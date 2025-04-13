@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import "./Navbar.css";
 import { CircularButton } from "../../MagneticButton/CircularButton";
@@ -53,11 +53,16 @@ export const Navbar = () => {
   const isNavbarBlack = useNavStore((state) => state.isNavbarBlack);
   // console.log(isNavbarBlack);
 
+  const location = useLocation();
+
+  const isWebPage = location.pathname === "/services/web"; // adjust if using `/web/xyz` etc.
+  const navbarClass = isWebPage ? "bg-[#020617] text-white" : "";
+
   return (
     <nav
       className={`navbar ${
         isNavbarBlack ? "text-white bg-black" : "text-black bg-white"
-      }`}
+      } ${navbarClass}`}
     >
       <div className={"navbar-wrapper"} ref={nav}>
         <div className={"navbar-left"}>
