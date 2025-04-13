@@ -203,8 +203,8 @@ const Branding = () => {
           </div>
         </div>
 
-        <section class="project project--details project--left">
-          <span class="project__label project__label--default">
+        <section className="project project--details project--left">
+          <span className="project__label project__label--default">
             Ethical Considerations
           </span>
           <p>
@@ -219,90 +219,93 @@ const Branding = () => {
           </p>
         </section>
 
-        <div class="gallery-wrap gallery-wrap--large">
-          <div class="gallery gallery--grid gallery--breakout" id="gallery-2">
-            <div class="gallery__item gallery__item-cut">
+        <div className="gallery-wrap gallery-wrap--large">
+          <div
+            className="gallery gallery--grid gallery--breakout"
+            id="gallery-2"
+          >
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://ik.imagekit.io/3vlnwuz3yu/1.jpg?updatedAt=1727776756971)",
                 }}
               ></div>
             </div>
-            <div class="gallery__item gallery__item-cut">
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
                 }}
               ></div>
             </div>
-            <div class="gallery__item gallery__item-cut">
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
                 }}
               ></div>
             </div>
-            <div class="gallery__item gallery__item-cut">
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
                 }}
               ></div>
             </div>
-            <div class="gallery__item gallery__item-cut">
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
                 }}
               ></div>
             </div>
-            <div class="gallery__item gallery__item-cut">
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
                 }}
               ></div>
             </div>
-            <div class="gallery__item gallery__item-cut">
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
                 }}
               ></div>
             </div>
-            <div class="gallery__item gallery__item-cut">
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
                 }}
               ></div>
             </div>
-            <div class="gallery__item gallery__item-cut">
+            <div className="gallery__item gallery__item-cut">
               <div
-                class="gallery__item-inner"
+                className="gallery__item-inner"
                 style={{
                   backgroundImage:
                     "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
                 }}
               ></div>
             </div>
-            <div class="caption">
+            <div className="caption">
               <p>
                 Devoid of inherent knowledge, the language model relies solely
                 on probabilities to craft a peculiar vision. As a result, the
@@ -314,8 +317,8 @@ const Branding = () => {
           </div>
         </div>
 
-        <section class="project project--details project--right">
-          <span class="project__label project__label--default">
+        <section className="project project--details project--right">
+          <span className="project__label project__label--default">
             Preserving Artistic Identity
           </span>
           <p>
@@ -330,121 +333,121 @@ const Branding = () => {
           </p>
         </section>
 
-        <div class="gallery-wrap">
-          <div class="gallery gallery--grid10" id="gallery-3">
+        <div className="gallery-wrap">
+          <div className="gallery gallery--grid10" id="gallery-3">
             <div
-              class="gallery__item pos-2"
+              className="gallery__item pos-2"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-1"
+              className="gallery__item pos-1"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-3"
+              className="gallery__item pos-3"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-4"
+              className="gallery__item pos-4"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-5"
+              className="gallery__item pos-5"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-6"
+              className="gallery__item pos-6"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-7"
+              className="gallery__item pos-7"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-8"
+              className="gallery__item pos-8"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-9"
+              className="gallery__item pos-9"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-10"
+              className="gallery__item pos-10"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-11"
+              className="gallery__item pos-11"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-12"
+              className="gallery__item pos-12"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-13"
+              className="gallery__item pos-13"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-14"
+              className="gallery__item pos-14"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-15"
+              className="gallery__item pos-15"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
             <div
-              class="gallery__item pos-16"
+              className="gallery__item pos-16"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             ></div>
-            <div class="caption">The Art of Perfection?</div>
+            <div className="caption">The Art of Perfection?</div>
           </div>
         </div>
 

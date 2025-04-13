@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { wrap } from "popmotion";
-import CursorProvider from "../../lib/context/cursorContext.tsx";
-import { Navbar } from "../../components/Nav/Navbar/index.tsx";
+import {
+  project1,
+  project2,
+  project3,
+  project4,
+  project5,
+  project6,
+} from "../../../assets/projImages/index";
 
-const cardImages = [
-  "/images/1.jpg",
-  "/images/2.jpg",
-  "/images/3.jpg",
-  "/images/4.jpg",
-  // Add more image paths as needed
-];
+const cardImages = [project1, project2, project3, project4, project5, project6];
+
 const cardDescriptions = [
   "Description for Card 1.",
-  "Description for Card 2. ",
-  "Description for Card 3. ",
-  "Description for Card 4. ",
+  "Description for Card 2.",
+  "Description for Card 3.",
+  "Description for Card 4.",
   // Add more descriptions as needed
 ];
 

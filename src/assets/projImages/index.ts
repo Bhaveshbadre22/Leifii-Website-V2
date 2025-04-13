@@ -1,0 +1,12 @@
+export { default as project1 } from "./1.jpg";
+export { default as project2 } from "./2.jpg";
+export { default as project3 } from "./3.jpg";
+export { default as project4 } from "./4.jpg";
+export { default as project5 } from "./5.jpg";
+export { default as project6 } from "./6.jpg";
+export { default as project7 } from "./7.jpg";
+export { default as project8 } from "./8.jpg";
+export { default as project9 } from "./9.jpg";
+export { default as project10 } from "./10.jpg";
+export { default as project11 } from "./11.jpg";
+export { default as project12 } from "./12.jpg";

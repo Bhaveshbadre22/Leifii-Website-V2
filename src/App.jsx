@@ -11,6 +11,8 @@ import Contact from "./pages/Contact/contact";
 import ServicesMain from "./pages/ServicesMain/servicesMain";
 import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";
+import Branding from "./pages/Services/Branding/branding";
+import Marketing from "./pages/Services/Marketing/marketing";
 
 const App = () => {
   useEffect(() => {
@@ -31,10 +33,12 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/services/photography" element={<Photography />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<ServicesMain />} />
+          <Route path="/services/photography" element={<Photography />} />
+          <Route path="/services/branding" element={<Branding />} />
+          <Route path="/services/marketing" element={<Marketing />} />
         </Routes>
         <Footer />
       </div>

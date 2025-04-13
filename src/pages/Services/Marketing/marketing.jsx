@@ -1,18 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MarketingHero from "./marketingHero";
-import CursorProvider from "../../lib/context/cursorContext.tsx";
-import { Navbar } from "../../components/Nav/Navbar/index.tsx";
-import { Footer } from "../Footer/index.tsx";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import "./swiperr.css";
-import BackButton from "../../components/BackButton.jsx/backButton.jsx";
+import BackButton from "../../../components/Button/BackButton";
 import Lottie from "lottie-react";
 import dragBlack from "./dragBlack.json";
+import { useNavStore } from "../../../store/navStore";
+import {
+  project1,
+  project2,
+  project3,
+  project4,
+  project6,
+  project8,
+  project9,
+} from "../../../assets/projImages";
+import blob3 from "../../../assets/blob3.png";
 
 const Marketing = () => {
+  const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
+
+  useEffect(() => {
+    setIsNavbarBlack(false);
+
+    return () => {
+      setIsNavbarBlack(true); // optional reset
+    };
+  }, [setIsNavbarBlack]);
+
   const [ref1, inView1] = useInView({ threshold: 0.1 });
   const [ref2, inView2] = useInView({ threshold: 0.1 });
   const [ref3, inView3] = useInView({ threshold: 0.1 });
@@ -24,9 +42,9 @@ const Marketing = () => {
   };
 
   return (
-    <CursorProvider>
+    <>
       {/* <Navbar /> */}
-      <div className="pt-[2rem] pl-[2rem] md:pt-[4rem] md:pl-[4rem]">
+      <div className="pt-[2rem] pl-[2rem] md:pt-[4rem] md:pl-[4rem] mt-10">
         <BackButton />
       </div>
 
@@ -47,7 +65,7 @@ const Marketing = () => {
             variants={fadeInVariants}
           >
             <img
-              src="/images/1.jpg"
+              src={project1}
               alt="Your Image"
               className="w-full h-2/3 sm:h-[20rem] md:h-[23rem]"
             />
@@ -68,7 +86,7 @@ const Marketing = () => {
             variants={fadeInVariants}
           >
             <img
-              src="/images/2.jpg"
+              src={project2}
               alt="Your Image"
               className="w-full h-2/3 sm:h-[20rem] md:h-[23rem]"
             />
@@ -89,7 +107,7 @@ const Marketing = () => {
             variants={fadeInVariants}
           >
             <img
-              src="/images/3.jpg"
+              src={project3}
               alt="Your Image"
               className="w-full h-2/3 sm:h-[20rem] md:h-[23rem]"
             />
@@ -110,7 +128,7 @@ const Marketing = () => {
             variants={fadeInVariants}
           >
             <img
-              src="/images/4.jpg"
+              src={project4}
               alt="Your Image"
               className="w-full h-2/3 sm:h-[20rem] md:h-[23rem]"
             />
@@ -146,57 +164,17 @@ const Marketing = () => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
+          // data-cursor="-inverse"
+          data-cursor-text="Drag"
         >
-          {/* First item */}
-          {/* <SwiperSlide>
-            <div className="group relative w-[400px] h-[300px]">
-              <img
-                src="/images/blob3.png"
-                className="w-80 h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[200%]"
-              />
-              <img
-                src="/images/cover1.jpg"
-                className="absolute inset-0 flex items-center justify-center w-[400px] h-[400px] bg-blue-500 hover:scale-100 transition-transform duration-800 transform origin-center z-10 rounded-2xl"
-              />
-            </div>
-          </SwiperSlide> */}
-
-          {/* Second item */}
           <SwiperSlide>
             <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
                 className="w-60 h-60 md:w-80 md:h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
               />
               <img
-                src="/images/6.jpg"
-                className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
-              />
-            </div>
-          </SwiperSlide>
-
-          {/* Third item */}
-          {/* <SwiperSlide>
-            <div className="group relative w-[400px] h-[300px]">
-              <img
-                src="/images/blob3.png"
-                className="w-80 h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[180%]"
-              />
-              <img
-                src="/images/cover1.jpg"
-                className="absolute inset-0 flex items-center justify-center w-[400px] h-[400px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
-              />
-            </div>
-          </SwiperSlide> */}
-
-          <SwiperSlide>
-            <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
-              <img
-                src="/images/blob3.png"
-                className="w-60 h-60 md:w-80 md:h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
-              />
-              <img
-                src="/images/8.jpg"
+                src={project4}
                 className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
               />
             </div>
@@ -205,11 +183,24 @@ const Marketing = () => {
           <SwiperSlide>
             <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
+                className="w-60 h-60 md:w-80 md:h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
+              />
+              <img
+                src={project6}
+                className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
+              <img
+                src={blob3}
                 className="w-60 h-60 md:w-80 md:h-80  transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
               />
               <img
-                src="/images/4.jpg"
+                src={project8}
                 className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
               />
             </div>
@@ -218,11 +209,11 @@ const Marketing = () => {
           <SwiperSlide>
             <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
                 className="w-60 h-60 md:w-80 md:h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
               />
               <img
-                src="/images/9.jpg"
+                src={project9}
                 className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
               />
             </div>
@@ -241,288 +232,8 @@ const Marketing = () => {
           Drag to explore ➡
         </div>
       </div>
-
-      <Footer />
-    </CursorProvider>
+    </>
   );
 };
 
 export default Marketing;
-
-// import React, { useState } from "react";
-// import { motion, AnimatePresence, useAnimation } from "framer-motion";
-// import { wrap } from "popmotion";
-// import CursorProvider from "../../lib/context/cursorContext.tsx";
-// import { Navbar } from "../../components/Nav/Navbar/index.tsx";
-
-// const cardImages = [
-//   "/images/1.jpg",
-//   "/images/2.jpg",
-//   "/images/3.jpg",
-//   "/images/4.jpg",
-//   // Add more image paths as needed
-// ];
-// const cardDescriptions = [
-//   "Description for Card 1. This is of the layout.",
-//   "Description for Card 2. This is of the layout.",
-//   "Description for Card 3. This is of the layout.",
-//   "Description for Card 4. This is of the layout.",
-//   // Add more descriptions as needed
-// ];
-
-// const smallDescription = [
-//   "Product Design",
-//   "Design Ops",
-//   "Product Design 2",
-//   "Design Ops 2",
-// ];
-
-// const HeroSection = () => {
-//   const [order, setOrder] = useState(
-//     Array.from(Array(cardImages.length).keys())
-//   );
-//   const [currentIndex, setCurrentIndex] = useState(0);
-//   const textAnimationControls = useAnimation();
-
-//   const nextCard = () => {
-//     setCurrentIndex((prevIndex) => wrap(0, cardImages.length, prevIndex + 1));
-//     animateText();
-//   };
-
-//   const prevCard = () => {
-//     setCurrentIndex((prevIndex) => wrap(0, cardImages.length, prevIndex - 1));
-//     animateText();
-//   };
-
-//   const animateText = async () => {
-//     await textAnimationControls.start({ opacity: 0 }); // Fade out the text
-//     await textAnimationControls.start({ opacity: 1 }); // Fade in the text
-//   };
-
-//   const handleDragEnd = (event, info) => {
-//     if (info.offset.x !== 0) {
-//       const dragDirection = info.offset.x > 0 ? "right" : "left";
-//       const newIndex =
-//         dragDirection === "right" ? currentIndex + 1 : currentIndex - 1;
-//       setOrder((prevOrder) => {
-//         const newOrder = [...prevOrder];
-//         const movedCard = newOrder.shift();
-//         newOrder.push(movedCard);
-//         return newOrder;
-//       });
-//       setCurrentIndex(newIndex);
-//       animateText();
-//     }
-//   };
-
-//   return (
-//     <CursorProvider>
-//       <Navbar />
-//       <div className="relative w-full h-screen flex items-center justify-end  overflow-hidden pr-[10rem] mt-10">
-//         {/* Left Side Text */}
-//         <div className="absolute left-0 top-1/2 transform -translate-y-1/2 px-4">
-//           <motion.p
-//             className="text-black text-[3rem] w-[40rem] p-10 ml-10"
-//             initial={{ opacity: 1 }} // Set initial opacity to 1
-//             animate={textAnimationControls}
-//           >
-//             {cardDescriptions[order[currentIndex]]}
-//           </motion.p>
-
-//           <motion.p
-//             className="text-black text-[1.5rem] w-[40rem] p-10 ml-11 pt-0"
-//             initial={{ opacity: 1 }} // Set initial opacity to 1
-//             animate={textAnimationControls}
-//           >
-//             {smallDescription[order[currentIndex]]}
-//           </motion.p>
-//         </div>
-//         {/* Card Images */}
-//         <AnimatePresence>
-//           {order.map((cardIndex, index) => {
-//             const isActive = index === 0;
-//             const rotation = (index - currentIndex) * 5; // Rotate each card slightly
-
-//             return (
-//               <Card
-//                 key={cardIndex}
-//                 image={cardImages[cardIndex]}
-//                 isActive={isActive}
-//                 rotation={rotation}
-//                 currentIndex={currentIndex}
-//                 nextCard={nextCard}
-//                 prevCard={prevCard}
-//                 onDragEnd={handleDragEnd}
-//                 setCurrentIndex={setCurrentIndex}
-//               />
-//             );
-//           })}
-//         </AnimatePresence>
-//       </div>
-//     </CursorProvider>
-//   );
-// };
-
-// const Card = ({
-//   image,
-//   isActive,
-//   rotation,
-//   currentIndex,
-//   nextCard,
-//   prevCard,
-//   onDragEnd,
-//   setCurrentIndex,
-// }) => {
-//   const controls = useAnimation();
-
-//   const dragTransition = {
-//     power: 0.2, // Increase the power for stronger momentum
-//     timeConstant: 200, // Adjust the time constant for the duration of the momentum effect
-//   };
-
-//   const handleDragStart = () => {
-//     controls.start({ scale: 1.1 });
-//   };
-
-//   const handleDragEndLocal = (event, info) => {
-//     if (info.offset.x > 100) {
-//       prevCard();
-//     } else if (info.offset.x < -100) {
-//       nextCard();
-//     }
-//     onDragEnd(event, info);
-//     setCurrentIndex(0);
-//   };
-
-//   return (
-//     <motion.div
-//       drag="x"
-//       dragConstraints={{ left: 10, right: 10 }}
-//       dragElastic={0.5}
-//       dragMomentum={false}
-//       dragTransition={dragTransition} // Apply the custom drag transition
-//       onDragStart={handleDragStart}
-//       onDragEnd={handleDragEndLocal}
-//       animate={controls}
-//       exit={{ opacity: 0 }}
-//       className={`absolute w-[25rem] h-[30rem] flex items-center justify-center rounded-lg shadow-lg cursor-grab  ${
-//         isActive ? "z-10" : "z-0"
-//       } transition-transform transform ${isActive ? "scale-100" : "scale-75"}`}
-//       style={{
-//         backgroundImage: `url(${image})`,
-//         backgroundSize: "cover",
-//         rotate: `${rotation}deg`,
-//         x: isActive ? 0 : rotation / 5,
-//       }}
-//     ></motion.div>
-//   );
-// };
-
-// export default HeroSection;
-
-// // import React, { useState } from "react";
-// // import { motion, AnimatePresence, useAnimation } from "framer-motion";
-// // import { wrap } from "popmotion";
-
-// // const cardImages = [
-// //   "/images/1.jpg",
-// //   "/images/2.jpg",
-// //   "/images/3.jpg",
-// //   "/images/4.jpg",
-// //   // Add more image paths as needed
-// // ];
-// // const cardDescriptions = [
-// //   "Description for Card 1. This is a longer description to demonstrate the flexibility of the layout.",
-// //   "Description for Card 2. This is a longer description to demonstrate the flexibility of the layout.",
-// //   "Description for Card 3. This is a longer description to demonstrate the flexibility of the layout.",
-// //   "Description for Card 4. This is a longer description to demonstrate the flexibility of the layout.",
-// //   // Add more descriptions as needed
-// // ];
-
-// // const HeroSection = () => {
-// //   const [currentIndex, setCurrentIndex] = useState(0);
-
-// //   const nextCard = () => {
-// //     setCurrentIndex((prevIndex) => wrap(0, cardImages.length, prevIndex + 1));
-// //   };
-
-// //   const prevCard = () => {
-// //     setCurrentIndex((prevIndex) => wrap(0, cardImages.length, prevIndex - 1));
-// //   };
-
-// //   return (
-// //     <div className="relative w-full h-screen flex items-center justify-end bg-green-100 overflow-hidden pr-[10rem]">
-// //       {/* Left Side Text */}
-// //       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 px-4">
-// //         <p className=" text-black   text-[4rem] w-[40rem] p-10 ml-10">
-// //           {cardDescriptions[currentIndex]}
-// //         </p>
-// //       </div>
-// //       {/* Card Images */}
-// //       <AnimatePresence>
-// //         {cardImages.map((image, index) => {
-// //           const isActive = index === currentIndex;
-// //           const rotation = (index - currentIndex) * 5; // Rotate each card slightly
-
-// //           return (
-// //             <Card
-// //               key={index}
-// //               image={image}
-// //               isActive={isActive}
-// //               rotation={rotation}
-// //               currentIndex={currentIndex}
-// //               nextCard={nextCard}
-// //               prevCard={prevCard}
-// //             />
-// //           );
-// //         })}
-// //       </AnimatePresence>
-// //     </div>
-// //   );
-// // };
-
-// // const Card = ({
-// //   image,
-// //   isActive,
-// //   rotation,
-// //   currentIndex,
-// //   nextCard,
-// //   prevCard,
-// // }) => {
-// //   const controls = useAnimation();
-
-// //   const handleDragEnd = (event, info) => {
-// //     if (info.offset.x > 100) {
-// //       prevCard();
-// //       controls.start({ x: "100%", opacity: 0 });
-// //     } else if (info.offset.x < -100) {
-// //       nextCard();
-// //       controls.start({ x: "-100%", opacity: 0 });
-// //     } else {
-// //       controls.start({ x: 0 });
-// //     }
-// //   };
-
-// //   return (
-// //     <motion.div
-// //       drag="x"
-// //       dragConstraints={{ left: 10, right: 10 }}
-// //       dragElastic={0.5}
-// //       dragMomentum={false}
-// //       onDragEnd={handleDragEnd}
-// //       animate={controls}
-// //       exit={{ opacity: 0 }}
-// //       className={`absolute w-[30rem] h-[35rem] flex items-center justify-center rounded-lg shadow-lg cursor-grab  ${
-// //         isActive ? "z-10" : "z-0"
-// //       } transition-transform transform ${isActive ? "scale-100" : "scale-75"}`}
-// //       style={{
-// //         backgroundImage: `url(${image})`,
-// //         backgroundSize: "cover",
-// //         rotate: `${rotation}deg`,
-// //         x: isActive ? 0 : rotation / 5,
-// //       }}
-// //     ></motion.div>
-// //   );
-// // };
-
-// // export default HeroSection;
