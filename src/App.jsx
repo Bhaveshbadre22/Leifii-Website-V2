@@ -16,6 +16,7 @@ import Marketing from "./pages/Services/Marketing/marketing";
 // import Web from "./pages/Services/Web/web";
 import Careers from "./pages/Careers/careers";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import Spaces from "./pages/Services/Spaces/spaces";
 
 const App = () => {
   useEffect(() => {
@@ -42,7 +43,8 @@ const App = () => {
           <Route path="/services" element={<ServicesMain />} />
           <Route path="/services/branding" element={<Branding />} />
           <Route path="/services/photography" element={<Photography />} />
-          <Route path="/services/marketing" element={<Marketing />} /> */
+          <Route path="/services/marketing" element={<Marketing />} />
+          <Route path="/services/space" element={<Spaces />} />
           {/* <Route path="/services/web" element={<Web />} />*/}
           <Route path="/careers" element={<Careers />} />
         </Routes>
