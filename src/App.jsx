@@ -17,6 +17,7 @@ import Marketing from "./pages/Services/Marketing/marketing";
 import Careers from "./pages/Careers/careers";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Spaces from "./pages/Services/Spaces/spaces";
+import Influencer from "./pages/Influencer/influencer";
 
 const App = () => {
   useEffect(() => {
@@ -41,12 +42,14 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<ServicesMain />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/influencer" element={<Influencer />} />
+
           <Route path="/services/branding" element={<Branding />} />
           <Route path="/services/photography" element={<Photography />} />
           <Route path="/services/marketing" element={<Marketing />} />
           <Route path="/services/space" element={<Spaces />} />
           {/* <Route path="/services/web" element={<Web />} />*/}
-          <Route path="/careers" element={<Careers />} />
         </Routes>
         <Footer />
       </div>
