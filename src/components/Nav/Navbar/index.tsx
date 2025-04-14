@@ -19,7 +19,7 @@ export const Navbar = () => {
       { autoAlpha: 0 },
       { autoAlpha: 1, duration: 1.5, delay: 0.3, ease: "Power0.in" }
     );
-  });
+  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline();

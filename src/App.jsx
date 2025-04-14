@@ -13,7 +13,9 @@ import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";
 import Branding from "./pages/Services/Branding/branding";
 import Marketing from "./pages/Services/Marketing/marketing";
-import Web from "./pages/Services/Web/web";
+// import Web from "./pages/Services/Web/web";
+import Careers from "./pages/Careers/careers";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const App = () => {
   useEffect(() => {
@@ -24,12 +26,13 @@ const App = () => {
       requestAnimationFrame(raf);
     };
     requestAnimationFrame(raf);
-  });
+  }, []);
 
   return (
     <>
       <div className="w-full min-h-screen overflow-x-hidden">
         {!isMobile && <CustomCursor />}
+        {/* <ScrollToTop /> */}
         <Preloader />
         <Navbar />
         <Routes>
@@ -37,10 +40,11 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<ServicesMain />} />
-          <Route path="/services/photography" element={<Photography />} />
           <Route path="/services/branding" element={<Branding />} />
-          <Route path="/services/marketing" element={<Marketing />} />
-          <Route path="/services/web" element={<Web />} />
+          <Route path="/services/photography" element={<Photography />} />
+          <Route path="/services/marketing" element={<Marketing />} /> */
+          {/* <Route path="/services/web" element={<Web />} />*/}
+          <Route path="/careers" element={<Careers />} />
         </Routes>
         <Footer />
       </div>

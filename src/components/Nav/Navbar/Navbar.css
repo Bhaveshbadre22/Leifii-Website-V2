@@ -19,9 +19,9 @@
   --color-link: #89639e;
   --color-link-hover: #ce1352;
   --button-filler: #ce1352;
-  --light-grey: rgba(0,0,0,.3);
+  --light-grey: rgba(0, 0, 0, 0.3);
   --light-grey-100: #6f6f6f;
-  --light-grey-200: rgba(255,255,255,.43);
+  --light-grey-200: rgba(255, 255, 255, 0.43);
   --nav-height-desktop: 150px;
   --column1400Width: 57px;
 }
@@ -45,6 +45,11 @@
   font-weight: 600;
 }
 /** Base styles **/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: "Averta CY", sans-serif;
@@ -53,17 +58,20 @@ body {
   min-height: 100vh;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 90px;
   line-height: 1;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 70px;
   line-height: 1;
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: 32px;
   line-height: 1.5;
 }
@@ -96,7 +104,7 @@ img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /** Common styles **/
@@ -142,11 +150,15 @@ section {
   max-width: 100%;
   width: 100%;
 }
-.container.container--left > *, .container.container--right > *, .container.container--center > * {
+.container.container--left > *,
+.container.container--right > *,
+.container.container--center > * {
   max-width: 100%;
 }
 @media (min-width: 768px) {
-  .container.container--left > *, .container.container--right > *, .container.container--center > * {
+  .container.container--left > *,
+  .container.container--right > *,
+  .container.container--center > * {
     max-width: 70%;
   }
 }
@@ -161,7 +173,8 @@ section {
 .container.container--center > * {
   margin: 0 auto;
 }
-.container.container--row, .container.container--column {
+.container.container--row,
+.container.container--column {
   display: flex;
 }
 .container.container--row {
@@ -302,7 +315,7 @@ button.circular.active > span:first-of-type {
   justify-content: space-between;
   align-items: center;
 }
-.navbar-left{
+.navbar-left {
   /* padding-left: 16px; */
 }
 .navbar-right {
@@ -314,7 +327,6 @@ button.circular.active > span:first-of-type {
 @media (min-width: 1200px) {
   .navbar-right {
     padding-right: 0.5rem;
-
   }
 }
 .navbar-right a {
@@ -356,7 +368,6 @@ button.circular.active > span:first-of-type {
   gap: 20px;
   width: 100px;
   height: 22px;
-  
 }
 
 @media (min-width: 768px) {
@@ -370,6 +381,20 @@ button.circular.active > span:first-of-type {
   .navbar .logo-container {
     width: 150px;
     height: 30px;
-
   }
+}
+
+.navbar .logo-container img,
+.navbar .logo-container span {
+  align-self: center;
+}
+
+.navbar .logo-container img {
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.navbar .logo-container span {
+  font-size: 16px; /* adjust based on desired height */
+  line-height: 1;
 }

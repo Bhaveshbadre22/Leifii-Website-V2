@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
 import "../Contact/contact.css";
@@ -6,8 +6,21 @@ import { storage } from "./firebaseConfig.js";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import SvgLine from "../../components/SvgLine/svgLine.jsx";
 import { job1, job2, job3 } from "../../assets/jobs/index.ts";
+import { useNavStore } from "../../store/navStore.ts";
+import StaggerDiv from "../../components/StaggerDiv/StaggerDiv.tsx";
+import ParallaxImage from "../../components/ParallaxImage/ParallaxImage.jsx";
 
 const Careers = () => {
+  const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
+
+  useEffect(() => {
+    setIsNavbarBlack(false);
+
+    return () => {
+      setIsNavbarBlack(true); // optional reset
+    };
+  }, [setIsNavbarBlack]);
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -109,21 +122,21 @@ const Careers = () => {
   }
 
   return (
-    <CursorProvider>
-      <PageLoader />
-      <Navbar />
+    <>
       <div className="overflow-x-hidden">
         <div className="text-[2.8rem] md:text-[4rem] lg:text-[6rem] my-[15rem] mx-[1rem] md:mx-[7rem] lg:mx-[10rem] w-full h-[3rem] md:h-[7rem] lg:h-[10rem] font-[questrial]">
-          <span className=" font-light italic">Creativity</span>
-          <br />
-          <span className="">meets technology</span>
+          <StaggerDiv>
+            <span className=" font-light italic">Creativity</span>
+            <span className="">meets technology</span>
+          </StaggerDiv>
         </div>
 
-        <div className="h-[65vh] md:h-[60vh] lg:h-[80vh] mt-[10rem] w-full">
-          <img src={job1}></img>
-        </div>
+        <ParallaxImage
+          src={job1}
+          className="h-[65vh] md:h-[60vh] lg:h-[80vh] mt-[10rem] w-full"
+        />
 
-        <div className="flex flex-col md:flex-row h-auto md:h-[40vh] lg:h-[50vh] w-full px-4 mx-0 md:mx-[5rem] lg:mx-[10rem] mt-[5rem] md:mt-[10rem] lg:mt-[13rem] mb-0 font-[questrial]">
+        <div className="flex flex-col mb-20 md:flex-row h-auto w-full px-4 mx-0 md:mx-[5rem] lg:mx-[10rem] mt-[5rem] md:mt-[10rem] lg:mt-[13rem] font-[questrial]">
           <div className="w-full md:w-1/5 text-[1.4rem] md:text-[1.5rem] mb-8 md:mb-0 px-4">
             OUR TEAM CULTURE
           </div>
@@ -141,12 +154,15 @@ const Careers = () => {
         <SvgLine />
 
         <div className="flex flex-col h-[50vh] my-[4rem] w-full text-center items-center justify-center leading-[1.6em] font-[questrial]">
-          <div className="text-[2rem] md:text-[3rem] lg:text-[4rem] h-[7rem]">
-            Team at Leifii.Co
-          </div>
-          <div className="h-[5rem] text-[1.2rem] md:text-[1.5rem] lg:text-[2.3rem]">
-            Degree doesn't matter to us. Skills Does!
-          </div>
+          <StaggerDiv>
+            <div className="text-[2rem] md:text-[3rem] lg:text-[4rem] h-[4rem]">
+              Team at Leifii.Co
+            </div>
+            <div className="h-[5rem] text-[1.2rem] md:text-[1.5rem] lg:text-[2.3rem]">
+              Degree doesn't matter to us. Skills Does!
+            </div>
+          </StaggerDiv>
+
           <div className="h-[15rem] text-[1rem] md:text-[1.1rem] lg:text-[1.2rem] w-[85%] lg:w-[60%] leading-[1.6em]">
             We are always looking to hire talented individuals to join our
             marketing team. Our team is looking for creative, innovative, and
@@ -160,29 +176,27 @@ const Careers = () => {
         </div>
         <div className="h-[3rem] md:h-0"></div>
 
-        <div className="h-[45vh]  pt-[2rem] md:pt-0 md:h-[80vh] w-[70vh] md:w-full flex flex-row m-[1rem] md:m-[1rem] lg:m-[5rem] mx-[2rem] md:mx-[3rem] lg:mx-[10rem] gap-6 md:gap-10 pr-0 md:pr-[3rem] lg:pr-0 ">
-          <div className="w-[30%] md:w-[40%] h-[70%] md:h-[60%] lg:h-[70%]">
-            <img
-              src={job2}
-              className="rounded-[2rem] md:rounded-[3rem] w-full h-full object-cover"
-              alt="Job 2"
-            />
-          </div>
-          <div className="w-[30%] md:w-[40%] h-[85%] md:h-[90%]  lg:h-[100%] pt-[5rem] md:pt-[15rem]">
-            <img
-              src={job3}
-              className="rounded-[2rem] md:rounded-[3rem] w-full h-full object-cover"
-              alt="Job 3"
-            />
-          </div>
+        <div className="h-[45vh] pt-[2rem] md:pt-0 md:h-[80vh] w-[70vh] md:w-full flex flex-row m-[1rem] md:m-[1rem] lg:m-[5rem] mx-[2rem] md:mx-[3rem] lg:mx-[10rem] gap-6 md:gap-10 pr-0 md:pr-[3rem] lg:pr-0  ">
+          <ParallaxImage
+            className="w-[30%] md:w-[40%] rounded-[2rem] md:rounded-[3rem]"
+            direction={"down"}
+            src={job2}
+          />
+
+          <ParallaxImage
+            src={job3}
+            className="w-[30%] md:w-[40%] mt-[5rem] md:mt-[15rem] rounded-[2rem] md:rounded-[3rem]"
+          />
         </div>
 
-        <SvgLine />
+        <div className="translate-y-20">
+          <SvgLine />
+        </div>
 
         <div className="h-[5vh] md:h-[0vh] mb-0 mt-[6rem] m-2 md:m-[10rem] font-[questrial] text-left md:text-center leading-[2.5rem] md:leading-[4rem] lg:leading-[6rem]">
           {/* Mobile View */}
           <div className="block md:hidden px-5">
-            <div className="text-[1.5rem]">Think you have what it takes?</div>
+            <div className="text-[1.2rem]">Think you have what it takes?</div>
             <div className="text-[2.3rem]">
               Send us your <br />
               <span className="italic mt-2">Resume</span>
@@ -191,7 +205,7 @@ const Careers = () => {
 
           {/* Desktop View */}
           <div className="hidden md:block">
-            <div className="text-[1.6rem] md:text-[4rem] lg:text-[5rem]">
+            <div className="text-[1.6rem] md:text-[2rem] lg:text-[4rem]">
               Think you have what it takes?
             </div>
             <div className="text-[3.5rem] md:text-[3.5rem] lg:text-[5rem]">
@@ -202,14 +216,14 @@ const Careers = () => {
 
         <div>
           <header className="cb-request">
-            <div className="cb-request-content">
+            <div className="cb-request-content !pt-10">
               <div className="cb-request-container">
                 <div className="cb-request-header "></div>
 
                 <div className="cb-request-form">
                   <form
                     className="cb-form"
-                    onSubmit={onSubmit}
+                    onSubmit={() => onSubmit}
                     encType="multipart/form-data"
                   >
                     <div className="cb-form-group">
@@ -575,9 +589,8 @@ const Careers = () => {
             </div>
           </header>
         </div>
-        <Footer />
       </div>
-    </CursorProvider>
+    </>
   );
 };
 
