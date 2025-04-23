@@ -18,7 +18,7 @@ const Spaces = () => {
       <div>
         {" "}
         <div className="pt-[4rem] pl-[2rem] md:pt-[6rem] md:pl-[4rem] bg-black">
-          <BackButton />
+          {/* <BackButton /> */}
         </div>
         <div className="bg-black text-white text-[2rem] pt-[1rem] md:text-[4rem] text-center">
           {" "}

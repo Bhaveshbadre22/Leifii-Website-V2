@@ -279,7 +279,7 @@
 
 @font-face {
     font-family: "Averta CY";
-    src: url(../../../public/font/Averta\ Light.woff) format("woff");
+    src: url(../../fonts/Averta\ Light.woff) format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -287,7 +287,7 @@
 
 @font-face {
     font-family: "Averta CY";
-    src: url(../.././../public/font/Averta.woff) format("woff");
+    src: url(../../fonts/Averta.woff) format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -295,7 +295,7 @@
 
 @font-face {
     font-family: "Averta CY";
-    src: url(../../../public/font/Averta\ Semibold.woff) format("woff");
+    src: url(../../fonts/Averta\ Semibold.woff) format("woff");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -303,7 +303,7 @@
 
 @font-face {
     font-family: "Averta CY";
-    src: url(../../../public/font/Averta\ Bold.woff) format("woff");
+    src: url(../../fonts/Averta\ Bold.woff) format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;

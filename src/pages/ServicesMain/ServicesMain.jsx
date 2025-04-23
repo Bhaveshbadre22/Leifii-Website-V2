@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import Banner from "../../components/Banner/Banner.jsx";
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import Lottie from "lottie-react";
 import arroww from "./arrowblue.json";
@@ -14,6 +12,7 @@ import {
   webdevServiceImg,
   marketingServiceImg,
   photographyServiceImg,
+  spaceServiceImg,
 } from "../../assets/services/index";
 import ImageScrollAnimation from "../../components/ImageScrollHori/ImageScrollAnimation.jsx";
 
@@ -22,6 +21,7 @@ const bannerData = [
   { image: brandingServiceImg, link: "/services/branding" },
   { image: marketingServiceImg, link: "/services/marketing" },
   { image: webdevServiceImg, link: "/services/web" },
+  { image: spaceServiceImg, link: "/services/space" },
 ];
 
 const ServicesMain = () => {

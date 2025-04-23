@@ -45,7 +45,7 @@ const Marketing = () => {
     <>
       {/* <Navbar /> */}
       <div className="pt-[2rem] pl-[2rem] md:pt-[4rem] md:pl-[4rem] mt-10">
-        <BackButton />
+        {/* <BackButton /> */}
       </div>
 
       <MarketingHero />

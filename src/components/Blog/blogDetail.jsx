@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import blogData from "./blogData";
-import { TracingBeam } from "../../components/ui/tracingBeam";
+import TracingBeam from "../../components/TracingBeam/tracingBeam";
 import BackButton from "../../components/Button/BackButton";
 
 const BlogDetail = () => {
@@ -18,7 +18,7 @@ const BlogDetail = () => {
 
   return (
     <div className="bg-black px-4 py-20 h-[550vh]">
-      <div className="pb-[2rem] pl-[1rem]">
+      <div className="pb-[2rem] pl-[1rem] pt-10">
         <BackButton />
       </div>
 

@@ -115,7 +115,7 @@ const Branding = () => {
     <>
       <main className="bodii">
         <div className="pt-[2rem] pl-[2rem] md:pt-[4rem] md:pl-[4rem]">
-          <BackButton />
+          {/* <BackButton />  */}
         </div>
         <div className="frame"></div>
 
@@ -137,7 +137,7 @@ const Branding = () => {
             <p>
               Through collaborations with artists, workshops, and educational
               programs, we empower artists to leverage AI as a tool for
-              exploration, expanding their artistic horizons and embracing new
+              exploration, expanding their artistic hNorizons and embracing new
               forms of expression.
             </p>
           </div>

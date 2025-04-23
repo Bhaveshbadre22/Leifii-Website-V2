@@ -87,7 +87,7 @@ const Column = ({ images, y }) => {
     <motion.div className="column" style={{ y }}>
       {images.map((src, i) => (
         <div key={i} className="imageContainer" data-cursor-text="Explore">
-          <Link to={`/projects/project${i}`}>
+          <Link reloadDocument to={`/projects/project${i}`}>
             <img src={src} alt={`image ${i}`} fill draggable={false} />
           </Link>
         </div>

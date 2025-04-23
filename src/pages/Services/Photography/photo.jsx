@@ -74,7 +74,7 @@ const Photo = () => {
   return (
     <div className="bodyyy overflow-hidden">
       <div className="pt-[2rem] pl-[2rem] md:pt-[4rem] md:pl-[4rem] bg-black">
-        <BackButton />
+        {/* <BackButton /> */}
       </div>
       <div className="intro">
         <h1 className="intro__title">

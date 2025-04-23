@@ -19,6 +19,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Spaces from "./pages/Services/Spaces/spaces";
 import Influencer from "./pages/Influencer/influencer";
 import BlogList from "./components/Blog/BlogList";
+import BlogDetail from "./components/Blog/blogDetail";
 
 const App = () => {
   useEffect(() => {
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/influencer" element={<Influencer />} />
 
           <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
 
           <Route path="/services/branding" element={<Branding />} />
           <Route path="/services/photography" element={<Photography />} />

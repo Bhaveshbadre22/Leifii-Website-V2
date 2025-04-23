@@ -13,7 +13,7 @@ export function MacbookScrollDemo() {
       data-cursor="-inverse"
     >
       <div className="pt-[2rem] pl-[2rem] md:pt-[4rem] md:pl-[4rem]">
-        <BackButton />
+        {/* <BackButton /> */}
       </div>
       <LampDemo />
       <MacbookScroll
