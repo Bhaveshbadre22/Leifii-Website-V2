@@ -55,7 +55,7 @@ const LandingPage = () => {
             Why us?
           </div>
 
-          <div className="flex flex-col sm:flex-row w-full h-screen sm:h-[85vh] justify-center pl-4 sm:pl-10">
+          <div className="flex flex-col sm:flex-row w-full h-[500px] justify-center pl-4 sm:pl-10">
             <div className="w-full sm:w-[75%] md:w-[60%] lg:w-[50%] h-[400px] sm:h-[500px]">
               <ThreeCube />
             </div>

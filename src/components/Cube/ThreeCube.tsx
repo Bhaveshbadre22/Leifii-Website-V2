@@ -41,6 +41,8 @@ const ThreeCube = () => {
             rotateSpeed={0.5}
             minDistance={1.5}
             maxDistance={3}
+            enableZoom={false}
+            enablePan={false}
           />
         </Suspense>
       </Canvas>
