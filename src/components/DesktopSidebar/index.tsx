@@ -89,10 +89,10 @@ export const DesktopSidebar = () => {
   }, [isMenuOpened]);
 
   return (
-    <div className="hidden lg:block fixed right-0 top-0 h-full z-50">
+    <div className="hidden lg:block relative h-full z-50">
       {/* Desktop-only Hamburger Button */}
       <div
-        className="fixed right-8 top-8 z-50"
+        className="absolute right-8 top-8 z-50"
         onMouseEnter={handleHover}
         onMouseLeave={handleLeave}
       >
