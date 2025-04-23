@@ -30,26 +30,10 @@ const LandingPage = () => {
     };
   }, [setIsNavbarBlack]);
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [isFirstLoad, setIsFirstLoad] = useState(
-    !sessionStorage.getItem("firstLoad")
-  );
-
-  useEffect(() => {
-    if (isFirstLoad) {
-      setTimeout(() => {
-        setIsLoading(false);
-        sessionStorage.setItem("firstLoad", "false");
-      }, 4000); // Show the preloader for 3 seconds
-    } else {
-      setIsLoading(false);
-    }
-  }, [isFirstLoad]);
-
   return (
     <>
       <AnimatePresence mode="wait">
-        {isFirstLoad ? <Preloader /> : <PageLoader />}
+        <Preloader />
       </AnimatePresence>
       <div className="overflow-hidden">
         <div className="h-20"></div>
