@@ -1,4 +1,4 @@
-import blogImages from "../../assets/blogs/index";
+import blogImages, { blog__1, blog__2 } from "../../assets/blogs/index";
 const blogData = [
   {
     id: "1",
@@ -10,14 +10,14 @@ const blogData = [
     subheading: "Maximize Your Reach",
     content: `
         <p class="text-[1rem] md:text-[1.5rem] py-10 mb-10">The best time to post on YouTube is on Friday from 3 p.m. to 4 p.m. — we found that videos shared within those time frames tended to get the highest number of views. Other high-view times are Tuesday at 2 p.m. and Thursday at 6 p.m.<br/> <br/ In the heatmap graph above, the darkest pink slots represent the time slots with the highest video views, while the light pink to white blocks are the time slots with the lowest video views. <br/> <br/> You’ll see that audience behavior is pretty predictable, given that most YouTube users are working age —  21 percent of male YouTube users and 17 percent of female users are between the ages of 25 and 44, per Statista. <br/> <br/> Generally speaking, views are lower earlier in the mornings on weekdays, picking up during midmornings, lunch breaks, and late afternoon and evening. There are also a few late-night hot zones, like 11 p.m. on Monday and Thursday. YouTube video views tend to pick up as the week wears on, peaking on Fridays before dropping off over the weekend.  <br/> <br/> The worst times to post on YouTube on weekdays and weekends are generally between 1 a.m. and 6 a.m. when viewers are asleep. There are a couple of other cold spots to be aware of, though: we found that videos posted between 4 a.m. and 5 a.m. on Mondays, 8 a.m. on Saturdays, and 9 p.m. on Sundays tend to get the least views. <br/> <br/> We’ve looked into the best time to post on Instagram, Facebook, TikTok, and LinkedIn, but YouTube was unique in having a single time slot that was so far above the rest of the week. That said, there still are some good times to share content on the platform on the other days of the week that shouldn’t be overlooked. Here’s a closer look at the optimal times to post on YouTube for each day of the week. </p>
-        <img src="/blog/blog__1.png" alt="YouTube Analytics" class="rounded-lg mb-10 object-cover w-full" />
+        <img src=${blog__1} alt="YouTube Analytics" class="rounded-lg mb-10 object-cover w-full" />
         <p class="text-[1rem] md:text-[1.5rem] py-10 ">Experiment with different times to see what works best for your audience. Use YouTube Analytics to track your performance and adjust your posting schedule accordingly.</p>
         <p class="text-[1rem] md:text-[1.5rem] mb-10">This is where things get interesting. In YouTube Studio’s Audience tab (at the top of the screen), you can dig into some fascinating info about your audience as a whole — not just your subscribers. 
 
 You’ll find insights into things like which videos are growing your audience (definitely a set of metrics to pay attention to if your goal is to grow your channel), a host of audience demographics like location, age, and gender, as well as the type of content your audience usually watches on YouTube (videos, Shorts, or Lives).
 
  </p>
-        <img src="/blog/blog__2.png" alt="YouTube Schedule" class="rounded-lg mb-10 object-cover w-full" />
+        <img src=${blog__2} alt="YouTube Schedule" class="rounded-lg mb-10 object-cover w-full" />
          <p class="text-[1rem] md:text-[1.5rem] mb-10">Here, you’ll find a unique heat map set in your local time, indicating the specific times your audience is on YouTube. As with Buffer’s graphs, their most active times will be in the darkest purple and the least active times in the lightest purple. 
 
 You’ll see in the screenshot above that Buffer’s YouTube audience is most active from 4 p.m. to 5 p.m. on Mondays and from 5 p.m. to 6 p.m. on Tuesdays. <br/> <br/>

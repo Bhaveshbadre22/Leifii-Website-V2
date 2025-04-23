@@ -1,8 +1,9 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useTransform, useScroll, useSpring } from "framer-motion";
-import { cn } from "../../utils/cn.js";
+import { motion, useTransform, useScroll, useSpring } from "motion/react";
+import { cn } from "../../utils/cn";
 
-const TracingBeam = ({ children, className }) => {
+export const TracingBeam = ({ children, className }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -13,59 +14,44 @@ const TracingBeam = ({ children, className }) => {
   const [svgHeight, setSvgHeight] = useState(0);
 
   useEffect(() => {
-    const updateSvgHeight = () => {
-      if (contentRef.current) {
-        setSvgHeight(contentRef.current.offsetHeight);
-      }
-    };
-
-    updateSvgHeight();
-    window.addEventListener("resize", updateSvgHeight);
-
-    return () => {
-      window.removeEventListener("resize", updateSvgHeight);
-    };
+    if (contentRef.current) {
+      setSvgHeight(contentRef.current.offsetHeight);
+    }
   }, []);
 
   const y1 = useSpring(
-    useTransform(scrollYProgress, [0, 1], [50, svgHeight + 800]),
+    useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
     {
       stiffness: 500,
       damping: 90,
     }
   );
   const y2 = useSpring(
-    useTransform(scrollYProgress, [0, 1], [50, svgHeight - 400]),
+    useTransform(scrollYProgress, [0, 1], [50, svgHeight - 200]),
     {
       stiffness: 500,
       damping: 90,
     }
   );
 
-  // ✅ Reactive state for top dot animation
-  const [isPastTop, setIsPastTop] = useState(false);
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (v) => {
-      setIsPastTop(v > 0);
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress]);
-
   return (
     <motion.div
       ref={ref}
-      className={cn("relative w-full max-w-4xl mx-auto h-full", className)}
+      className={cn("relative mx-auto h-full w-full max-w-4xl", className)}
     >
-      <div className="absolute -left-4 md:-left-20 top-3">
+      <div className="absolute top-3 -left-4 md:-left-20">
         <motion.div
           transition={{
             duration: 0.2,
             delay: 0.5,
           }}
           animate={{
-            boxShadow: isPastTop ? "none" : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            boxShadow:
+              scrollYProgress.get() > 0
+                ? "none"
+                : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           }}
-          className="ml-[27px] h-4 w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center"
+          className="border-netural-200 ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm"
         >
           <motion.div
             transition={{
@@ -73,16 +59,16 @@ const TracingBeam = ({ children, className }) => {
               delay: 0.5,
             }}
             animate={{
-              backgroundColor: isPastTop ? "white" : "#10b981",
-              borderColor: isPastTop ? "white" : "#10b981",
+              backgroundColor: scrollYProgress.get() > 0 ? "white" : "#10b981",
+              borderColor: scrollYProgress.get() > 0 ? "white" : "#059669",
             }}
             className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
           />
         </motion.div>
-
         <svg
           viewBox={`0 0 20 ${svgHeight}`}
-          width="30"
+          width="20"
+          // Set the SVG height
           height={svgHeight}
           className="ml-4 block"
           aria-hidden="true"
@@ -112,7 +98,9 @@ const TracingBeam = ({ children, className }) => {
               gradientUnits="userSpaceOnUse"
               x1="0"
               x2="0"
+              // set y1 for gradient
               y1={y1}
+              // set y2 for gradient
               y2={y2}
             >
               <stop stopColor="#18CCFC" stopOpacity="0"></stop>

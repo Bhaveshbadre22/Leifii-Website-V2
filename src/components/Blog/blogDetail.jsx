@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import blogData from "./blogData";
 import TracingBeam from "../../components/TracingBeam/tracingBeam";
-import BackButton from "../../components/Button/BackButton";
 
 const BlogDetail = () => {
   useEffect(() => {
@@ -17,12 +16,10 @@ const BlogDetail = () => {
   }
 
   return (
-    <div className="bg-black px-4 py-20 h-[550vh]">
-      <div className="pb-[2rem] pl-[1rem] pt-10">
-        <BackButton />
-      </div>
+    <div className="bg-black px-4 py-20 ">
+      <div className="pb-[2rem] pl-[1rem] pt-10">{/* <BackButton /> */}</div>
 
-      <TracingBeam className="px-6 ml-0 md:ml-[2rem] lg:ml-[15rem]">
+      <TracingBeam className="px-6 mx-auto">
         <div className="max-w-2xl mx-auto antialiased pt-4 relative text-white pl-[2rem] md:pl-[1rem] lg:pl-[2rem]">
           <h1 className="text-[35px] lg:text-[55px] font-[Questrial]">
             {blog.title}
