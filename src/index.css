@@ -4,21 +4,21 @@
 
 /* Import the Questrial font */
 @font-face {
-  font-family: 'Questrial';
-  src: url('./fonts/Questrial-Regular.woff') format('woff');
+  font-family: "Questrial";
+  src: url("./fonts/Questrial-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 /* Apply the Questrial font globally or to specific elements */
 body {
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
   scroll-behavior: smooth;
 }
 
 @font-face {
-  font-family: 'Gallery';
-  src: url('./fonts/Gallery.otf') format('otf');
+  font-family: "Gallery";
+  src: url("./fonts/Gallery.otf") format("otf");
   font-weight: normal;
   font-style: normal;
 }

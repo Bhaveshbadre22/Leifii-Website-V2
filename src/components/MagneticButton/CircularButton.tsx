@@ -161,6 +161,32 @@ export const CircularButton = ({
       );
   }, [DOM?.el, DOM.filler, DOM.textInner, bodyColor, renderedStyles]);
 
+  // Add hamburger to cross animation
+  useEffect(() => {
+    const tl = gsap.timeline();
+    const firstSpan = DOM.el.current?.querySelector("span:first-of-type");
+    const secondSpan = DOM.el.current?.querySelector("span:last-of-type");
+
+    if (isMenuOpened) {
+      tl.to(firstSpan, { x: -10, opacity: 0, duration: 0.3 })
+        .to(secondSpan, { x: 10, opacity: 0, duration: 0.3 }, 0)
+        .set(firstSpan, { rotate: 45, y: -10 })
+        .set(secondSpan, { rotate: -45, y: -10 })
+        .to(firstSpan, { y: 1, x: 0, opacity: 1, duration: 0.3 })
+        .to(secondSpan, { y: -1, x: -1, opacity: 1, duration: 0.3 }, "-=0.1");
+    } else {
+      tl.to(firstSpan, { y: 0, x: 0, rotation: 0, opacity: 1, duration: 0.2 })
+        .to(
+          secondSpan,
+          { y: 0, x: 0, rotation: 0, opacity: 1, duration: 0.2 },
+          0
+        )
+        .add("translate")
+        .to(firstSpan, { y: -1, duration: 0.2 }, "translate")
+        .to(secondSpan, { y: 4, duration: 0.2 }, "translate");
+    }
+  }, [isMenuOpened, DOM.el]);
+
   const render = () => {
     // console.log("render")
     // calculate the distance from the mouse to the center of the button
