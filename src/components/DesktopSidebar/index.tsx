@@ -4,6 +4,13 @@ import { useNavStore } from "../../store/navStore";
 import { TransitionLink } from "../Links/TransitionLink";
 import { Link } from "react-router-dom";
 import { CircularButton } from "../MagneticButton/CircularButton";
+import {
+  brandingServiceImg,
+  marketingServiceImg,
+  photographyServiceImg,
+  spaceServiceImg,
+  webdevServiceImg,
+} from "../../assets/services";
 
 interface MenuItem {
   id: number;
@@ -16,31 +23,31 @@ const menuItems: MenuItem[] = [
   {
     id: 1,
     label: "About",
-    image: "/images/menu/about.jpg",
+    image: spaceServiceImg,
     link: "/about",
   },
   {
     id: 2,
     label: "Services",
-    image: "/images/menu/services.jpg",
+    image: webdevServiceImg,
     link: "/services",
   },
   {
     id: 3,
     label: "Careers",
-    image: "/images/menu/careers.jpg",
+    image: photographyServiceImg,
     link: "/careers",
   },
   {
     id: 4,
     label: "Contact",
-    image: "/images/menu/contact.jpg",
+    image: marketingServiceImg,
     link: "/contact",
   },
   {
     id: 5,
     label: "Influencer",
-    image: "/images/menu/influencer.jpg",
+    image: brandingServiceImg,
     link: "/influencer",
   },
 ];
@@ -230,6 +237,7 @@ export const DesktopSidebar = () => {
                             <TransitionLink
                               link={item.label}
                               size="lg"
+                              darkmode
                               onClick={handleMenuOpen}
                             />
                           </div>

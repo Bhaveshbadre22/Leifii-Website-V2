@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import HeroSection from "../components/Hero/HeroSection";
 import Fillar from "../components/Fillar/Fillar";
 import Video from "../components/Video/Video";
@@ -7,26 +7,24 @@ import Parallax from "../components/Parallax/parallax";
 import Showcase from "../components/Showcase/Showcase";
 import Element from "../components/Element/Element";
 import drag from "../components/Cube/dragWhite.json";
-import Cube from "../components/Cube/Cube";
 import Lottie from "lottie-react";
-import CubeScene from "../components/Cube/Cube";
 import Testimonials from "../components/Testimonials/Testimonials";
 import BlogList from "../components/Blog/BlogList";
 import VideoEnd from "../components/VideoEnd/VideoEnd";
 import { useNavStore } from "../store/navStore";
-
 import Preloader from "../components/Preloader/Preloader";
 import PageLoader from "../components/PageLoader/pageLoader";
 import { AnimatePresence } from "framer-motion";
+import InteractiveCube from "../components/Cube/InteractiveCube";
+import "../components/Cube/cube.css";
 
 const LandingPage = () => {
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
 
   useEffect(() => {
     setIsNavbarBlack(false);
-
     return () => {
-      setIsNavbarBlack(true); // optional reset
+      setIsNavbarBlack(true);
     };
   }, [setIsNavbarBlack]);
 
@@ -53,14 +51,14 @@ const LandingPage = () => {
         </div>
         <Element />
 
-        {/* <div className="bg-black text-white pt-1.5">
+        <div className="bg-black text-white pt-1.5">
           <div className="text-[2.5rem] md:text-[40px] lg:text-[4rem] p-4 sm:p-10 pb-0 flex justify-center font-[Questrial]">
             Why us?
           </div>
 
           <div className="flex flex-col sm:flex-row w-full h-screen sm:h-[85vh] justify-center pl-4 sm:pl-10">
             <div className="w-full sm:w-[75%] md:w-[60%] lg:w-[50%]">
-              <CubeScene />
+              <InteractiveCube />
             </div>
           </div>
 
@@ -70,7 +68,7 @@ const LandingPage = () => {
               className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40"
             />
           </div>
-        </div> */}
+        </div>
 
         <div>
           <Testimonials />

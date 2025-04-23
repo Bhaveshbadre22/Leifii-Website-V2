@@ -66,6 +66,9 @@ const Footer = () => {
                 LET'S TALK
               </div>
             </StaggerDiv>
+            <div className="mt-10 text-[0.5rem] md:text-[1rem] lg:text-[1.5rem] text-white/60 font-medium">
+              team@leifii.com
+            </div>
           </div>
           <div className="flex items-center justify-center my-5 sm:my-0 sm:ml-auto sm:mr-0 ">
             <AnimatedPinCard />
