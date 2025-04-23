@@ -4,7 +4,6 @@ import CustomCursor from "./utils/CustomCursor/CustomCursor";
 import { Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Nav/Navbar/index";
 import LandingPage from "./pages/LandingPage";
-import Preloader from "./components/Preloader/Preloader";
 import Photography from "./pages/Services/Photography/Photography";
 import Lenis from "lenis";
 import Contact from "./pages/Contact/contact";
@@ -37,7 +36,6 @@ const App = () => {
       <div className="w-full min-h-screen overflow-x-hidden">
         {!isMobile && <CustomCursor />}
         {/* <ScrollToTop /> */}
-        <Preloader />
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />

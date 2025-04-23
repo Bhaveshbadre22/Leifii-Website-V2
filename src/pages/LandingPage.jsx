@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import HeroSection from "../components/Hero/HeroSection";
 import Fillar from "../components/Fillar/Fillar";
 import Video from "../components/Video/Video";
@@ -13,8 +13,11 @@ import CubeScene from "../components/Cube/Cube";
 import Testimonials from "../components/Testimonials/Testimonials";
 import BlogList from "../components/Blog/BlogList";
 import VideoEnd from "../components/VideoEnd/VideoEnd";
-import Footer from "../components/Footer/Footer";
 import { useNavStore } from "../store/navStore";
+
+import Preloader from "../components/Preloader/Preloader";
+import PageLoader from "../components/PageLoader/pageLoader";
+import { AnimatePresence } from "framer-motion";
 
 const LandingPage = () => {
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
@@ -27,8 +30,27 @@ const LandingPage = () => {
     };
   }, [setIsNavbarBlack]);
 
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFirstLoad, setIsFirstLoad] = useState(
+    !sessionStorage.getItem("firstLoad")
+  );
+
+  useEffect(() => {
+    if (isFirstLoad) {
+      setTimeout(() => {
+        setIsLoading(false);
+        sessionStorage.setItem("firstLoad", "false");
+      }, 4000); // Show the preloader for 3 seconds
+    } else {
+      setIsLoading(false);
+    }
+  }, [isFirstLoad]);
+
   return (
     <>
+      <AnimatePresence mode="wait">
+        {isFirstLoad ? <Preloader /> : <PageLoader />}
+      </AnimatePresence>
       <div className="overflow-hidden">
         <div className="h-20"></div>
 

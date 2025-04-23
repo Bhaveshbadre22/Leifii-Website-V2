@@ -19,6 +19,7 @@ import {
   project9,
 } from "../../../assets/projImages";
 import blob3 from "../../../assets/blob3.png";
+import PageLoader from "../../../components/PageLoader/pageLoader";
 
 const Marketing = () => {
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
@@ -43,6 +44,7 @@ const Marketing = () => {
 
   return (
     <>
+      <PageLoader />
       {/* <Navbar /> */}
       <div className="pt-[2rem] pl-[2rem] md:pt-[4rem] md:pl-[4rem] mt-10">
         {/* <BackButton /> */}

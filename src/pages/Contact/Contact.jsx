@@ -5,6 +5,9 @@ import "./contact.css";
 import { useNavStore } from "../../store/navStore.js";
 import leaf from "../../assets/leaf.png";
 import StaggerDiv from "../../components/StaggerDiv/StaggerDiv.js";
+import Preloader from "../../components/Preloader/Preloader";
+import PageLoader from "../../components/PageLoader/pageLoader";
+import { AnimatePresence } from "framer-motion";
 
 const Contact = () => {
   const [data, setData] = useState({
@@ -117,6 +120,9 @@ const Contact = () => {
 
   return (
     <>
+      <AnimatePresence mode="wait">
+        <PageLoader />
+      </AnimatePresence>
       <div>
         <header className="cb-request">
           <div className="cb-request-content">

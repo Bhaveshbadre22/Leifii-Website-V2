@@ -15,6 +15,8 @@ import {
   spaceServiceImg,
 } from "../../assets/services/index";
 import ImageScrollAnimation from "../../components/ImageScrollHori/ImageScrollAnimation.jsx";
+import { AnimatePresence } from "framer-motion";
+import PageLoader from "../../components/PageLoader/pageLoader.jsx";
 
 const bannerData = [
   { image: photographyServiceImg, link: "/services/photography" },
@@ -65,6 +67,9 @@ const ServicesMain = () => {
 
   return (
     <div className="bodyy overflow-hidden">
+      <AnimatePresence mode="wait">
+        <PageLoader />
+      </AnimatePresence>
       <>
         <div className="App bg-white" data-scroll-container ref={containerRef}>
           <div className="h-[7rem] md:h-[10.5rem] "></div>

@@ -66,7 +66,7 @@ const CubertoButton: React.FC<CubertoButtonProps> = ({
       } ${innerPadding ? innerPadding : "px-16 py-12"} ${
         variant == "dark" ? "text-black" : "text-white"
       } text-2xl font-medium rounded-[1000px] flex justify-center items-center`}
-      onClick={() => href && navigate(href)}
+      onClick={() => href && (window.location.href = href)}
       variants={btnVariants}
       initial="initial"
       whileHover="hover"

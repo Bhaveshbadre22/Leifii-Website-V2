@@ -42,7 +42,7 @@ export function ThreeDCardDemo({ blog }: ThreeDCardDemoProps) {
           <CardItem
             translateZ={20}
             as={Link}
-            to={`/blog/${blog.id}`}
+            onClick={() => (window.location.href = `/blog/${blog.id}`)}
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
             Read Now →

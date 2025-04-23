@@ -9,6 +9,8 @@ import { job1, job2, job3 } from "../../assets/jobs/index.ts";
 import { useNavStore } from "../../store/navStore.ts";
 import StaggerDiv from "../../components/StaggerDiv/StaggerDiv.tsx";
 import ParallaxImage from "../../components/ParallaxImage/ParallaxImage.jsx";
+import { AnimatePresence } from "framer-motion";
+import PageLoader from "../../components/PageLoader/pageLoader.jsx";
 
 const Careers = () => {
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
@@ -123,6 +125,9 @@ const Careers = () => {
 
   return (
     <>
+      <AnimatePresence mode="wait">
+        <PageLoader />
+      </AnimatePresence>
       <div className="overflow-x-hidden">
         <div className="text-[2.8rem] md:text-[4rem] lg:text-[6rem] my-[15rem] mx-[1rem] md:mx-[7rem] lg:mx-[10rem] w-full h-[3rem] md:h-[7rem] lg:h-[10rem] font-[questrial]">
           <StaggerDiv>
