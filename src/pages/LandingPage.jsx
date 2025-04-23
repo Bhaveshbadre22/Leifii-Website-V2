@@ -15,8 +15,7 @@ import { useNavStore } from "../store/navStore";
 import Preloader from "../components/Preloader/Preloader";
 import PageLoader from "../components/PageLoader/pageLoader";
 import { AnimatePresence } from "framer-motion";
-import InteractiveCube from "../components/Cube/InteractiveCube";
-import "../components/Cube/cube.css";
+import ThreeCube from "../components/Cube/ThreeCube";
 
 const LandingPage = () => {
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
@@ -57,8 +56,8 @@ const LandingPage = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row w-full h-screen sm:h-[85vh] justify-center pl-4 sm:pl-10">
-            <div className="w-full sm:w-[75%] md:w-[60%] lg:w-[50%]">
-              <InteractiveCube />
+            <div className="w-full sm:w-[75%] md:w-[60%] lg:w-[50%] h-[400px] sm:h-[500px]">
+              <ThreeCube />
             </div>
           </div>
 
