@@ -9,27 +9,42 @@
   /** Dark mode **/
 }
 .t-link__item.sm {
-  font-size: 16px;
+  font-size: 14px;
 }
 .t-link__item.md {
-  font-size: 20px;
+  font-size: 16px;
 }
 .t-link__item.lg {
-  font-size: 38px;
+  font-size: 24px;
 }
 @media (min-width: 360px) {
+  .t-link__item.sm {
+    font-size: 16px;
+  }
   .t-link__item.lg {
-    font-size: 42px;
+    font-size: 28px;
   }
 }
-@media (min-width: 767px) {
+@media (min-width: 768px) {
+  .t-link__item.sm {
+    font-size: 18px;
+  }
+  .t-link__item.md {
+    font-size: 20px;
+  }
   .t-link__item.lg {
-    font-size: 56px;
+    font-size: 32px;
   }
 }
-@media (min-width: 1600px) {
+@media (min-width: 1200px) {
+  .t-link__item.sm {
+    font-size: 20px;
+  }
+  .t-link__item.md {
+    font-size: 24px;
+  }
   .t-link__item.lg {
-    font-size: 60px;
+    font-size: 36px;
   }
 }
 .t-link__item em {
@@ -43,7 +58,8 @@
   color: transparent;
   transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.t-link__item em span::after, .t-link__item em span::before {
+.t-link__item em span::after,
+.t-link__item em span::before {
   content: attr(data-text);
   display: block;
   position: absolute;
@@ -59,15 +75,19 @@
   transform-origin: left top;
   transform: skewY(5deg);
 }
-.t-link__item:hover em span, .t-link__item:focus em span {
+.t-link__item:hover em span,
+.t-link__item:focus em span {
   transform: translateY(-100%);
 }
-.t-link__item:hover em span::before, .t-link__item:focus em span::before {
+.t-link__item:hover em span::before,
+.t-link__item:focus em span::before {
   transform: skewY(7deg);
 }
-.t-link__item:hover em span::after, .t-link__item:focus em span::after {
+.t-link__item:hover em span::after,
+.t-link__item:focus em span::after {
   transform: skewY(0deg);
 }
-.t-link__item.t-link__item--dark em span::before, .t-link__item.t-link__item--dark em span::after {
+.t-link__item.t-link__item--dark em span::before,
+.t-link__item.t-link__item--dark em span::after {
   color: var(--white);
-}/*# sourceMappingURL=TransitionLink.module.css.map */
+} /*# sourceMappingURL=TransitionLink.module.css.map */

@@ -193,18 +193,18 @@ export const DesktopSidebar = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="h-full w-full flex items-center justify-center p-12"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              className="h-full w-full flex items-center justify-center p-4 sm:p-8 md:p-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
                 {menuItems.map((item, index) => {
                   return (
                     <motion.div
                       key={item.id}
-                      className="w-full aspect-[4/3] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      className="w-[150px] sm:w-[180px] md:w-[200px] aspect-[4/3] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
                       initial={{
                         x: 1000,
                         opacity: 0,
@@ -216,16 +216,16 @@ export const DesktopSidebar = () => {
                         scale: 1,
                       }}
                       exit={{
-                        x: 100,
+                        x: 1000,
                         opacity: 0,
                         scale: 0.9,
                       }}
                       transition={{
-                        duration: 0.6,
-                        delay: index * 0.1,
                         type: "spring",
                         stiffness: 100,
                         damping: 15,
+                        mass: 1,
+                        delay: index * 0.1,
                       }}
                     >
                       <Link to={item.link} onClick={handleMenuOpen}>
