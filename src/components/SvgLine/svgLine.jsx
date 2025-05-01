@@ -3,6 +3,7 @@ import "./svgLine.css";
 
 const SvgLine = () => {
   const path = useRef(null);
+  const svgRef = useRef(null); // Add ref for SVG
   let progress = 0;
   let x = 0.5;
   let time = Math.PI / 2;
@@ -10,18 +11,23 @@ const SvgLine = () => {
 
   useEffect(() => {
     setPath(progress);
-    window.addEventListener("resize", setPath.bind(null, progress)); // Handle resize
-    return () =>
-      window.removeEventListener("resize", setPath.bind(null, progress));
+    window.addEventListener("resize", () => setPath(progress));
+    return () => window.removeEventListener("resize", () => setPath(progress));
   }, []);
 
   const setPath = (progress) => {
-    const width =
-      path.current?.parentElement?.offsetWidth || window.innerWidth * 0.85;
+    if (!path.current || !svgRef.current) return;
+
+    const svgWidth = svgRef.current.clientWidth;
+    const pathWidth = svgWidth * 0.8; // Adjust this value for desired line length
+    const startX = (svgWidth - pathWidth) / 2; // Calculate centered position
+
     path.current.setAttributeNS(
       null,
       "d",
-      `M0 250 Q${width * x} ${250 + progress}, ${width} 250`
+      `M${startX} 250 Q${startX + pathWidth * x} ${250 + progress}, ${
+        startX + pathWidth
+      } 250`
     );
   };
 
@@ -64,17 +70,19 @@ const SvgLine = () => {
   };
 
   return (
-    <div className="flex lg:pl-10 mt-5 md:mt-2 lg:mt-2 h-[10vh] w-full items-center justify-center bg-white">
+    <div className="flex mt-5 md:mt-2 lg:mt-2 h-[10vh] w-full items-center justify-center bg-white">
       <div className="bodu">
-        <div className="line pl-6 lg:pl-12 ">
+        <div className="line">
           <div
             onMouseEnter={manageMouseEnter}
             onMouseMove={manageMouseMove}
             onMouseLeave={manageMouseLeave}
             className="box"
           ></div>
-          <svg>
-            <path ref={path}></path>
+          <svg ref={svgRef} className="w-full">
+            {" "}
+            {/* Add ref here */}
+            <path ref={path}></path> {/* Remove ml-20 from here */}
           </svg>
         </div>
       </div>

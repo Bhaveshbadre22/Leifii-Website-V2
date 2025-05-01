@@ -27,13 +27,13 @@ const Fillar = () => {
           </div>
         </div>
 
-        <div>
+        <div className="w-full">
           <SvgLine />
         </div>
 
         {/* The quote section */}
-        <div className="w-full flex justify-center items-center mt-8">
-          <div className="w-full text-center text-[1.25rem] md:text-[1.75rem] lg:text-[2rem] mx-3 sm:mx-0 sm:px-10 tracking-wide uppercase grow-line pr-0">
+        <div className="w-[80%] mx-auto flex justify-center items-center mt-8">
+          <div className="w-full flex flex-col text-center text-[1.25rem] md:text-[1.75rem] lg:text-[2rem] mx-3 sm:mx-0 sm:px-10 tracking-wide uppercase grow-line pr-0">
             Together we will grow businesses and build brands that make a
             difference
           </div>
