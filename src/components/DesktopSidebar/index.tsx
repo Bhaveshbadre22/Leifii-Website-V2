@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavStore } from "../../store/navStore";
 import { TransitionLink } from "../Links/TransitionLink";
@@ -55,7 +55,11 @@ const menuItems: MenuItem[] = [
 export const DesktopSidebar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [isVisible, setIsVisible] = useState(window.scrollY <= 10);
   const isNavbarBlack = useNavStore((state) => state.isNavbarBlack);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+  const scrollTimeout = useRef<NodeJS.Timeout>();
 
   const handleHover = () => {
     setIsHovered(true);
@@ -69,18 +73,41 @@ export const DesktopSidebar = () => {
 
   const handleMenuOpen = () => {
     setIsMenuOpened(!isMenuOpened);
-    // Reset hover state when closing menu
     if (isMenuOpened) {
       setIsHovered(false);
     }
   };
 
-  // Add ESC key functionality
+  // Scroll direction detection with debounce
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Always show at top of page
+      if (currentScrollY <= 0) {
+        setIsVisible(true);
+        lastScrollY.current = 0;
+        return;
+      }
+
+      console.log(currentScrollY < lastScrollY.current);
+      // Show when scrolling up, hide when scrolling down
+      setIsVisible(currentScrollY < lastScrollY.current);
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // ESC key functionality
   useEffect(() => {
     const handleEscKey = (event: KeyboardEvent) => {
       if (event.key === "Escape" && isMenuOpened) {
         setIsMenuOpened(false);
-        setIsHovered(false); // Reset hover state on ESC
+        setIsHovered(false);
       }
     };
 
@@ -98,17 +125,23 @@ export const DesktopSidebar = () => {
   return (
     <div className="hidden lg:block relative h-full z-50">
       {/* Desktop-only Hamburger Button */}
-      <div
-        className="absolute right-8 top-8 z-50"
+      <motion.div
+        className="fixed right-8 top-8 z-50"
+        animate={{
+          opacity: isVisible ? 1 : 0,
+          y: isVisible ? 0 : -20,
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         onMouseEnter={handleHover}
         onMouseLeave={handleLeave}
+        style={{ pointerEvents: isVisible ? "auto" : "none" }}
       >
         <CircularButton
           isNavBlack={isNavbarBlack}
           isMenuOpened={isMenuOpened}
           handleMenuOpen={handleMenuOpen}
         />
-      </div>
+      </motion.div>
 
       {/* Peeping Menu Items */}
       <AnimatePresence>
@@ -189,14 +222,22 @@ export const DesktopSidebar = () => {
             className="fixed inset-0 bg-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            exit={{
+              opacity: 0,
+              x: "100%",
+              transition: { duration: 0.5, ease: "easeInOut" },
+            }}
             transition={{ duration: 0.3 }}
           >
             <motion.div
               className="h-full w-full flex items-center justify-center p-4 sm:p-8 md:p-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              exit={{
+                opacity: 0,
+                x: "100%",
+                transition: { duration: 0.5, ease: "easeInOut" },
+              }}
               transition={{ duration: 0.3 }}
             >
               <div className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
@@ -216,9 +257,13 @@ export const DesktopSidebar = () => {
                         scale: 1,
                       }}
                       exit={{
-                        x: 1000,
+                        x: "100%",
                         opacity: 0,
-                        scale: 0.9,
+                        transition: {
+                          duration: 0.5,
+                          ease: "easeInOut",
+                          delay: index * 0.05, // Stagger the exit animations
+                        },
                       }}
                       transition={{
                         type: "spring",
