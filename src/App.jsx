@@ -21,15 +21,15 @@ import BlogList from "./components/Blog/BlogList";
 import BlogDetail from "./components/Blog/blogDetail";
 
 const App = () => {
-  // useEffect(() => {
-  //   const lenis = new Lenis();
+  useEffect(() => {
+    const lenis = new Lenis();
 
-  //   const raf = (time) => {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   };
-  //   requestAnimationFrame(raf);
-  // }, []);
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <>
