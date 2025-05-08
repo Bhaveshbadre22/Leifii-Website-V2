@@ -126,7 +126,7 @@ export const DesktopSidebar = () => {
     <div className="hidden lg:block relative h-full z-50">
       {/* Desktop-only Hamburger Button */}
       <motion.div
-        className="fixed right-8 top-8 z-50"
+        className="fixed right-8 top-8 z-[1000]"
         animate={{
           opacity: isVisible ? 1 : 0,
           y: isVisible ? 0 : -20,
@@ -219,7 +219,7 @@ export const DesktopSidebar = () => {
       <AnimatePresence>
         {isMenuOpened && (
           <motion.div
-            className="fixed inset-0 bg-white"
+            className="fixed inset-0 bg-white z-[999]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{

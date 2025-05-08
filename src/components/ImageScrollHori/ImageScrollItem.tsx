@@ -14,7 +14,7 @@ const ImageScrollItem = ({ service, index }: any) => {
   const x = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    [`${-100 * direction}vw`, "0vw", `${100 * direction}vw`]
+    [`${-20 * direction}vw`, "0vw", `${20 * direction}vw`]
   );
 
   return (

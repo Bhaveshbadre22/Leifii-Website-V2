@@ -4,7 +4,7 @@ import map from "../../assets/map.jpg";
 
 export function AnimatedPinCard() {
   return (
-    <div className=" md:h-[20rem] flex items-center justify-end ">
+    <div className=" md:h-[20rem] flex items-center justify-end z-[9]">
       <PinContainer
         title="Click here to open maps"
         href="https://maps.app.goo.gl/KaUPD26bf7CADsAk8"
