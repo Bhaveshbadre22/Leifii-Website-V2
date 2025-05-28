@@ -19,6 +19,7 @@ import Spaces from "./pages/Services/Spaces/spaces";
 import Influencer from "./pages/Influencer/influencer";
 import BlogList from "./components/Blog/BlogList";
 import BlogDetail from "./components/Blog/blogDetail";
+import BrandingGallery from "./pages/Services/Branding/BrandingGallery";
 
 const App = () => {
   useEffect(() => {
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/blog/:id" element={<BlogDetail />} />
 
           <Route path="/services/branding" element={<Branding />} />
+          <Route path="/services/branding1" element={<BrandingGallery />} />
           <Route path="/services/photography" element={<Photography />} />
           <Route path="/services/marketing" element={<Marketing />} />
           <Route path="/services/space" element={<Spaces />} />

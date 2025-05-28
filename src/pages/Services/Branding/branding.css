@@ -207,8 +207,8 @@ body #cdawrap {
 @media (max-width: 480px) {
   .project__title {
     font-size: clamp(2rem, 9vw, 8rem);
-  }}
-
+  }
+}
 
 .project__heading {
   color: var(--color-label);
@@ -299,7 +299,6 @@ body #cdawrap {
     --size-factor: 1.25;
     --item-height: 7vh;
   }
-  
 }
 
 .gallery--row .gallery__item {

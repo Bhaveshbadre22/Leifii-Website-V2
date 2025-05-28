@@ -90,7 +90,7 @@ export const DesktopSidebar = () => {
         return;
       }
 
-      console.log(currentScrollY < lastScrollY.current);
+      // console.log(currentScrollY < lastScrollY.current);
       // Show when scrolling up, hide when scrolling down
       setIsVisible(currentScrollY < lastScrollY.current);
       lastScrollY.current = currentScrollY;
@@ -273,7 +273,11 @@ export const DesktopSidebar = () => {
                         delay: index * 0.1,
                       }}
                     >
-                      <Link to={item.link} onClick={handleMenuOpen}>
+                      <Link
+                        to={item.link}
+                        reloadDocument
+                        onClick={handleMenuOpen}
+                      >
                         <div
                           className="w-full h-full bg-cover bg-center relative group"
                           style={{ backgroundImage: `url(${item.image})` }}
