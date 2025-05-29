@@ -17,7 +17,7 @@ const Branding = () => {
         start: "center center",
         end: "+=100% center ",
         pin: true,
-        pinSpacing: false,
+        pinSpacing: true,
         scrub: true,
       },
     });
@@ -26,7 +26,7 @@ const Branding = () => {
       width: "100%",
       height: "100vh",
       borderRadius: 0,
-    });
+    }).to("#gallery-1 .caption", { top: "50%", opacity: 1 }, "<");
 
     const tl2 = gsap.timeline({
       scrollTrigger: {
@@ -34,25 +34,22 @@ const Branding = () => {
         start: "center center",
         end: "+=100% center",
         pin: true,
-        pinSpacing: false,
-        scrub: true,
+        pinSpacing: true,
+        scrub: 0.5,
       },
     });
 
     tl2
-      .to("#centerGallery", {
+      .to(".gallery__item-cut, gallery__item-inner", {
         width: "100dvw",
         height: "100vh",
         borderRadius: 0,
-        ease: "power2.inOut",
       })
       .to(
-        "#secondGal .caption-container",
+        "#secondGal .caption",
         {
           opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.inOut",
+          top: "10%",
         },
         "<"
       );
@@ -150,7 +147,7 @@ const Branding = () => {
           </div>
         </div>
 
-        <section className="w-1/2 pt-20 z-10 relative m-20">
+        {/* <section className="w-1/2 pt-20 z-10 relative m-20">
           <p
             className="text-2xl"
             style={{ textShadow: " 2px 4px 6px rgba(0,0,0,0.6)" }}
@@ -159,6 +156,21 @@ const Branding = () => {
             tantalizing facade, captivating our gaze. Yet, as we search for the
             soul of human expression, we question whether algorithms can truly
             embody the essence of authentic art.
+          </p>
+        </section> */}
+        <section className="project project--details project--left">
+          <span className="project__label project__label--default">
+            Ethical Considerations
+          </span>
+          <p>
+            The emergence of AI-generated art raises ethical questions and
+            concerns. One of the key challenges is navigating the boundaries of
+            authorship and ownership. Determining the role of AI algorithms and
+            their creators in the artistic process, as well as addressing issues
+            of attribution and intellectual property, requires careful
+            deliberation. Additionally, ensuring that AI-generated art does not
+            perpetuate bias, discrimination, or harmful content is crucial for
+            fostering a responsible and inclusive artistic landscape.
           </p>
         </section>
 
@@ -248,16 +260,14 @@ const Branding = () => {
                 }}
               ></div>
             </div>
-            <div className="caption-container">
-              <div className="caption">
-                <p>
-                  Devoid of inherent knowledge, the language model relies solely
-                  on probabilities to craft a peculiar vision. As a result, the
-                  earrings hang in curious defiance of physics, inviting us to
-                  ponder the implications of relinquishing human understanding
-                  in the pursuit of artificial creativity.
-                </p>
-              </div>
+            <div className="caption relative z-10">
+              <p>
+                Devoid of inherent knowledge, the language model relies solely
+                on probabilities to craft a peculiar vision. As a result, the
+                earrings hang in curious defiance of physics, inviting us to
+                ponder the implications of relinquishing human understanding in
+                the pursuit of artificial creativity.
+              </p>
             </div>
           </div>
         </div>
