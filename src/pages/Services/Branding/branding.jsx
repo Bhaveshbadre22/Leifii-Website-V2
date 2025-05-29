@@ -1,114 +1,61 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Flip } from "gsap/Flip";
 import "./branding.css";
-import BackButton from "../../../components/Button/BackButton";
 import Lottie from "lottie-react";
 import dragBlack from "../Marketing/dragBlack.json";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-gsap.registerPlugin(ScrollTrigger, Flip);
+import { useGSAP } from "@gsap/react";
 
 const Branding = () => {
-  const triggerFlipOnScroll = (galleryEl, options = {}) => {
-    if (!galleryEl) return; // Check if galleryEl exists
+  gsap.registerPlugin(ScrollTrigger);
 
-    let settings = {
-      flip: {
-        absoluteOnLeave: false,
-        absolute: false,
-        scale: true,
-        simple: true,
-      },
+  useGSAP(() => {
+    const tl = gsap.timeline({
       scrollTrigger: {
+        trigger: "#firstGal",
         start: "center center",
-        end: "+=300%",
-      },
-      stagger: 0,
-    };
-
-    settings = { ...settings, ...options };
-
-    const galleryCaption = galleryEl.querySelector(".caption");
-    const galleryItems = galleryEl.querySelectorAll(".gallery__item");
-    const galleryItemsInner = [...galleryItems]
-      .map((item) => (item.children.length > 0 ? [...item.children] : []))
-      .flat();
-
-    galleryEl.classList.add("gallery--switch");
-    const flipstate = Flip.getState([galleryItems, galleryCaption], {
-      props: "filter, opacity",
-    });
-    galleryEl.classList.remove("gallery--switch");
-
-    const tl = Flip.to(flipstate, {
-      ease: "none",
-      absoluteOnLeave: settings.flip.absoluteOnLeave,
-      absolute: settings.flip.absolute,
-      scale: settings.flip.scale,
-      simple: settings.flip.simple,
-      scrollTrigger: {
-        trigger: galleryEl,
-        start: settings.scrollTrigger.start,
-        end: settings.scrollTrigger.end,
-        pin: galleryEl.parentNode,
+        end: "+=100% center ",
+        pin: true,
+        pinSpacing: false,
         scrub: true,
       },
-      stagger: settings.stagger,
     });
 
-    if (galleryItemsInner.length) {
-      tl.fromTo(
-        galleryItemsInner,
+    tl.to(".gallery__item--center", {
+      width: "100%",
+      height: "100vh",
+      borderRadius: 0,
+    });
+
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#secondGal",
+        start: "center center",
+        end: "+=100% center",
+        pin: true,
+        pinSpacing: false,
+        scrub: true,
+      },
+    });
+
+    tl2
+      .to("#centerGallery", {
+        width: "100dvw",
+        height: "100vh",
+        borderRadius: 0,
+        ease: "power2.inOut",
+      })
+      .to(
+        "#secondGal .caption-container",
         {
-          scale: 2,
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.inOut",
         },
-        {
-          scale: 1,
-          scrollTrigger: {
-            trigger: galleryEl,
-            start: settings.scrollTrigger.start,
-            end: settings.scrollTrigger.end,
-            scrub: true,
-          },
-        },
-        0
+        "<"
       );
-    }
-  };
-
-  const scroll = () => {
-    const galleries = [
-      {
-        id: "#gallery-1",
-        options: { flip: { absoluteOnLeave: true, scale: false } },
-      },
-      { id: "#gallery-2" },
-      {
-        id: "#gallery-3",
-        options: {
-          flip: { absolute: true, scale: false },
-          scrollTrigger: { start: "center center", end: "+=900%" },
-          stagger: 0.05,
-        },
-      },
-      { id: "#gallery-4" },
-      { id: "#gallery-5" },
-      { id: "#gallery-6" },
-      { id: "#gallery-7" },
-      { id: "#gallery-8", options: { flip: { scale: false } } },
-      { id: "#gallery-9" },
-    ];
-
-    galleries.forEach((gallery) => {
-      const galleryElement = document.querySelector(gallery.id);
-      triggerFlipOnScroll(galleryElement, gallery.options);
-    });
-  };
-
-  useEffect(() => {
-    scroll();
   }, []);
 
   return (
@@ -143,7 +90,7 @@ const Branding = () => {
           </div>
         </section>
 
-        <div className="gallery-wrap">
+        <div id="firstGal" className="gallery-wrap">
           <div className="gallery gallery--row" id="gallery-1">
             <div
               className="gallery__item gallery__item--s"
@@ -167,7 +114,7 @@ const Branding = () => {
               }}
             ></div>
             <div
-              className="gallery__item gallery__item--xl gallery__item--center"
+              className="gallery__item gallery__item--xl gallery__item--center size-full object-cover"
               style={{
                 backgroundImage:
                   "url(https://images.pexels.com/photos/22670171/pexels-photo-22670171/free-photo-of-a-close-up-of-the-ocean-water-with-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
@@ -203,23 +150,19 @@ const Branding = () => {
           </div>
         </div>
 
-        <section className="project project--details project--left">
-          <span className="project__label project__label--default">
-            Ethical Considerations
-          </span>
-          <p>
-            The emergence of AI-generated art raises ethical questions and
-            concerns. One of the key challenges is navigating the boundaries of
-            authorship and ownership. Determining the role of AI algorithms and
-            their creators in the artistic process, as well as addressing issues
-            of attribution and intellectual property, requires careful
-            deliberation. Additionally, ensuring that AI-generated art does not
-            perpetuate bias, discrimination, or harmful content is crucial for
-            fostering a responsible and inclusive artistic landscape.
+        <section className="w-1/2 pt-20 z-10 relative m-20">
+          <p
+            className="text-2xl"
+            style={{ textShadow: " 2px 4px 6px rgba(0,0,0,0.6)" }}
+          >
+            Within this meticulously arranged AI-generated ensemble lies a
+            tantalizing facade, captivating our gaze. Yet, as we search for the
+            soul of human expression, we question whether algorithms can truly
+            embody the essence of authentic art.
           </p>
         </section>
 
-        <div className="gallery-wrap gallery-wrap--large">
+        <div id="secondGal" className="gallery-wrap gallery-wrap--large">
           <div
             className="gallery gallery--grid gallery--breakout"
             id="gallery-2"
@@ -260,7 +203,7 @@ const Branding = () => {
                 }}
               ></div>
             </div>
-            <div className="gallery__item gallery__item-cut">
+            <div id="centerGallery" className="gallery__item gallery__item-cut">
               <div
                 className="gallery__item-inner"
                 style={{
@@ -305,14 +248,16 @@ const Branding = () => {
                 }}
               ></div>
             </div>
-            <div className="caption">
-              <p>
-                Devoid of inherent knowledge, the language model relies solely
-                on probabilities to craft a peculiar vision. As a result, the
-                earrings hang in curious defiance of physics, inviting us to
-                ponder the implications of relinquishing human understanding in
-                the pursuit of artificial creativity.
-              </p>
+            <div className="caption-container">
+              <div className="caption">
+                <p>
+                  Devoid of inherent knowledge, the language model relies solely
+                  on probabilities to craft a peculiar vision. As a result, the
+                  earrings hang in curious defiance of physics, inviting us to
+                  ponder the implications of relinquishing human understanding
+                  in the pursuit of artificial creativity.
+                </p>
+              </div>
             </div>
           </div>
         </div>

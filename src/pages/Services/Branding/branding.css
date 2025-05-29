@@ -111,8 +111,8 @@ body #cdawrap {
   margin: 20vh auto;
   margin-top: 0;
   display: grid;
-  grid-column-gap: 7vw;
-  grid-row-gap: 0.5rem;
+  column-gap: 7vw;
+  row-gap: 0.5rem;
 }
 
 .project--intro {
@@ -234,6 +234,34 @@ body #cdawrap {
 
 .gallery-wrap--large {
   height: 110vh;
+  position: relative;
+}
+
+#secondGal .caption-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#secondGal .caption-container p {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
 }
 
 .gallery-wrap--dense {
