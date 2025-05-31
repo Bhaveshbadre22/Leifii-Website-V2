@@ -6,9 +6,10 @@ import Lottie from "lottie-react";
 import dragBlack from "../Marketing/dragBlack.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useGSAP } from "@gsap/react";
+import { Flip } from "gsap/Flip";
 
 const Branding = () => {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, Flip);
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -53,6 +54,88 @@ const Branding = () => {
         },
         "<"
       );
+
+    // Replace your existing tl3 animation with this code:
+
+    // Wait for layout to be ready, then create the animation
+    gsap.set("#thirdGal .gallery__item", { transformOrigin: "center center" });
+
+    const tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#thirdGal",
+        start: "center center",
+        end: "+=5000 center",
+        pin: true,
+        scrub: 1,
+        onRefresh: () => {
+          // Recalculate positions on refresh
+          setupGallery3Animation();
+        },
+      },
+    });
+
+    function setupGallery3Animation() {
+      const galleryItems = gsap.utils.toArray("#thirdGal .gallery__item");
+      const container = document.querySelector("#thirdGal");
+      const containerRect = container.getBoundingClientRect();
+
+      // Get container center relative to the container
+      const containerCenterX = containerRect.width / 2;
+      const containerCenterY = containerRect.height / 2;
+
+      // Clear previous timeline
+      tl3.clear();
+
+      // Animate each item to the center with staggered timing
+      galleryItems.forEach((item, index) => {
+        // Get item's position relative to container
+        const itemRect = item.getBoundingClientRect();
+        const containerTop = container.offsetTop;
+        const containerLeft = container.offsetLeft;
+
+        const itemCenterX =
+          itemRect.left - containerRect.left + itemRect.width / 2;
+        const itemCenterY =
+          itemRect.top - containerRect.top + itemRect.height / 2;
+
+        // Calculate movement needed to reach container center
+        const deltaX = containerCenterX - itemCenterX;
+        const deltaY = containerCenterY - itemCenterY;
+
+        // Set initial z-index
+        gsap.set(item, { zIndex: index });
+
+        // Create the animation for this item
+        tl3.to(
+          item,
+          {
+            x: deltaX,
+            y: deltaY,
+            scale: 2, // Slightly scale down based on stack order
+            rotation: gsap.utils.random(-2, 2), // Small random rotation
+            zIndex: galleryItems.length - index, // Reverse stack order (last item on top)
+            duration: 1,
+            ease: "power2.out",
+          },
+          index * 0.08
+        ); // Stagger by 0.08 seconds
+      });
+
+      // Add caption animation
+      tl3.to(
+        "#thirdGal .caption",
+        {
+          opacity: 1,
+          scale: 1.1,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "-=0.3"
+      );
+    }
+
+    // Initial setup
+    setupGallery3Animation();
   }, []);
 
   return (
@@ -288,7 +371,7 @@ const Branding = () => {
           </p>
         </section>
 
-        <div className="gallery-wrap">
+        <div id="thirdGal" className="gallery-wrap">
           <div className="gallery gallery--grid10" id="gallery-3">
             <div
               className="gallery__item pos-2"
