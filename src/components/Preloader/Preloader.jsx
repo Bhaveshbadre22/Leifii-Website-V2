@@ -15,7 +15,7 @@ const words = [
   "Reach",
   "Engagement",
   "Design",
-  "Leif it to us...",
+  "Leifii it to us...",
 ];
 
 const Preloader = () => {

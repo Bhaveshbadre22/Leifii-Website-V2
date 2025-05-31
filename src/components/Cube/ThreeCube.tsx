@@ -36,7 +36,7 @@ const ThreeCube = () => {
     const handleResize = () => {
       // Adjust cube size and camera position based on viewport size
       const isMobile = window.innerWidth < 768;
-      const newSize = isMobile ? 2 : 2;
+      const newSize = isMobile ? 1.5 : 2;
       const newCameraZ = isMobile ? 2.5 : 3.5;
 
       setCubeSize(newSize);

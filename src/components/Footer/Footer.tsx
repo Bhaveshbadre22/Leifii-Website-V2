@@ -66,7 +66,7 @@ const Footer = () => {
                 LET'S TALK
               </div>
             </StaggerDiv>
-            <div className="mt-10 text-[0.5rem] md:text-[1rem] lg:text-[1.5rem] text-white/60 font-medium">
+            <div className="sm:mb-0 mb-10 mx-auto mt-10 text-[1rem] md:text-[1rem] lg:text-[1.5rem] text-white/60 font-medium">
               team@leifii.com
             </div>
           </div>
