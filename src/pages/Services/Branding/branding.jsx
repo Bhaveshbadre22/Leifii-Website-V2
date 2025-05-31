@@ -7,6 +7,13 @@ import dragBlack from "../Marketing/dragBlack.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useGSAP } from "@gsap/react";
 import { Flip } from "gsap/Flip";
+import {
+  project6,
+  project8,
+  project4,
+  project9,
+} from "../../../assets/projImages/index";
+import blob3 from "../../../assets/blob3.png";
 
 const Branding = () => {
   gsap.registerPlugin(ScrollTrigger, Flip);
@@ -518,12 +525,13 @@ const Branding = () => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
+          data-cursor-text="Drag"
         >
           {/* First item */}
           {/* <SwiperSlide>
             <div className="group relative w-[400px] h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
                 className="w-80 h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[200%]"
               />
               <img
@@ -537,11 +545,11 @@ const Branding = () => {
           <SwiperSlide>
             <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
                 className="w-60 h-60 md:w-80 md:h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
               />
               <img
-                src="/images/6.jpg"
+                src={project6}
                 className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
               />
             </div>
@@ -551,7 +559,7 @@ const Branding = () => {
           {/* <SwiperSlide>
             <div className="group relative w-[400px] h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
                 className="w-80 h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[180%]"
               />
               <img
@@ -564,11 +572,11 @@ const Branding = () => {
           <SwiperSlide>
             <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
                 className="w-60 h-60 md:w-80 md:h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
               />
               <img
-                src="/images/8.jpg"
+                src={project8}
                 className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
               />
             </div>
@@ -577,11 +585,11 @@ const Branding = () => {
           <SwiperSlide>
             <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
                 className="w-60 h-60 md:w-80 md:h-80  transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
               />
               <img
-                src="/images/4.jpg"
+                src={project8}
                 className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
               />
             </div>
@@ -590,11 +598,11 @@ const Branding = () => {
           <SwiperSlide>
             <div className="group relative w-[200px] h-[200px]  md:w-[300px] md:h-[300px]">
               <img
-                src="/images/blob3.png"
+                src={blob3}
                 className="w-60 h-60 md:w-80 md:h-80 transform scale-0 transition-transform duration-700 origin-center group-hover:scale-[150%]"
               />
               <img
-                src="/images/9.jpg"
+                src={project9}
                 className="absolute inset-0 flex items-center justify-center w-[300px] h-[300px] bg-blue-500 hover:scale-100 transition-transform duration-300 transform origin-center z-10 rounded-2xl"
               />
             </div>
