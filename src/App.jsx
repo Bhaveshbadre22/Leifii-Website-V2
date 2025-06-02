@@ -34,12 +34,15 @@ const App = () => {
     requestAnimationFrame(raf);
   }, []);
 
+  const hideNavbar = location.pathname === "/gallery"; // adjust if using `/web/xyz` etc.
+  const hideFooter = location.pathname === "/gallery"; // adjust if using `/web/xyz` etc.
+
   return (
     <>
       <div className="w-full min-h-screen overflow-x-hidden">
         {!isMobile && <CustomCursor />}
         {/* <ScrollToTop /> */}
-        <Navbar />
+        {!hideNavbar && <Navbar />}
         <Routes>
           <Route path="/" element={<LandingPage />} />
 
@@ -71,7 +74,7 @@ const App = () => {
             />
           ))}
         </Routes>
-        <Footer />
+        {!hideFooter && <Footer />}
       </div>
     </>
   );
