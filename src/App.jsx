@@ -21,6 +21,7 @@ import BlogList from "./components/Blog/BlogList";
 import BlogDetail from "./components/Blog/blogDetail";
 import ProjectLayout from "./pages/Projects/projectLayout";
 import projectData from "./pages/Projects/projectData";
+import Gallery from "./pages/Services/Photography/Gallery";
 
 const App = () => {
   useEffect(() => {
@@ -60,6 +61,8 @@ const App = () => {
 
           {/* <Route path="/projects/1" element={<Project1 />} /> */}
           {/* <Route path="/projects/2" element={<Project2 />} /> */}
+          <Route path="/gallery" element={<Gallery />} />
+
           {projectData.map((project) => (
             <Route
               key={project.id}
