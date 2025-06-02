@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ThreeDCardDemo } from "../../components/ui/ThreeDCardDemo.tsx";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
@@ -7,8 +7,16 @@ import "slick-carousel/slick/slick-theme.css";
 import Lottie from "lottie-react";
 import dragSide from "./dragSide.json";
 import { FaArrowAltCircleRight } from "react-icons/fa"; // Import the right arrow icon from Font Awesome
+import { useNavStore } from "../../store/navStore.js";
 
 const Blog = () => {
+  const setHasPreloaderAnimationEnded = useNavStore(
+    (state) => state.setHasPreloaderAnimationEnded
+  );
+
+  useEffect(() => {
+    setHasPreloaderAnimationEnded(true);
+  }, []);
   const settings = {
     dots: false,
     infinite: true,

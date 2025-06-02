@@ -19,7 +19,8 @@ import Spaces from "./pages/Services/Spaces/spaces";
 import Influencer from "./pages/Influencer/influencer";
 import BlogList from "./components/Blog/BlogList";
 import BlogDetail from "./components/Blog/blogDetail";
-import BrandingGallery from "./pages/Services/Branding/BrandingGallery";
+import ProjectLayout from "./pages/Projects/projectLayout";
+import projectData from "./pages/Projects/projectData";
 
 const App = () => {
   useEffect(() => {
@@ -40,6 +41,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<ServicesMain />} />
@@ -49,12 +51,22 @@ const App = () => {
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
 
+          {/* <Route path="/services/branding1" element={<BrandingGallery />} /> */}
           <Route path="/services/branding" element={<Branding />} />
-          <Route path="/services/branding1" element={<BrandingGallery />} />
           <Route path="/services/photography" element={<Photography />} />
           <Route path="/services/marketing" element={<Marketing />} />
           <Route path="/services/space" element={<Spaces />} />
           {/* <Route path="/services/web" element={<Web />} />*/}
+
+          {/* <Route path="/projects/1" element={<Project1 />} /> */}
+          {/* <Route path="/projects/2" element={<Project2 />} /> */}
+          {projectData.map((project) => (
+            <Route
+              key={project.id}
+              path={`/projects/${project.id}`}
+              element={<ProjectLayout project={project} />}
+            />
+          ))}
         </Routes>
         <Footer />
       </div>

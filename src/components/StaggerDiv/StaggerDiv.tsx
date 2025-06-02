@@ -19,6 +19,7 @@ const StaggerDiv = ({ children, className = "" }: StaggerDivProps) => {
   );
 
   useGSAP(() => {
+    // console.log(hasPreloaderAnimationEnded);
     if (!hasPreloaderAnimationEnded) return;
     const elements =
       containerRef.current?.querySelectorAll(".stagger-child") || [];

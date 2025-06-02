@@ -114,7 +114,7 @@ const Careers = () => {
             files: [],
           });
           // Redirect to the contact page
-          navigate("/");
+          // navigate("/");
         },
         (err) => {
           console.log("FAILED...", err);
