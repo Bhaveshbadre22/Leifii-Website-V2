@@ -5,12 +5,12 @@ import { TransitionLink } from "../Links/TransitionLink";
 import { Link } from "react-router-dom";
 import { CircularButton } from "../MagneticButton/CircularButton";
 import {
-  brandingServiceImg,
-  marketingServiceImg,
-  photographyServiceImg,
-  spaceServiceImg,
-  webdevServiceImg,
-} from "../../assets/services";
+  sidebarAbout,
+  sidebarCareer,
+  sidebarContact,
+  sidebarInfluencer,
+  sidebarServices,
+} from "../../assets/sidebar/index";
 
 interface MenuItem {
   id: number;
@@ -23,31 +23,31 @@ const menuItems: MenuItem[] = [
   {
     id: 1,
     label: "About",
-    image: spaceServiceImg,
+    image: sidebarAbout,
     link: "/about",
   },
   {
     id: 2,
     label: "Services",
-    image: webdevServiceImg,
+    image: sidebarServices,
     link: "/services",
   },
   {
     id: 3,
     label: "Careers",
-    image: photographyServiceImg,
+    image: sidebarCareer,
     link: "/careers",
   },
   {
     id: 4,
     label: "Contact",
-    image: marketingServiceImg,
+    image: sidebarContact,
     link: "/contact",
   },
   {
     id: 5,
     label: "Influencer",
-    image: brandingServiceImg,
+    image: sidebarInfluencer,
     link: "/influencer",
   },
 ];
@@ -245,7 +245,7 @@ export const DesktopSidebar = () => {
                   return (
                     <motion.div
                       key={item.id}
-                      className="w-[150px] sm:w-[180px] md:w-[200px] aspect-[4/3] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      className="w-[150px] sm:w-[180px] md:w-[200px] aspect-[3/4] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
                       initial={{
                         x: 1000,
                         opacity: 0,
