@@ -230,7 +230,7 @@ export const DesktopSidebar = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="h-full w-full flex items-center justify-center p-4 sm:p-8 md:p-12"
+              className="h-full w-full flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{
@@ -240,12 +240,12 @@ export const DesktopSidebar = () => {
               }}
               transition={{ duration: 0.3 }}
             >
-              <div className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
+              <div className="w-full grid grid-cols-5 items-center justify-center gap-5 ">
                 {menuItems.map((item, index) => {
                   return (
                     <motion.div
                       key={item.id}
-                      className="w-[150px] sm:w-[180px] md:w-[200px] aspect-[3/4] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      className="w-full aspect-[3/4] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
                       initial={{
                         x: 1000,
                         opacity: 0,
@@ -282,13 +282,13 @@ export const DesktopSidebar = () => {
                           className="w-full h-full bg-cover bg-center relative group"
                           style={{ backgroundImage: `url(${item.image})` }}
                         >
-                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/60 transition-colors duration-300">
-                            <TransitionLink
+                          <div className="absolute inset-0 flex items-center justify-center group-hover:bg-black/30 transition-colors duration-300">
+                            {/* <TransitionLink
                               link={item.label}
                               size="lg"
                               darkmode
                               onClick={handleMenuOpen}
-                            />
+                            /> */}
                           </div>
                         </div>
                       </Link>
