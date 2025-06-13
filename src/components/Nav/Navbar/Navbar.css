@@ -223,6 +223,17 @@ button.circular.button--hover {
 button.circular.active > span:first-of-type {
   opacity: 0;
 }
+
+button.circular.menu-active .menu-box span {
+  background: var(--black);
+}
+
+@media (min-width: 768px) {
+  button.circular.menu-active .menu-box span {
+    background: white;
+  }
+}
+
 .menu-box {
   position: relative;
   top: 0;

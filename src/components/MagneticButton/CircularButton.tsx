@@ -268,7 +268,10 @@ export const CircularButton = ({
 
   return (
     <button
-      className={classnames("circular", { active: isMenuOpened })}
+      className={classnames("circular", {
+        active: isMenuOpened,
+        "menu-active": isMenuOpened,
+      })}
       ref={DOM.wrapperEl}
       onClick={handleMenuOpen}
     >
