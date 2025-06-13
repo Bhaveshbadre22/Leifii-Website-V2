@@ -230,7 +230,7 @@ export const DesktopSidebar = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="h-full w-full flex items-center justify-center"
+              className="h-full w-full bg-[#000B59] flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{
@@ -245,7 +245,7 @@ export const DesktopSidebar = () => {
                   return (
                     <motion.div
                       key={item.id}
-                      className="w-full aspect-[3/4] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      className="w-full shadow-[7px_4px_25px_4px_rgba(0,_0,_0,_0.3)] aspect-[3/4] rounded-xl overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
                       initial={{
                         x: 1000,
                         opacity: 0,
