@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavStore } from "../../store/navStore";
 import { TransitionLink } from "../Links/TransitionLink";
 import { Link } from "react-router-dom";
 import { CircularButton } from "../MagneticButton/CircularButton";
+import { LenisContext } from "../../App";
 import {
   sidebarAbout,
   sidebarCareer,
@@ -56,6 +57,7 @@ export const DesktopSidebar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const isNavbarBlack = useNavStore((state) => state.isNavbarBlack);
+  const lenisRef = useContext(LenisContext);
 
   const handleHover = () => {
     setIsHovered(true);
@@ -70,8 +72,15 @@ export const DesktopSidebar = () => {
   const handleMenuOpen = () => {
     setIsMenuOpened(!isMenuOpened);
     if (isMenuOpened) {
-      setIsHovered(false);
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none"; // Prevent scroll on mobile
+      if (lenisRef?.current) lenisRef.current.start();
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+      if (lenisRef?.current) lenisRef.current.stop();
     }
+    setIsHovered(false);
   };
 
   // ESC key functionality
