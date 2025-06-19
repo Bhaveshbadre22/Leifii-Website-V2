@@ -354,7 +354,9 @@ button.circular.menu-active .menu-box span {
   z-index: 1001;
   background: none;
   border: none;
-  position: relative;
+  position: fixed;
+  top: 3rem;
+  right: 2rem;
   cursor: pointer;
 }
 .navbar-right .navbar-toggle button span:first-of-type {

@@ -81,11 +81,12 @@ export const Navbar = () => {
           </div>
 
           <div className={"navbar-right"}>
-            <div className={"navbar-toggle lg:hidden"}>
+            <div className={"navbar-toggle  lg:hidden"}>
               <CircularButton
                 isNavBlack={isNavbarBlack}
                 isMenuOpened={isMenuOpened}
                 handleMenuOpen={handleMenuOpen}
+                classname="hamburger-fixed"
               />
             </div>
           </div>
