@@ -200,20 +200,20 @@ const Careers = () => {
         </div>
         <div className="h-[3rem] md:h-0"></div>
 
-        <div className="h-[45vh] pt-[2rem] md:pt-0 md:h-[80vh] w-[70vh] md:w-full flex flex-row m-[1rem] md:m-[1rem] lg:m-[5rem] mx-[2rem] md:mx-[3rem] lg:mx-[10rem] gap-6 md:gap-10 pr-0 md:pr-[3rem] lg:pr-0  ">
+        <div className="pt-[2rem] md:pt-0 md:h-[80vh] w-full flex flex-col md:flex-row m-[1rem] md:m-[1rem] lg:m-[5rem] mx-[2rem] md:mx-[3rem] lg:mx-[10rem] md:gap-10 pr-0 md:pr-[3rem] lg:pr-0  ">
           <ParallaxImage
-            className="w-[30%] md:w-[40%] rounded-[2rem] md:rounded-[3rem]"
+            className="w-[70%] md:w-[40%] rounded-[2rem] md:rounded-[3rem]"
             direction={"down"}
             src={job2}
           />
 
           <ParallaxImage
             src={job3}
-            className="w-[30%] md:w-[40%] mt-[5rem] md:mt-[15rem] rounded-[2rem] md:rounded-[3rem]"
+            className="w-[70%] md:w-[40%] mt-[5rem] md:mt-[15rem] ml-10 md:ml-0 rounded-[2rem] md:rounded-[3rem]"
           />
         </div>
 
-        <div className="translate-y-20">
+        <div className="translate-y-10">
           <SvgLine />
         </div>
 

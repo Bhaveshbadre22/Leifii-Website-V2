@@ -9,7 +9,7 @@ const Fillar = () => {
       <div className="h-[120vh] w-full bg-white overflow-hidden">
         {/* Other sections of the layout */}
         <div className="h-[65%] w-full flex flex-col md:flex-row items-center">
-          <StaggerDiv className="order-2 md:order-1 w-full lg:w-[90%] text-[3rem] md:text-[4.5rem] lg:text-[6rem] font-questrial mt-[2rem] lg:mt-[8rem] ml-[2rem] lg:ml-[5rem] items-center">
+          <StaggerDiv className="order-2 md:order-1 w-full lg:w-[90%] text-[3rem] md:text-[4.5rem] lg:text-[6rem] font-questrial sm:mt-[2rem] lg:mt-[8rem] sm:ml-[4rem] lg:ml-[8rem] 2xl:ml-[10rem] flex flex-col items-center sm:items-start">
             <div>DESIGNING </div>
             <div>YOUR LEAVES</div>
           </StaggerDiv>
