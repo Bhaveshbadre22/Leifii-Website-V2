@@ -22,6 +22,7 @@ import BlogDetail from "./components/Blog/blogDetail";
 import ProjectLayout from "./pages/Projects/projectLayout";
 import projectData from "./pages/Projects/projectData";
 import Gallery from "./pages/Services/Photography/Gallery";
+import { Toaster } from "react-hot-toast";
 
 export const LenisContext = createContext(null);
 
@@ -79,6 +80,9 @@ const App = () => {
           ))}
         </Routes>
         {!hideFooter && <Footer />}
+      </div>
+      <div>
+        <Toaster />
       </div>
     </LenisContext.Provider>
   );

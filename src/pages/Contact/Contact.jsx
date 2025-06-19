@@ -8,6 +8,7 @@ import StaggerDiv from "../../components/StaggerDiv/StaggerDiv.js";
 import Preloader from "../../components/Preloader/Preloader";
 import PageLoader from "../../components/PageLoader/pageLoader";
 import { AnimatePresence } from "framer-motion";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const [data, setData] = useState({
@@ -77,18 +78,17 @@ const Contact = () => {
       budget: data.budget,
       attachments: JSON.stringify(attachments),
     };
-
+    emailjs.init("AFpSGmthR-AR8zsUF"); // Replace with your User ID
     emailjs
       .send(
         "service_yk2q59i", // Replace with your EmailJS service ID
         "template_zxu3a8k", // Replace with your EmailJS template ID
-        templateParams,
-        "AFpSGmthR-AR8zsUF" // Replace with your EmailJS user ID
+        templateParams
       )
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
-          alert("We will soon connect with you");
+          toast.success("We will soon connect with you", { duration: 3000 });
           // Clear the form fields
           setData({
             name: "",
@@ -99,11 +99,11 @@ const Contact = () => {
             files: [],
           });
           // Redirect to the contact page
-          navigate("/");
+          // navigate("/");
         },
         (err) => {
           console.log("FAILED...", err);
-          alert("Error sending email: " + err.text);
+          toast.error("Error sending email: " + err.text, { duration: 2000 });
         }
       );
   }
