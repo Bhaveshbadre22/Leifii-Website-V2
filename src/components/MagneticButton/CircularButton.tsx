@@ -193,8 +193,8 @@ export const CircularButton = ({
     // console.log("render")
     // calculate the distance from the mouse to the center of the button
     const distanceMouseButton = distance(
-      mousepos.x + window.scrollX,
-      mousepos.y + window.scrollY,
+      mousepos.x,
+      mousepos.y,
       rect?.left + rect?.width / 2,
       rect?.top + rect?.height / 2
     );
@@ -207,8 +207,8 @@ export const CircularButton = ({
       if (!hover) {
         enter();
       }
-      x = (mousepos.x + window.scrollX - (rect?.left + rect?.width / 4)) * 0.3;
-      y = (mousepos.y + window.scrollY - (rect?.top + rect?.height / 4)) * 0.3;
+      x = (mousepos.x - (rect?.left + rect?.width / 4)) * 0.3;
+      y = (mousepos.y - (rect?.top + rect?.height / 4)) * 0.3;
     } else if (!isMobile && hover) {
       leave();
     } else if (isMobile && hover) {
