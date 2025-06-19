@@ -95,12 +95,12 @@ const Careers = () => {
       fileUrls: fileUrls.join(", "),
     };
 
-    emailjs.init("Yogx-LRBjyVeGVvAm");
+    emailjs.init("9lrlB7E93mj6RSvqe");
     // Return the promise from emailjs.send
     return emailjs
       .send(
-        "service_5uofzut", // Replace with your EmailJS service ID
-        "template_tm9mptr", // Replace with your EmailJS template ID
+        "service_3ypfk8u", // Replace with your EmailJS service ID
+        "template_hgfo0fe", // Replace with your EmailJS template ID
         templateParams
       )
       .then((response) => {
@@ -120,22 +120,26 @@ const Careers = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
-    toast.promise(
-      submitForm(),
-      {
-        loading: "Submitting response...",
-        success: () => `We will contact you soon!`,
-        error: () => `Something went wrong!`,
-      },
-      {
-        style: {
-          minWidth: "250px",
+    toast
+      .promise(
+        submitForm(),
+        {
+          loading: "Submitting response...",
+          success: () => `We will contact you soon!`,
+          error: () => `Something went wrong!`,
         },
-        success: {
-          duration: 3000,
-        },
-      }
-    );
+        {
+          style: {
+            minWidth: "250px",
+          },
+          success: {
+            duration: 3000,
+          },
+        }
+      )
+      .then(() => {
+        window.location.reload();
+      });
   }
 
   return (

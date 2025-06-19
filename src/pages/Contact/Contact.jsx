@@ -76,11 +76,11 @@ const Contact = () => {
       budget: data.budget,
       attachments: JSON.stringify(attachments),
     };
-    emailjs.init("AFpSGmthR-AR8zsUF"); // Replace with your User ID
+    emailjs.init("9lrlB7E93mj6RSvqe"); // Replace with your User ID
     return emailjs
       .send(
-        "service_yk2q59i", // Replace with your EmailJS service ID
-        "template_zxu3a8k", // Replace with your EmailJS template ID
+        "service_3ypfk8u", // Replace with your EmailJS service ID
+        "template_q8uxv4j", // Replace with your EmailJS template ID
         templateParams
       )
       .then((response) => {
@@ -100,22 +100,26 @@ const Contact = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
-    toast.promise(
-      submitForm(),
-      {
-        loading: "Submitting response...",
-        success: () => `We will contact you soon!`,
-        error: () => `Something went wrong!`,
-      },
-      {
-        style: {
-          minWidth: "250px",
+    toast
+      .promise(
+        submitForm(),
+        {
+          loading: "Submitting response...",
+          success: () => `We will contact you soon!`,
+          error: () => `Something went wrong!`,
         },
-        success: {
-          duration: 3000,
-        },
-      }
-    );
+        {
+          style: {
+            minWidth: "250px",
+          },
+          success: {
+            duration: 3000,
+          },
+        }
+      )
+      .then(() => {
+        window.location.reload();
+      });
   }
 
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
