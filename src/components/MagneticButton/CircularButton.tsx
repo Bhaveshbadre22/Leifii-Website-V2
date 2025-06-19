@@ -39,6 +39,7 @@ export const CircularButton = ({
   const [distanceToTrigger, setDistanceToTrigger] = useState(0);
   const [mousepos, setMousePos] = useState({ x: 0, y: 0 });
   const [winsize, setWinSize] = useState<{}>();
+  const [isMobile, setIsMobile] = useState(false);
 
   let DOM = {
     wrapperEl: useRef<HTMLElement | any>(null),
@@ -73,6 +74,7 @@ export const CircularButton = ({
   if (isNavBlack) DOM?.el?.current?.classList.add("button--hover");
 
   const enter = useCallback(() => {
+    if (isMobile) return; // Disable hover/fill on mobile
     setHover(true);
 
     // console.log(DOM.el.current)
@@ -117,10 +119,10 @@ export const CircularButton = ({
         },
         0
       );
-  }, [DOM.el, DOM.filler, DOM.textInner, renderedStyles]);
+  }, [DOM.el, DOM.filler, DOM.textInner, renderedStyles, isMobile]);
 
   const leave = useCallback(() => {
-    // Dispatch an leave event
+    if (isMobile) return; // Disable hover/fill on mobile
     EventBus.dispatch("leave");
     setHover(false);
 
@@ -159,7 +161,7 @@ export const CircularButton = ({
         },
         0
       );
-  }, [DOM?.el, DOM.filler, DOM.textInner, bodyColor, renderedStyles]);
+  }, [DOM?.el, DOM.filler, DOM.textInner, bodyColor, renderedStyles, isMobile]);
 
   // Add hamburger to cross animation
   useEffect(() => {
@@ -201,15 +203,16 @@ export const CircularButton = ({
     let y = 0;
 
     // console.log(mousepos, distanceMouseButton, distanceToTrigger)
-    if (distanceMouseButton < distanceToTrigger) {
+    if (!isMobile && distanceMouseButton < distanceToTrigger) {
       if (!hover) {
-        // console.log("Entering");
         enter();
       }
       x = (mousepos.x + window.scrollX - (rect?.left + rect?.width / 4)) * 0.3;
       y = (mousepos.y + window.scrollY - (rect?.top + rect?.height / 4)) * 0.3;
-    } else if (hover) {
-      // console.log("Leaving")
+    } else if (!isMobile && hover) {
+      leave();
+    } else if (isMobile && hover) {
+      // On mobile, always leave hover state
       leave();
     }
 
@@ -258,6 +261,19 @@ export const CircularButton = ({
     window.addEventListener("resize", () => setWinSize(calcWinsize()));
     initEvents();
     window.addEventListener("mousemove", (ev) => setMousePos(getMousePos(ev)));
+  }, []);
+
+  useEffect(() => {
+    // Device detection for mobile
+    const checkMobile = () => {
+      setIsMobile(
+        window.matchMedia("(pointer: coarse)").matches ||
+          window.innerWidth <= 768
+      );
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
