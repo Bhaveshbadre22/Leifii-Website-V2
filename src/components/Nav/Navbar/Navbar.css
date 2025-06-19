@@ -301,9 +301,9 @@ button.circular.menu-active .menu-box span {
   margin-top: 5px;
   margin-bottom: 10px;
   top: 2.5rem;
-  left: 2rem;
-  right: 2rem;
-  width: calc(100% - 30px);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100vw;
 }
 @media (min-width: 768px) {
   .navbar {
