@@ -142,3 +142,10 @@
 .button.button--link .button-title::after {
 	background: var(--white)
 }
+
+.hamburger-fixed {
+	position: fixed;
+	top: 24px;
+	right: 24px;
+	z-index: 1000;
+}

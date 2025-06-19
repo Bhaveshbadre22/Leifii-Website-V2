@@ -284,7 +284,7 @@ export const CircularButton = ({
 
   return (
     <button
-      className={classnames("circular", {
+      className={classnames("circular", "hamburger-fixed", {
         active: isMenuOpened,
         "menu-active": isMenuOpened,
       })}

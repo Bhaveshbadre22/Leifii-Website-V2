@@ -55,11 +55,7 @@ const menuItems: MenuItem[] = [
 export const DesktopSidebar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
-  const [isVisible, setIsVisible] = useState(window.scrollY <= 10);
   const isNavbarBlack = useNavStore((state) => state.isNavbarBlack);
-  const lastScrollY = useRef(0);
-  const ticking = useRef(false);
-  const scrollTimeout = useRef<NodeJS.Timeout>();
 
   const handleHover = () => {
     setIsHovered(true);
@@ -77,30 +73,6 @@ export const DesktopSidebar = () => {
       setIsHovered(false);
     }
   };
-
-  // Scroll direction detection with debounce
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Always show at top of page
-      if (currentScrollY <= 0) {
-        setIsVisible(true);
-        lastScrollY.current = 0;
-        return;
-      }
-
-      // console.log(currentScrollY < lastScrollY.current);
-      // Show when scrolling up, hide when scrolling down
-      setIsVisible(currentScrollY < lastScrollY.current);
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   // ESC key functionality
   useEffect(() => {
@@ -128,13 +100,13 @@ export const DesktopSidebar = () => {
       <motion.div
         className="fixed right-8 top-8 z-[1000]"
         animate={{
-          opacity: isVisible ? 1 : 0,
-          y: isVisible ? 0 : -20,
+          opacity: 1,
+          y: 0,
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         onMouseEnter={handleHover}
         onMouseLeave={handleLeave}
-        style={{ pointerEvents: isVisible ? "auto" : "none" }}
+        style={{ pointerEvents: "auto" }}
       >
         <CircularButton
           isNavBlack={isNavbarBlack}
