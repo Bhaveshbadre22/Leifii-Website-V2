@@ -95,31 +95,27 @@ const Careers = () => {
       fileUrls: fileUrls.join(", "),
     };
 
-    emailjs.init("qvmM2xLiCAfmlLRml");
+    emailjs.init("Yogx-LRBjyVeGVvAm");
     // Return the promise from emailjs.send
-    return (
-      emailjs
-        .send("service_1dqbfzj", "template_yiaqd1l", templateParams)
-        // .send(
-        //   "service_5uofzut", // Replace with your EmailJS service ID
-        //   "template_tm9mptr", // Replace with your EmailJS template ID
-        //   templateParams,
-        // )
-
-        .then((response) => {
-          setData({
-            name: "",
-            email: "",
-            phone: "",
-            portfolioLink: "",
-            message: "",
-            jobRoles: [],
-            roleType: "",
-            files: [],
-          });
-          return response; // resolves the promise
-        })
-    );
+    return emailjs
+      .send(
+        "service_5uofzut", // Replace with your EmailJS service ID
+        "template_tm9mptr", // Replace with your EmailJS template ID
+        templateParams
+      )
+      .then((response) => {
+        setData({
+          name: "",
+          email: "",
+          phone: "",
+          portfolioLink: "",
+          message: "",
+          jobRoles: [],
+          roleType: "",
+          files: [],
+        });
+        return response; // resolves the promise
+      });
   };
 
   async function onSubmit(e) {

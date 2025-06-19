@@ -76,34 +76,26 @@ const Contact = () => {
       budget: data.budget,
       attachments: JSON.stringify(attachments),
     };
-    emailjs.init("qvmM2xLiCAfmlLRml"); // Replace with your User ID
-    // emailjs.init("AFpSGmthR-AR8zsUF"); // Replace with your User ID
-    return (
-      emailjs
-        // .send(
-        //   "service_yk2q59i", // Replace with your EmailJS service ID
-        //   "template_zxu3a8k", // Replace with your EmailJS template ID
-        //   templateParams
-        // )
-        .send(
-          "service_1dqbfzj", // Replace with your EmailJS service ID
-          "template_pz2z5i8", // Replace with your EmailJS template ID
-          templateParams
-        )
-        .then((response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          // Clear the form fields
-          setData({
-            name: "",
-            email: "",
-            message: "",
-            services: [],
-            budget: "",
-            files: [],
-          });
-          return response;
-        })
-    );
+    emailjs.init("AFpSGmthR-AR8zsUF"); // Replace with your User ID
+    return emailjs
+      .send(
+        "service_yk2q59i", // Replace with your EmailJS service ID
+        "template_zxu3a8k", // Replace with your EmailJS template ID
+        templateParams
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        // Clear the form fields
+        setData({
+          name: "",
+          email: "",
+          message: "",
+          services: [],
+          budget: "",
+          files: [],
+        });
+        return response;
+      });
   };
 
   async function onSubmit(e) {
