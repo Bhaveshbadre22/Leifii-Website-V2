@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import "./Navbar.css";
@@ -9,10 +9,12 @@ import leifiiLogo from "../../../assets/LEIFII.png";
 import leifiiLogoWhite from "../../../assets/leifiiNameWhite.webp";
 import logoL from "../../../assets/logol.png";
 import { useNavStore } from "../../../store/navStore";
+import { LenisContext } from "../../../App";
 
 export const Navbar = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const nav = useRef<HTMLElement | any>(null);
+  const lenisRef = useContext(LenisContext);
 
   useEffect(() => {
     gsap.fromTo(
@@ -44,6 +46,18 @@ export const Navbar = () => {
         .add("translate")
         .to(firstSpan, { y: -1, duration: 0.2 }, "translate")
         .to(secondSpan, { y: 4, duration: 0.2 }, "translate");
+    }
+  }, [isMenuOpened]);
+
+  useEffect(() => {
+    if (isMenuOpened) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none"; // Prevent scroll on mobile
+      if (lenisRef?.current) lenisRef.current.stop();
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+      if (lenisRef?.current) lenisRef.current.start();
     }
   }, [isMenuOpened]);
 

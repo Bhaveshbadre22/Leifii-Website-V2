@@ -36,3 +36,6 @@ body {
   text-align: left;
   width: 100%;
 }
+.no-scroll {
+  overflow: hidden;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, createContext } from "react";
 import { isMobile } from "react-device-detect";
 import CustomCursor from "./utils/CustomCursor/CustomCursor";
 import { Route, Routes } from "react-router-dom";
@@ -23,12 +23,16 @@ import ProjectLayout from "./pages/Projects/projectLayout";
 import projectData from "./pages/Projects/projectData";
 import Gallery from "./pages/Services/Photography/Gallery";
 
+export const LenisContext = createContext(null);
+
 const App = () => {
+  const lenisRef = useRef(null);
+
   useEffect(() => {
-    const lenis = new Lenis();
+    lenisRef.current = new Lenis();
 
     const raf = (time) => {
-      lenis.raf(time);
+      lenisRef.current.raf(time);
       requestAnimationFrame(raf);
     };
     requestAnimationFrame(raf);
@@ -38,7 +42,7 @@ const App = () => {
   const hideFooter = location.pathname === "/gallery"; // adjust if using `/web/xyz` etc.
 
   return (
-    <>
+    <LenisContext.Provider value={lenisRef}>
       <div className="w-full min-h-screen overflow-x-hidden">
         {!isMobile && <CustomCursor />}
         {/* <ScrollToTop /> */}
@@ -76,7 +80,7 @@ const App = () => {
         </Routes>
         {!hideFooter && <Footer />}
       </div>
-    </>
+    </LenisContext.Provider>
   );
 };
 
