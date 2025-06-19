@@ -58,9 +58,7 @@ const Contact = () => {
     });
   }
 
-  async function onSubmit(e) {
-    e.preventDefault();
-
+  const submitForm = async () => {
     const attachments = [];
     for (const file of data.files) {
       const base64File = await convertFileToBase64(file);
@@ -78,17 +76,22 @@ const Contact = () => {
       budget: data.budget,
       attachments: JSON.stringify(attachments),
     };
-    emailjs.init("AFpSGmthR-AR8zsUF"); // Replace with your User ID
-    emailjs
-      .send(
-        "service_yk2q59i", // Replace with your EmailJS service ID
-        "template_zxu3a8k", // Replace with your EmailJS template ID
-        templateParams
-      )
-      .then(
-        (response) => {
+    emailjs.init("qvmM2xLiCAfmlLRml"); // Replace with your User ID
+    // emailjs.init("AFpSGmthR-AR8zsUF"); // Replace with your User ID
+    return (
+      emailjs
+        // .send(
+        //   "service_yk2q59i", // Replace with your EmailJS service ID
+        //   "template_zxu3a8k", // Replace with your EmailJS template ID
+        //   templateParams
+        // )
+        .send(
+          "service_1dqbfzj", // Replace with your EmailJS service ID
+          "template_pz2z5i8", // Replace with your EmailJS template ID
+          templateParams
+        )
+        .then((response) => {
           console.log("SUCCESS!", response.status, response.text);
-          toast.success("We will soon connect with you", { duration: 3000 });
           // Clear the form fields
           setData({
             name: "",
@@ -98,14 +101,29 @@ const Contact = () => {
             budget: "",
             files: [],
           });
-          // Redirect to the contact page
-          // navigate("/");
+          return response;
+        })
+    );
+  };
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    toast.promise(
+      submitForm(),
+      {
+        loading: "Submitting response...",
+        success: () => `We will contact you soon!`,
+        error: () => `Something went wrong!`,
+      },
+      {
+        style: {
+          minWidth: "250px",
         },
-        (err) => {
-          console.log("FAILED...", err);
-          toast.error("Error sending email: " + err.text, { duration: 2000 });
-        }
-      );
+        success: {
+          duration: 3000,
+        },
+      }
+    );
   }
 
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);

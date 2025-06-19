@@ -11,6 +11,7 @@ import StaggerDiv from "../../components/StaggerDiv/StaggerDiv.tsx";
 import ParallaxImage from "../../components/ParallaxImage/ParallaxImage.jsx";
 import { AnimatePresence } from "framer-motion";
 import PageLoader from "../../components/PageLoader/pageLoader.jsx";
+import toast from "react-hot-toast";
 
 const Careers = () => {
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
@@ -27,7 +28,6 @@ const Careers = () => {
     name: "",
     email: "",
     phone: "",
-    startDate: "",
     portfolioLink: "",
     message: "",
     jobRoles: [],
@@ -65,24 +65,29 @@ const Careers = () => {
   }
 
   async function uploadFile(file) {
-    const storageRef = ref(storage, `uploads/${file.name}`);
-    const snapshot = await uploadBytes(storageRef, file);
-    const url = await getDownloadURL(snapshot.ref);
-    return url;
+    try {
+      const uniqueName = `${Date.now()}_${file.name}`;
+      const storageRef = ref(storage, `uploads/${uniqueName}`);
+      const snapshot = await uploadBytes(storageRef, file);
+      const url = await getDownloadURL(snapshot.ref);
+      return url;
+    } catch (error) {
+      console.error("File upload failed", error);
+      throw error;
+    }
   }
 
-  async function onSubmit(e) {
-    e.preventDefault();
-
+  const submitForm = async () => {
     const fileUrls = await Promise.all(
       Array.from(data.files).map((file) => uploadFile(file))
     );
+    // const fileUrls = [];
+    console.log(data);
 
     const templateParams = {
       name: data.name,
       email: data.email,
       phone: data.phone,
-      startDate: data.startDate,
       portfolioLink: data.portfolioLink,
       message: data.message,
       jobRoles: data.jobRoles.join(", "),
@@ -90,37 +95,51 @@ const Careers = () => {
       fileUrls: fileUrls.join(", "),
     };
 
-    emailjs
-      .send(
-        "service_5uofzut", // Replace with your EmailJS service ID
-        "template_tm9mptr", // Replace with your EmailJS template ID
-        templateParams,
-        "Yogx-LRBjyVeGVvAm" // Replace with your EmailJS user ID
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("We will soon connect with you");
-          // Clear the form fields
+    emailjs.init("qvmM2xLiCAfmlLRml");
+    // Return the promise from emailjs.send
+    return (
+      emailjs
+        .send("service_1dqbfzj", "template_yiaqd1l", templateParams)
+        // .send(
+        //   "service_5uofzut", // Replace with your EmailJS service ID
+        //   "template_tm9mptr", // Replace with your EmailJS template ID
+        //   templateParams,
+        // )
+
+        .then((response) => {
           setData({
             name: "",
             email: "",
             phone: "",
-            startDate: "",
             portfolioLink: "",
             message: "",
             jobRoles: [],
             roleType: "",
             files: [],
           });
-          // Redirect to the contact page
-          // navigate("/");
+          return response; // resolves the promise
+        })
+    );
+  };
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    toast.promise(
+      submitForm(),
+      {
+        loading: "Submitting response...",
+        success: () => `We will contact you soon!`,
+        error: () => `Something went wrong!`,
+      },
+      {
+        style: {
+          minWidth: "250px",
         },
-        (err) => {
-          console.log("FAILED...", err);
-          alert("Error sending email: " + err.text);
-        }
-      );
+        success: {
+          duration: 3000,
+        },
+      }
+    );
   }
 
   return (
@@ -174,9 +193,9 @@ const Careers = () => {
             strategic thinkers who can help us reach the next level of success.
             We offer a variety of positions, ranging from entry-level to
             experienced roles, in digital marketing, content marketing, SEO,
-            social media management, and more. If you’re passionate about
+            social media management, and more. If you're passionate about
             helping organizations reach their marketing goals and have the
-            skills to back it up, we’d love to hear from you
+            skills to back it up, we'd love to hear from you
           </div>
         </div>
         <div className="h-[3rem] md:h-0"></div>
@@ -228,7 +247,7 @@ const Careers = () => {
                 <div className="cb-request-form">
                   <form
                     className="cb-form"
-                    onSubmit={() => onSubmit}
+                    onSubmit={onSubmit}
                     encType="multipart/form-data"
                   >
                     <div className="cb-form-group">
@@ -505,28 +524,6 @@ const Careers = () => {
                         <div className="cb-input_light-message"></div>
                       </div>
                     </div>
-                    {/* <div className="cb-form-group">
-                    <div className="cb-form-label -smooth">
-                      Available start date
-                    </div>
-                    <div
-                      className="cb-input cb-input_light"
-                      data-validity-msg='{"valueMissing":"Please fill your available start date"}'
-                    >
-                      <div className="cb-input_light-box">
-                        <input
-                          type="date"
-                          name="startDate"
-                          placeholder="Available start date"
-                          required
-                          aria-label="Available start date"
-                          onChange={handleChange}
-                        ></input>
-                        <div className="cb-input_light-line"></div>
-                      </div>
-                      <div className="cb-input_light-message"></div>
-                    </div>
-                  </div> */}
                     <div className="cb-form-group">
                       <div
                         className="cb-input cb-input_light"
@@ -567,7 +564,6 @@ const Careers = () => {
                         <input
                           type="file"
                           name="files"
-                          multiple
                           onChange={handleChange}
                         ></input>
                         <button className="cb-input_file-btn" type="button">
