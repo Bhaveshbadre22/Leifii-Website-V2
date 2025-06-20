@@ -120,26 +120,22 @@ const Careers = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
-    toast
-      .promise(
-        submitForm(),
-        {
-          loading: "Submitting response...",
-          success: () => `We will contact you soon!`,
-          error: () => `Something went wrong!`,
+    toast.promise(
+      submitForm(),
+      {
+        loading: "Submitting response...",
+        success: () => `We will contact you soon!`,
+        error: () => `Something went wrong!`,
+      },
+      {
+        style: {
+          minWidth: "250px",
         },
-        {
-          style: {
-            minWidth: "250px",
-          },
-          success: {
-            duration: 3000,
-          },
-        }
-      )
-      .then(() => {
-        window.location.reload();
-      });
+        success: {
+          duration: 3000,
+        },
+      }
+    );
   }
 
   return (
