@@ -6,7 +6,7 @@ import { Navbar } from "./components/Nav/Navbar/index";
 import LandingPage from "./pages/LandingPage";
 import Photography from "./pages/Services/Photography/Photography";
 import Lenis from "lenis";
-import Contact from "./pages/Contact/contact";
+import Contact from "./pages/Contact/ContactUs";
 import ServicesMain from "./pages/ServicesMain/servicesMain";
 import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";

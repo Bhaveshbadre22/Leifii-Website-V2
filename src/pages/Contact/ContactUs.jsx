@@ -5,12 +5,12 @@ import "./contact.css";
 import { useNavStore } from "../../store/navStore.js";
 import leaf from "../../assets/leaf.png";
 import StaggerDiv from "../../components/StaggerDiv/StaggerDiv.js";
-import Preloader from "../../components/Preloader/Preloader";
-import PageLoader from "../../components/PageLoader/pageLoader";
+import Preloader from "../../components/Preloader/Preloader.jsx";
+import PageLoader from "../../components/PageLoader/pageLoader.jsx";
 import { AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
 
-const Contact = () => {
+const ContactUs = () => {
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -505,4 +505,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactUs;
