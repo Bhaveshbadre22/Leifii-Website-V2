@@ -18,9 +18,16 @@ body {
 
 @font-face {
   font-family: "Gallery";
-  src: url("./fonts/Gallery.otf") format("otf");
+  src: url("./fonts/Gallery.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "TanPearl";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/tan-pearl.otf") format("opentype");
 }
 
 /* Add to your CSS file */

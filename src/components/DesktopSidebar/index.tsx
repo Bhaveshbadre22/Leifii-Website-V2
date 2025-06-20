@@ -211,7 +211,7 @@ export const DesktopSidebar = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="h-full w-full bg-[#000B59] flex items-center justify-center"
+              className="h-full w-full bg-[#000B59] flex flex-col items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{
@@ -266,12 +266,57 @@ export const DesktopSidebar = () => {
                           <div className="absolute inset-0 flex items-center justify-center group-hover:bg-black/30 transition-colors duration-300">
                             {/* <TransitionLink
                               link={item.label}
-                              size="lg"
+                              size="md"
                               darkmode
                               onClick={handleMenuOpen}
                             /> */}
                           </div>
                         </div>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+              <div className="w-full grid !py-0 grid-cols-5 items-center justify-center gap-5 ">
+                {menuItems.map((item, index) => {
+                  return (
+                    <motion.div
+                      key={item.id}
+                      className="font-tanPearl text-2xl text-white"
+                      initial={{
+                        x: 1000,
+                        opacity: 0,
+                        scale: 1.2,
+                      }}
+                      animate={{
+                        x: 0,
+                        opacity: 1,
+                        scale: 1,
+                      }}
+                      exit={{
+                        x: "100%",
+                        opacity: 0,
+                        transition: {
+                          duration: 0.5,
+                          ease: "easeInOut",
+                          delay: index * 0.05, // Stagger the exit animations
+                        },
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 15,
+                        mass: 1,
+                        delay: index * 0.1,
+                      }}
+                    >
+                      <Link
+                        to={item.link}
+                        reloadDocument
+                        onClick={handleMenuOpen}
+                        style={{ textDecoration: "none" }}
+                      >
+                        {item.label}
                       </Link>
                     </motion.div>
                   );
