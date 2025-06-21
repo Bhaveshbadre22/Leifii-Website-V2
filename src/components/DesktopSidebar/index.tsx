@@ -282,7 +282,7 @@ export const DesktopSidebar = () => {
                   return (
                     <motion.div
                       key={item.id}
-                      className="font-tanPearl text-2xl text-white"
+                      className="font-tanPearl text-white"
                       initial={{
                         x: 1000,
                         opacity: 0,
@@ -315,6 +315,7 @@ export const DesktopSidebar = () => {
                         reloadDocument
                         onClick={handleMenuOpen}
                         style={{ textDecoration: "none" }}
+                        className="text-3xl"
                       >
                         {item.label}
                       </Link>
