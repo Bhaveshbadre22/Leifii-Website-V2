@@ -107,7 +107,7 @@ export const DesktopSidebar = () => {
     <div className="hidden lg:block relative h-full z-50">
       {/* Desktop-only Hamburger Button */}
       <motion.div
-        className="fixed right-8 top-8 z-[1000]"
+        className="fixed top-[3.5rem] right-[2rem] z-[1000] "
         animate={{
           opacity: 1,
           y: 0,
