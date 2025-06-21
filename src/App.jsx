@@ -17,9 +17,9 @@ import Careers from "./pages/Careers/Careers";
 import Spaces from "./pages/Services/Spaces/Spaces";
 import Influencer from "./pages/Influencer/Influencer";
 import BlogList from "./components/Blog/BlogList";
-import BlogDetail from "./components/Blog/BlogDetail";
-import ProjectLayout from "./pages/Projects/ProjectLayout";
-import projectData from "./pages/Projects/ProjectData";
+import BlogDetail from "./components/Blog/blogDetail";
+import ProjectLayout from "./pages/Projects/projectLayout";
+import projectData from "./pages/Projects/projectData";
 import Gallery from "./pages/Services/Photography/Gallery";
 import { Toaster } from "react-hot-toast";
 
