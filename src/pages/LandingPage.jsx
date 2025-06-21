@@ -3,7 +3,7 @@ import HeroSection from "../components/Hero/HeroSection";
 import Fillar from "../components/Fillar/Fillar";
 import Video from "../components/Video/Video";
 import Intro from "../components/Intro/Intro";
-import Parallax from "../components/Parallax/parallax";
+import Parallax from "../components/Parallax/Parallax";
 import Showcase from "../components/Showcase/Showcase";
 import Element from "../components/Element/Element";
 import drag from "../components/Cube/dragWhite.json";
@@ -13,7 +13,6 @@ import BlogList from "../components/Blog/BlogList";
 import VideoEnd from "../components/VideoEnd/VideoEnd";
 import { useNavStore } from "../store/navStore";
 import Preloader from "../components/Preloader/Preloader";
-import PageLoader from "../components/PageLoader/pageLoader";
 import { AnimatePresence } from "framer-motion";
 import ThreeCube from "../components/Cube/ThreeCube";
 
