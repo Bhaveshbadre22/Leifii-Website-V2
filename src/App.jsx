@@ -11,7 +11,7 @@ import ServicesMain from "./pages/ServicesMain/ServicesMain";
 import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";
 import Branding from "./pages/Services/Branding/Branding";
-import Marketing from "./pages/Services/Marketing/_TempMarketing";
+import Marketing from "./pages/Services/Marketing/Marketing";
 // import Web from "./pages/Services/Web/web";
 import Careers from "./pages/Careers/Careers";
 import Spaces from "./pages/Services/Spaces/Spaces";
