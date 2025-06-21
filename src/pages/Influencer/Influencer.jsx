@@ -5,6 +5,7 @@ import "./contact.css";
 import influ from "../../assets/influ.jpg";
 import { useNavStore } from "../../store/navStore";
 import StaggerDiv from "../../components/StaggerDiv/StaggerDiv";
+import toast from "react-hot-toast";
 
 const Influencer = () => {
   const setIsNavbarBlack = useNavStore((state) => state.setIsNavbarBlack);
@@ -66,58 +67,62 @@ const Influencer = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
+    toast.promise(
+      submitForm(),
+      {
+        loading: "Submitting response...",
+        success: () => `We will contact you soon!`,
+        error: () => `Something went wrong!`,
+      },
+      {
+        style: {
+          minWidth: "250px",
+        },
+        success: {
+          duration: 3000,
+        },
+      }
+    );
+  }
 
+  const submitForm = async () => {
     const attachments = [];
-    for (const file of data.files) {
-      const base64File = await convertFileToBase64(file);
-      attachments.push({
-        name: file.name,
-        base64: base64File.split(",")[1], // Remove the metadata part
-      });
-    }
 
     const templateParams = {
+      type: "Influencer",
       name: data.name,
       email: data.email,
       instagramid: data.instagramid,
-      message: data.message,
+      phonenumber: "Phone : " + data.phonenumber,
+      budget: "",
       services: data.services.join(", "),
-      budget: data.budget,
-      phonenumber: data.phonenumber,
+      message: data.message,
       attachments: JSON.stringify(attachments),
     };
+    emailjs.init("9lrlB7E93mj6RSvqe"); // Replace with your User ID
 
-    emailjs
+    return emailjs
       .send(
-        "service_5uofzut", // Replace with your EmailJS service ID
-        "template_ydo4g2d", // Replace with your EmailJS template ID
-        templateParams,
-        "Yogx-LRBjyVeGVvAm" // Replace with your EmailJS user ID
+        "service_3ypfk8u", // Replace with your EmailJS service ID
+        "template_q8uxv4j", // Replace with your EmailJS template ID
+        templateParams
       )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("We will soon connect with you");
-          // Clear the form fields
-          setData({
-            name: "",
-            email: "",
-            instagramid: "",
-            message: "",
-            services: [],
-            phonenumber: "",
-            // budget: "",
-            files: [],
-          });
-          // Redirect to the contact page
-          navigate("/");
-        },
-        (err) => {
-          console.log("FAILED...", err);
-          alert("Error sending email: " + err.text);
-        }
-      );
-  }
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        // Clear the form fields
+        setData({
+          name: "",
+          email: "",
+          instagramid: "",
+          message: "",
+          services: [],
+          phonenumber: "",
+          // budget: "",
+          files: [],
+        });
+        return response;
+      });
+  };
 
   return (
     <div>

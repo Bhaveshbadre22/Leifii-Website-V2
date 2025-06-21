@@ -315,7 +315,7 @@ export const DesktopSidebar = () => {
                         reloadDocument
                         onClick={handleMenuOpen}
                         style={{ textDecoration: "none" }}
-                        className="text-3xl"
+                        className="text-[28px]"
                       >
                         {item.label}
                       </Link>

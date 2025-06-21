@@ -69,8 +69,11 @@ const ContactUs = () => {
     }
 
     const templateParams = {
+      type: "Contact",
       name: data.name,
       email: data.email,
+      instagramid: "",
+      phonenumber: "",
       message: data.message,
       services: data.services.join(", "),
       budget: data.budget,
