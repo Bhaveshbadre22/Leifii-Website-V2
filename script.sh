@@ -1,27 +1,35 @@
 #!/bin/bash
 
-# Make sure you're at the root of the git repo
-echo "Temporarily renaming files to force case-sensitive Git tracking..."
+echo "🔍 Scanning src/ for Git-tracked files with casing mismatches..."
+echo "---------------------------------------------------------------"
 
-# Find all jsx files (you can also include .js or others if needed)
-for file in $(git ls-files | grep -E '\.jsx$'); do
-  dirname=$(dirname "$file")
-  basename=$(basename "$file")
-  lowercase="${basename,,}"  # lowercased version
+# Only scan specific folders and extensions
+FILES=$(git ls-files src | grep -Ei '\.(js|jsx|ts|tsx)$')
 
-  # Only rename if filename isn't already lowercase
-  if [[ "$basename" != "$lowercase" ]]; then
-    tempname="_TEMP_$basename"
-    echo " - Renaming $file to $dirname/$tempname"
-    mv "$file" "$dirname/$tempname"
+for file in $FILES; do
+  # Skip if not a real file
+  [[ ! -f "$file" ]] && continue
+
+  # Get actual path from disk (case-sensitive match)
+  actual=$(find "$(dirname "$file")" -maxdepth 1 -type f -iname "$(basename "$file")")
+
+  if [[ "$actual" != "$file" ]]; then
+    echo "⚠️  Mismatch: Git has '$file' but disk has '$actual'"
+
+    dir=$(dirname "$file")
+    base=$(basename "$actual")
+    temp="_TEMP_$base"
+
+    # Rename to temp
+    mv "$actual" "$dir/$temp"
     git add -A
-    git commit -m "Temp rename $basename to $tempname to fix Git case issue"
+    git commit -m "Temp rename $base -> $temp to fix casing"
 
-    echo " - Renaming $dirname/$tempname to $dirname/$basename"
-    mv "$dirname/$tempname" "$dirname/$basename"
+    # Rename back
+    mv "$dir/$temp" "$dir/$base"
     git add -A
-    git commit -m "Final rename $tempname -> $basename"
+    git commit -m "Fix casing: $base"
   fi
 done
 
-echo "✅ All files processed. Now push your repo and rebuild on Vercel."
+echo "✅ All casing issues fixed (in src/ only). Push and redeploy!"
