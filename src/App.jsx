@@ -7,20 +7,19 @@ import LandingPage from "./pages/LandingPage";
 import Photography from "./pages/Services/Photography/Photography";
 import Lenis from "lenis";
 import Contact from "./pages/Contact/ContactUs";
-import ServicesMain from "./pages/ServicesMain/servicesMain";
+import ServicesMain from "./pages/ServicesMain/ServicesMain";
 import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";
-import Branding from "./pages/Services/Branding/branding";
-import Marketing from "./pages/Services/Marketing/marketing";
+import Branding from "./pages/Services/Branding/Branding";
+import Marketing from "./pages/Services/Marketing/Marketing";
 // import Web from "./pages/Services/Web/web";
-import Careers from "./pages/Careers/careers";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-import Spaces from "./pages/Services/Spaces/spaces";
-import Influencer from "./pages/Influencer/influencer";
+import Careers from "./pages/Careers/Careers";
+import Spaces from "./pages/Services/Spaces/Spaces";
+import Influencer from "./pages/Influencer/Influencer";
 import BlogList from "./components/Blog/BlogList";
-import BlogDetail from "./components/Blog/blogDetail";
-import ProjectLayout from "./pages/Projects/projectLayout";
-import projectData from "./pages/Projects/projectData";
+import BlogDetail from "./components/Blog/BlogDetail";
+import ProjectLayout from "./pages/Projects/ProjectLayout";
+import projectData from "./pages/Projects/ProjectData";
 import Gallery from "./pages/Services/Photography/Gallery";
 import { Toaster } from "react-hot-toast";
 
@@ -65,7 +64,7 @@ const App = () => {
           <Route path="/services/photography" element={<Photography />} />
           <Route path="/services/marketing" element={<Marketing />} />
           <Route path="/services/space" element={<Spaces />} />
-          <Route path="/services/web" element={<Web />} />
+          {/* <Route path="/services/web" element={<Web />} /> */}
 
           {/* <Route path="/projects/1" element={<Project1 />} /> */}
           {/* <Route path="/projects/2" element={<Project2 />} /> */}

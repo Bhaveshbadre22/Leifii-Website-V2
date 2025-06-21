@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import blogData from "./blogData";
-import TracingBeam from "../../components/TracingBeam/tracingBeam";
+import TracingBeam from "../TracingBeam/tracingBeam";
 
 const BlogDetail = () => {
   useEffect(() => {
